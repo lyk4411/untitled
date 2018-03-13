@@ -27,5 +27,7 @@ while True:
                 print(r.getpeername())
                 print('disconnected.')
                 inputs.remove(r)
+                print('inputs now are:')
+                print(inputs)
             else:
                 print(data)
