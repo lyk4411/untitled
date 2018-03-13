@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html >
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>404 - 找不到文件或目录。</title>
+
+<style type="text/css">
+h1,h2,h3,h4,h5,h6,h7,p,ul,li,dl,dt,dd,div{ margin:0px; padding:0px;}
+li{ list-style:none;}
+.clear{ clear:both;}
+img{ border:none;}
+body{ margin:0 auto;}
+.head{ margin:0 auto; width:100%; background-color:#F5F5F5; border-bottom:solid #EAEAEA 1px;}
+.top{ height:25px; width:1000px; margin:0 auto; font-size:12px;}
+.top_ul1{ float:left;}
+.top_ul2{ float:right; margin-right:10px;}
+.top ul li{ float:left; margin-left:10px; line-height:25px;}
+.tou{ height:65px; width:1000px; margin:0 auto; padding-top:7px; border-bottom:solid #2860AA 3px;}
+.tou_logo{ width:489px; height:30px; padding-top:35px; float:left; background:url(http://www.cnlinfo.net/images/logo_dele.jpg) no-repeat left center;}
+.logo_right{ padding-left:184px; height:25px; line-height:25px; color:#999999; font-size:13px; text-align:right; overflow:hidden;}
+.tou_log_right{ width:400px; float:right; height:25px; padding-top:40px;}
+.tou_log_right ul{ clear:both; float:right; margin-right:15px;}
+.tou_log_right ul li{ float:left; margin-left:10px;}
+a.tou_a:link,a.tou_a:visited{ display:block; padding-left:7px; padding-right:7px; line-height:29px; height:24px; background-color: #2860AA; font-size:13px; font-weight:bold; color:#FFFFFF; float:left;}
+a.tou_a:hover,a.tou_a:active{ display:block; padding-left:7px; padding-right:7px; line-height:30px; height:25px; background-color: #2860AA; font-size:13px; font-weight:bold; color:#FFFFFF; float:left;}
+.txt_detor{ width:680px; margin:0 auto; background:url(http://www.cnlinfo.net/images/au1.jpg) no-repeat 100px 30px; padding:60px 100px 40px 180px; font-weight:bold; font-size:22px; color:#666;}
+.error_nav{ width:950px; margin:0 auto; height:25px; background:url(http://www.cnlinfo.net/images/nav_dele.jpg) no-repeat center center; border-bottom:solid #C1C1C1 1px;}
+.error_nav ul{}
+.error_nav ul li{ float:left;height:25px; line-height:25px; padding-left:10px; padding-right:10px; margin-top:2px; font-size:12px; background:url(http://www.cnlinfo.net/images/nav_list.jpg) no-repeat right top;}
+.class_bottom{ font-size:13px; border:solid #FFF 5px;}
+.class_bottom_one{ height:30px; background-color:#F1F8FC; line-height:30px; border-bottom:dashed #71B8F9 1px;border-top:dashed #71B8F9 1px;}
+.class_bottom_one a{ font-weight:bold; margin-left:10px;}
+.class_bottom_two{ padding:10px; padding-left:30px; background-color:#F6F6F6;}
+.class_bottom_two ul{line-height:23px;}
+.class_bottom_two ul li{ overflow:hidden; height:23px; float:left; width:100px; }
+.content{ width:950px; margin:0 auto; padding-bottom:15px; padding-top:10px; font-size:12px; background-color:#EAEAEA;}
+.content .left{ float:left; width:280px; background-color:#FFF; border:solid #CCC 1px; padding-bottom:10px;}
+.content .left .pic{ height:125px; border:solid #E0E0E0 1px; float:left; width:70px; overflow:hidden; margin-left:10px; padding:5px 5px 0px 5px; line-height:23px; margin-top:15px; background-color:#EFEFEF;}
+.content .left .pic a{ text-decoration:none; color:#333;}
+.content .left .pic img{ width:70px; height:80px;}
+.right{margin:5px;}
+.login{ margin-bottom:10px; background-color:#FFF; padding-left:20px; padding-top:10px;}
+.foot{ width:950px; margin:0 auto; border-top:solid #1D53B8 2px; text-align:center; line-height:30px; font-size:12px; color:#666666;}
+a.function_right:link,a.function_right:visited{ display:block; width:110px; height:30px; background:url(http://www.cnlinfo.net/images/function.gif) no-repeat center center; text-align:center; line-height:30px; font-size:13px; font-weight:bold; text-decoration:none; color:#BD4B06;}
+a.function_right:hover,a.function_right:active{ display:block; width:110px; height:30px; background:url(http://www.cnlinfo.net/images/function01.gif) no-repeat center center; text-align:center; line-height:30px; font-size:13px; font-weight:bold; text-decoration:none; color:#FF6600;}
+.QQ_login{ height:30px; line-height:30px; font-size:12px;}
+</style>
+</head>
+
+<body>
+<div class="head">
+<div class="top">
+<ul class="top_ul1">
+<li><a href="http://www.cnlinfo.net" class="nav">中国行业信息网</a></li>
+</ul>
+<ul class="top_ul2">
+<li><a href="http://www.cnlinfo.net/chengxin.htm" class="nav">诚信联盟</a></li>
+<li><a href="http://news.cnlinfo.net/" class="nav">新闻资讯</a></li>
+<li><a href="http://bbs.cnlinfo.net" class="nav">商友社区</a></li>
+</ul>
+</div>
+</div>
+<div class="tou">
+<div class="tou_logo">
+<div class="logo_right">中国十大中文B2B电子商务网站,中国领先的商务门户网站,诚信的网上交易平台。</div>
+</div>
+<div class="tou_log_right">
+<ul>
+<li><a href="http://login.cnlinfo.net/" class="tou_a">登录</a></li>
+<li><a href="http://zhuce.cnlinfo.net/" class="tou_a">免费注册</a></li>
+<li><a href="http://fa1.cnlinfo.net/vip/rapid_infoa.aspx" class="tou_a">免费发布信息</a></li>
+</ul>
+</div>
+</div>
+<div class="txt_detor">您查询的页面不存在或已被删除，以下相关信息也许是您需要的:</div>
+<div class="error_nav">
+<ul>
+<li style="width:116px; background:none;"></li>
+<li><a href="http://www.cnlinfo.net" class="nav">中国行业信息网首页</a></li>
+<li><a href="http://so.cnlinfo.net/gongsi/" class="nav">公司库</a></li>
+<li><a href="http://so.cnlinfo.net/chanpin/" class="nav">产品库</a></li>
+<li><a href="http://so.cnlinfo.net/shangji/" class="nav">供应信息</a></li>
+<li><a href="http://buy.cnlinfo.net/" class="nav">求购信息</a></li>
+<li><a href="http://news.cnlinfo.net/" class="nav">行业资讯</a></li>
+<li><a href="http://bbs.cnlinfo.net" class="nav">商友社区</a></li>
+<li><a href="http://shop.cnlinfo.net/" class="nav">网上商城</a></li>
+<li><a href="http://job.cnlinfo.net/" class="nav">行业人才</a></li>
+<li><a href="http://news.cnlinfo.net/person" class="nav">人物频道</a></li>
+<li><a href="http://en.cnlinfo.net" class="nav">国际站</a></li>
+</ul>
+</div>
+
+<div class="content">
+<div class="right">
+<div class="login">
+<table width="100%" cellpadding="0" cellspacing="0" style="border-bottom:dashed #CCC 1px;">
+  <tr>
+    <td width="19%" align="left" style="height:38px;"><a href="http://login.cnlinfo.net/" class="function_right">会员登录</a></td>
+    <td width="19%" align="left" style="height:38px;"><a href="http://zhuce.cnlinfo.net/" class="function_right">免费注册</a></td>
+    <td width="19%" align="left" style="height:38px;"></td>
+    <td width="43%" align="left" style="height:38px;"></td>
+    </tr>
+</table>
+
+</div>
+<div class="class_bottom">
+ 
+<div class="class_bottom_one"><span style="padding-left:10px; float:left;"><b>行业目录导航</b></span><span  style="float:right; margin-right:25px;"><b>按字母查询：</b><a href="http://www.cnlinfo.net/pinyin.aspx?py=a&type=product">A</a><a href="http://www.cnlinfo.net/pinyin.aspx?py=b&type=product">B</a><a href="http://www.cnlinfo.net/pinyin.aspx?py=c&type=product">C</a><a href="http://www.cnlinfo.net/pinyin.aspx?py=d&type=product">D</a><a href="http://www.cnlinfo.net/pinyin.aspx?py=e&type=product">E</a><a href="http://www.cnlinfo.net/pinyin.aspx?py=f&type=product">F</a><a href="http://www.cnlinfo.net/pinyin.aspx?py=g&type=product">G</a><a href="http://www.cnlinfo.net/pinyin.aspx?py=h&type=product">H</a><a href="http://www.cnlinfo.net/pinyin.aspx?py=i&type=product">I</a><a href="http://www.cnlinfo.net/pinyin.aspx?py=j&type=product">J</a><a href="http://www.cnlinfo.net/pinyin.aspx?py=k&type=product">K</a><a href="http://www.cnlinfo.net/pinyin.aspx?py=l&type=product">L</a><a href="http://www.cnlinfo.net/pinyin.aspx?py=m&type=product">M</a><a href="http://www.cnlinfo.net/pinyin.aspx?py=n&type=product">N</a><a href="http://www.cnlinfo.net/pinyin.aspx?py=o&type=product">O</a><a href="http://www.cnlinfo.net/pinyin.aspx?py=p&type=product">P</a><a href="http://www.cnlinfo.net/pinyin.aspx?py=q&type=product">Q</a><a href="http://www.cnlinfo.net/pinyin.aspx?py=r&type=product">R</a><a href="http://www.cnlinfo.net/pinyin.aspx?py=s&type=product">S</a><a href="http://www.cnlinfo.net/pinyin.aspx?py=t&type=product">T</a><a href="http://www.cnlinfo.net/pinyin.aspx?py=u&type=product">U</a><a href="http://www.cnlinfo.net/pinyin.aspx?py=v&type=product">V</a><a href="http://www.cnlinfo.net/pinyin.aspx?py=w&type=product">W</a><a href="http://www.cnlinfo.net/pinyin.aspx?py=x&type=product">X</a><a href="http://www.cnlinfo.net/pinyin.aspx?py=y&type=product">Y</a><a href="http://www.cnlinfo.net/pinyin.aspx?py=z&type=product">Z</a></span></div>
+<div class="class_bottom_two">
+<ul>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_303.htm" class="c_w">五金</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_304.htm" class="c_s">塑胶</a></li>
+<li><a class="c_j" target='_blank' href='http://so.cnlinfo.net/chanpin/one_302'>建材</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_306.htm" class="c_h">化工</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_310.htm" class="c_f">纺织业</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_312.htm" class="c_y">医疗设备</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_305.htm" class="c_n">能源</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_307.htm" class="c_j">机械</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_308.htm" class="c_w">网络通信</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_309.htm" class="c_a">安防</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_301.htm" class="c_z" >照明</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_311.htm" class="c_y">医药</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_101.htm" class="c_d">电脑设备</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_102.htm" class="c_s">数码</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_103.htm" class="c_j">家用电器</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_104.htm" class="c_y">仪器仪表</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_105.htm" class="c_y">电子产品</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_106.htm" class="c_y">礼品</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_107.htm" class="c_y">玩具</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_108.htm" class="c_g">工艺品</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_109.htm" class="c_y">眼镜</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_110.htm" class="c_w">文教用品</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_111.htm" class="c_q">汽车</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_501.htm" class="c_j">家私</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_502.htm" class="c_s">生活用品</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_503.htm" class="c_z">钟表</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_504.htm" class="c_h">化妆</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_505.htm" class="c_h">护肤用品</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_401.htm" class="c_l">粮食</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_402.htm" class="c_s">食用油</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_403.htm" class="c_s">蔬菜瓜果</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_404.htm" class="c_r">肉,蛋</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_405.htm" class="c_y">养殖</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_406.htm" class="c_n">农资</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_407.htm" class="c_y">园艺</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_408.htm" class="c_y">渔业</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_601.htm" class="c_n">男装</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_602.htm" class="c_n">女装</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_603.htm" class="c_t">童装</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_604.htm" class="c_n">内衣</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_605.htm" class="c_p">配饰</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_606.htm" class="c_x">鞋类</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_607.htm" class="c_x">箱包</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_201.htm" class="c_j">酒店</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_202.htm" class="c_l">旅游</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_203.htm" class="c_y">娱乐</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_204.htm" class="c_c">餐饮</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_205.htm" class="c_y">印刷包装</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_206.htm" class="c_g">广告</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_207.htm" class="c_j">金融</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_208.htm" class="c_y">医疗卫生</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_209.htm" class="c_z">展览</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_210.htm" class="c_w">物流</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_211.htm" class="c_z">咨询</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_212.htm" class="c_s">商贸</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_214.htm" class="c_w">维修</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_215.htm" class="c_x">休闲娱乐</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_213.htm" class="c_s">社团</a></li>
+<li><a href="http://so.cnlinfo.net/chanpin/one_701.htm" class="c_f">房地产</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_702.htm" class="c_j">建筑</a></li>
+<li><a href="http://so.cnlinfo.net/chanpin/one_703.htm" class="c_z">装饰</a></li>
+<li><a target="_blank" href="http://so.cnlinfo.net/chanpin/one_704.htm" class="c_q">其他</a></li></ul>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+
+<div class="foot">运营商：深圳市兴讯信息技术有限公司  深圳双软企业 版本信息：Cnlinfo Bata4 Build 2013 粤ICP证:040725号<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_5590727'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s96.cnzz.com/stat.php%3Fid%3D5590727' type='text/javascript'%3E%3C/script%3E"));</script></div>
+</body>
+</html>
