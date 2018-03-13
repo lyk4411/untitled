@@ -14,7 +14,7 @@ def queens(num=8,state=()):
                 yield (pos,)
             else:#若不是最后一个皇后，则将该位置返回到state元组并传给后面的皇后
                 for result in queens(num,state + (pos,)):
-                    yield result + (pos,)
+                    yield (pos,) + result
 
 def prettyp(solution):
     '打印函数'
