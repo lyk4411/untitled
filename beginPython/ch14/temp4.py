@@ -3,7 +3,7 @@ import socket,select
 s = socket.socket()
 host = socket.gethostname()
 port = 8000
-s.bind((host,port))
+s.bind(('0.0.0.0',port))
 
 s.listen(5)
 inputs = [s]
