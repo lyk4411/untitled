@@ -14,7 +14,7 @@ def queens(num=8,state=()):
             # print(pos)
             if len(state) == num - 1:#若是最后一个皇后，则返回该位置
                 yield (pos,)
-                print("pos:" + str(pos))
+                print("last pos:" + str(pos))
 
             else:#若不是最后一个皇后，则将该位置返回到state元组并传给后面的皇后
                 for result in queens(num,state + (pos,)):
