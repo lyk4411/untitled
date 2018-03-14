@@ -28,3 +28,5 @@ def queens(num=8,state=()):
 
 
 print(list(queens(4)))
+# print(tuple(queens(4)))
+
