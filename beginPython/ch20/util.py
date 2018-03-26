@@ -1,7 +1,8 @@
 def lines(file):
     for line in file:
         yield line
-    return '\n'
+    # return
+    yield '\n'
 
 
 def blocks(file):
