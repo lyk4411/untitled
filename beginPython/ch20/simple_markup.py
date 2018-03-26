@@ -21,7 +21,3 @@ for block in blocks(sys.stdin):
         print('</body></html>')
 
 
-
-if __name__ == "__main__":
-    blocks(r'F:/Users/lyk/PycharmProjects/untitled/beginPython/ch20/temp_input.txt')
-
