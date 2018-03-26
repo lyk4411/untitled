@@ -5,7 +5,7 @@ print ('<html><head><title>...</title><body>')
 
 title = True
 for block in blocks(sys.stdin):
-    block = re.sub()
+    block = re.sub(r'\*(.+?)\*',r'<em>\1</em>',block)
     if title:
         print('<h1>')
         print(block)
@@ -16,4 +16,9 @@ for block in blocks(sys.stdin):
         print(block)
         print('</p>')
         print('</body></html>')
+
+
+
+if __name__ == "__main__":
+    blocks(r'F:/Users/lyk/PycharmProjects/untitled/beginPython/ch20/temp_input.txt')
 
