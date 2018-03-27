@@ -1,7 +1,9 @@
 import sys, re
-from handlers import *
-from util import *
-from rules import *
+sys.path.append('F:/Users/lyk/PycharmProjects/untitled/beginPython/ch20/')
+
+from beginPython.ch20.handlers import *
+from beginPython.ch20.util import *
+from beginPython.ch20.rules import *
 
 
 class Parser:
