@@ -38,52 +38,41 @@ class HTMLRenderer(Handler):
     """
 
     def start_document(self):
-        print
-        '<html><head><title>instant_markup</title></head><body>'
+        print('<html><head><title>instant_markup</title></head><body>')
 
     def end_document(self):
-        print
-        '</body></html>'
+        print('</body></html>')
+
 
     def start_paragraph(self):
-        print
-        '<p>'
+        print('<p>')
 
     def end_paragraph(self):
-        print
-        '</p>'
+        print('</p>')
 
     def start_heading(self):
-        print
-        '<h2>'
+        print('<h2>')
 
     def end_heading(self):
-        print
-        '</h2>'
+        print('</h2>')
 
     def start_list(self):
-        print
-        '<ul>'
+        print('<ul>')
 
     def end_list(self):
-        print
-        '</ul>'
+        print('</ul>')
 
     def start_listitem(self):
-        print
-        '<li>'
+        print('<li>')
 
     def end_listitem(self):
-        print
-        '</li>'
+        print('</li>')
 
     def start_title(self):
-        print
-        '<h1>'
+        print('<h1>')
 
     def end_title(self):
-        print
-        '</h1>'
+        print('</h1>')
 
     def sub_emphasis(self, match):
         return '<em>%s</em>' % match.group(1)
