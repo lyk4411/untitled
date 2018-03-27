@@ -9,7 +9,7 @@ def lines(file):
 
 
 def blocks(file):
-    print("hello world.")
+    # print("hello world.")
     block = []
     for line in lines(file):
         if line.strip():

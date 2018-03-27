@@ -91,5 +91,5 @@ import re
 handler = HTMLRenderer()
 field_pat = re.compile(r'\*(.+?)\*')
 
-print(re.sub(r'\*(.+?)\*',handler.sub('emphasis'),'This is * a test * message'))
-print(field_pat.sub(handler.sub('emphasis'),'This is * a test * message'))
+# print(re.sub(r'\*(.+?)\*',handler.sub('emphasis'),'This is * a test * message'))
+# print(field_pat.sub(handler.sub('emphasis'),'This is * a test * message'))
