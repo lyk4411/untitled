@@ -9,7 +9,7 @@ def replacement(match):
         return str(eval(code,scope))
     except SyntaxError:
         exec (code,scope)
-        print(code)
+        print("code:"+code)
         return '********'
 
 
