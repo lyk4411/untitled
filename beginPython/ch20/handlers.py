@@ -85,3 +85,9 @@ class HTMLRenderer(Handler):
 
     def feed(self, data):
         print(data)
+
+
+import re
+handler = HTMLRenderer()
+print(re.sub(r'\*(.+?)\*',handler.sub('emphasis'),'This is * a test * message'))
+# print(handler.sub('emphasis')('This is * a test * message'))
