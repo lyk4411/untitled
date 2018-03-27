@@ -33,7 +33,7 @@ class TitleRule(HeadingRule):
 
     def condition(self, block):
         if not self.first: return False
-        self.first = True
+        self.first = False
         return HeadingRule.condition(self, block)
 
 
