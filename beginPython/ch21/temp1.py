@@ -30,3 +30,5 @@ drawing.add(PolyLine(list(zip(times, low)),  strokeColor=colors.green))
 drawing.add(String(65, 115, 'Sunspots', fontSize=18, fillColor=colors.red))
 
 renderPDF.drawToFile(drawing, 'report1.pdf', 'Sunspots')
+
+print(list(row[2] for row in data))
