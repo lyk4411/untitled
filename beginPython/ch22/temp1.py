@@ -27,4 +27,4 @@ class PageMaker(ContentHandler):
     def characters(self, chars):
         if self.passthrough: self.out.write(chars)
 
-parse('website.xml', PageMaker ())
+parse('data.xml', PageMaker ())
