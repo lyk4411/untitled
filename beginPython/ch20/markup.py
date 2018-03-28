@@ -1,4 +1,4 @@
-import sys, re
+import sys
 sys.path.append('F:/Users/lyk/PycharmProjects/untitled')
 
 from beginPython.ch20.handlers import *
