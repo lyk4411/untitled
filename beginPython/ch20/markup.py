@@ -1,5 +1,5 @@
 import sys, re
-sys.path.append('F:/Users/lyk/PycharmProjects/untitled/beginPython/ch20/')
+sys.path.append('F:/Users/lyk/PycharmProjects/untitled')
 
 from beginPython.ch20.handlers import *
 from beginPython.ch20.util import *
