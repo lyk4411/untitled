@@ -3,7 +3,11 @@ from xml.sax import parse
 import os
 
 class Dispatcher:
-
+    # dispatch方法
+    # capitalize()方法返回字符串的一个副本，只有它的第一个字母大写
+    # Instance = A()   print getattr(Instance , 'name, 'not find')
+    # 如果Instance 对象中有属性name则打印self.name的值，否则打印'not find'
+    # callable(obj),检查对象obj是否可调用
     def dispatch(self, prefix, name, attrs=None):
         mname = prefix + name.capitalize()
         dname = 'default' + prefix.capitalize()
