@@ -48,7 +48,7 @@ class BasicTextParser(Parser):
         self.addRule(ListItemRule())
         self.addRule(TitleRule())
         self.addRule(HeadingRule())
-        self.addRule(ParagraphRule())
+        self.addRule(ParagraphRule())# 必须放在最后。
 
         self.addFilter(r'\*(.+?)\*', 'emphasis')
         self.addFilter(r'(http://[\.a-zA-Z/]+)', 'url')
