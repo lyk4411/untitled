@@ -44,7 +44,7 @@ class BasicTextParser(Parser):
 
     def __init__(self, handler):
         Parser.__init__(self, handler)
-        self.addRule(ListRule())
+        self.addRule(ListRule()) # 必须放在return TRUE的规则之前。
         self.addRule(ListItemRule())
         self.addRule(TitleRule())
         self.addRule(HeadingRule())
