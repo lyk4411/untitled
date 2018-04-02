@@ -93,6 +93,7 @@ class SimpleWebSource:
 
     def getItems(self):
         text = urlopen(self.url).read()
+        text = text.decode('utf-8')  # python3
         titles = self.titlePattern.findall(text)
         bodies = self.bodyPattern.findall(text)
         for title, body in zip(titles, bodies):
@@ -157,10 +158,12 @@ def runDefaultSetup():
 
     # A SimpleWebSource that retrieves news from the
     # BBC news site:
-    bbc_url = 'http://news.bbc.co.uk/text_only.stm'
+    bbc_url = 'https://www.hao123.com/'
     bbc_title = r'(?s)a href="[^"]*">\s*<b>\s*(.*?)\s*</b>'
     bbc_body = r'(?s)</a>\s*<br />\s*(.*?)\s*<'
-    bbc = SimpleWebSource(bbc_url, bbc_title, bbc_body)
+    a_title = r'<script>(.*?)</script>'
+    a_body = r'<script>(.*?)</script>'
+    bbc = SimpleWebSource(bbc_url, a_title, a_body)
 
     agent.addSource(bbc)
 
@@ -170,11 +173,11 @@ def runDefaultSetup():
     clpa_window = 1
     clpa = NNTPSource(clpa_server, clpa_group, clpa_window)
 
-    agent.addSource(clpa)
+    # agent.addSource(clpa)
 
     # Add plain text destination and an HTML destination:
     agent.addDestination(PlainDestination())
-    agent.addDestination(HTMLDestination('news.html'))
+    # agent.addDestination(HTMLDestination('news.html'))
 
     # Distribute the news items:
     agent.distribute()
