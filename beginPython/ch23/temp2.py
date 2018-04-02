@@ -1,7 +1,7 @@
 from nntplib import NNTP
 from time import strftime, time, localtime
 from email import message_from_string
-from urllib import urlopen
+from urllib.request import urlopen
 import textwrap
 import re
 
@@ -105,9 +105,9 @@ class PlainDestination:
     """
     def receiveItems(self, items):
         for item in items:
-            print item.title
-            print '-'*len(item.title)
-            print item.body
+            print (item.title)
+            print ('-'*len(item.title))
+            print (item.body)
 
 
 class HTMLDestination:
