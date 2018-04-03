@@ -14,10 +14,10 @@ class ChatSession(async_chat):
         # Standard setup tasks:
         async_chat.__init__(self, sock)
         self.server = server
-        self.set_terminator("\r\n")
+        self.set_terminator(b"\r\n")
         self.data = []
         # Greet the user:
-        self.push('Welcome to %s\r\n' % self.server.name)
+        self.push('Welcome to %s\r\n'.encode('utf-8') % self.server.name.encode('utf-8'))
 
     def collect_incoming_data(self, data):
         self.data.append(data)
@@ -27,7 +27,7 @@ class ChatSession(async_chat):
         If a terminator is found, that means that a full
         line has been read. Broadcast it to everyone.
         """
-        line = ''.join(self.data)
+        line = b''.join(self.data)
         self.data = []
         self.server.broadcast(line)
 
@@ -55,7 +55,7 @@ class ChatServer(dispatcher):
 
     def broadcast(self, line):
         for session in self.sessions:
-            session.push(line + '\r\n')
+            session.push(line + b'\r\n')
 
     def handle_accept(self):
         conn, addr = self.accept()
