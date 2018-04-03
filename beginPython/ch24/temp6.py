@@ -16,18 +16,18 @@ class CommandHandler:
 
     def unknown(self, session, cmd):
         'Respond to an unknown command'
-        session.push('Unknown command: %s\r\n' % cmd)
+        session.push(b'Unknown command: %s\r\n' % cmd)
 
     def handle(self, session, line):
         'Handle a received line from a given session'
         if not line.strip(): return
         # Split off the command:
-        parts = line.split(' ', 1)
+        parts = line.split(b' ', 1)
         cmd = parts[0]
         try: line = parts[1].strip()
         except IndexError: line = ''
         # Try to find a handler:
-        meth = getattr(self, 'do_'+cmd, None)
+        meth = getattr(self, 'do_'+ bytes.decode(cmd), None)
         try:
             # Assume it's callable:
             meth(session, line)
@@ -72,22 +72,22 @@ class LoginRoom(Room):
     def add(self, session):
         Room.add(self, session)
         # When a user enters, greet him/her:
-        self.broadcast('Welcome to %s\r\n' % self.server.name)
+        self.broadcast('Welcome to %s\r\n'.encode('utf-8') % self.server.name.encode('utf-8'))
 
     def unknown(self, session, cmd):
         # All unknown commands (anything except login or logout)
         # results in a prodding:
-        session.push('Please log in\nUse "login <nick>"\r\n')
+        session.push('Please log in\nUse "login <nick>"\r\n'.encode('utf-8'))
 
     def do_login(self, session, line):
         name = line.strip()
         # Make sure the user has entered a name:
         if not name:
-            session.push('Please enter a name\r\n')
+            session.push('Please enter a name\r\n'.encode('utf-8'))
         # Make sure that the name isn't in use:
         elif name in self.server.users:
-            session.push('The name "%s" is taken.\r\n' % name)
-            session.push('Please try again.\r\n')
+            session.push('The name "%s" is taken.\r\n'.encode('utf-8') % name.encode('utf-8'))
+            session.push('Please try again.\r\n'.encode('utf-8'))
         else:
             # The name is OK, so it is stored in the session, and
             # the user is moved into the main room.
@@ -102,7 +102,7 @@ class ChatRoom(Room):
 
     def add(self, session):
         # Notify everyone that a new user has entered:
-        self.broadcast(session.name + ' has entered the room.\r\n')
+        self.broadcast(session.name + b' has entered the room.\r\n')
         self.server.users[session.name] = session
         Room.add(self, session)
 
@@ -110,22 +110,22 @@ class ChatRoom(Room):
     def remove(self, session):
         Room.remove(self, session)
         # Notify everyone that a user has left:
-        self.broadcast(session.name + ' has left the room.\r\n')
+        self.broadcast(session.name + b' has left the room.\r\n')
 
     def do_say(self, session, line):
-        self.broadcast(session.name+': '+line+'\r\n')
+        self.broadcast(session.name+ b': '+line+ b'\r\n')
 
     def do_look(self, session, line):
         'Handles the look command, used to see who is in a room'
-        session.push('The following are in this room:\r\n')
+        session.push(b'The following are in this room:\r\n')
         for other in self.sessions:
-            session.push(other.name + '\r\n')
+            session.push(other.name + b'\r\n')
 
     def do_who(self, session, line):
         'Handles the who command, used to see who is logged in'
-        session.push('The following are logged in:\r\n')
+        session.push(b'The following are logged in:\r\n')
         for name in self.server.users:
-            session.push(name + '\r\n')
+            session.push(name + b'\r\n')
 
 class LogoutRoom(Room):
     """
@@ -147,7 +147,7 @@ class ChatSession(async_chat):
     def __init__(self, server, sock):
         async_chat.__init__(self, sock)
         self.server = server
-        self.set_terminator("\r\n")
+        self.set_terminator(b"\r\n")
         self.data = []
         self.name = None
         # All sessions begin in a separate LoginRoom:
@@ -167,7 +167,7 @@ class ChatSession(async_chat):
         self.data.append(data)
 
     def found_terminator(self):
-        line = ''.join(self.data)
+        line = b''.join(self.data)
         self.data = []
         try: self.room.handle(self, line)
         except EndSession:
