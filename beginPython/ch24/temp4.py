@@ -8,7 +8,7 @@ class ChatSession(async_chat):
 
     def __init__(self, sock):
         async_chat.__init__(self, sock)
-        self.set_terminator("\r\n")
+        self.set_terminator(b"\r\n")
         self.data = []
 
     def collect_incoming_data(self, data):
