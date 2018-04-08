@@ -15,7 +15,7 @@ class ChatSession(async_chat):
         self.data.append(data)
 
     def found_terminator(self):
-        line = ''.join(self.data)
+        line = b''.join(self.data)
         self.data = []
         # Do something with the line...
         print (line)
