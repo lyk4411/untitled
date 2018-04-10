@@ -1,7 +1,8 @@
-from xmlrpclib import ServerProxy, Fault
+from xmlrpc.client import ServerProxy,Fault
+from xmlrpc.server import *
 from os.path import join, abspath, isfile
-from SimpleXMLRPCServer import SimpleXMLRPCServer
-from urlparse import urlparse
+# from SimpleXMLRPCServer import SimpleXMLRPCServer
+from urllib.parse import urlparse
 import sys
 
 SimpleXMLRPCServer.allow_reuse_address = 1
@@ -112,7 +113,7 @@ class Node:
                 s = ServerProxy(other)
                 return s.query(query, history)
 
-            except Fault, f:
+            except Fault as f:
                 if f.faultCode == UNHANDLED: pass
                 else: self.known.remove(other)
             except:

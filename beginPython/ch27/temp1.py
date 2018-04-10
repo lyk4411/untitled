@@ -1,7 +1,9 @@
-from xmlrpclib import ServerProxy
+from xmlrpc.client import ServerProxy
+from xmlrpc.server import *
+
 from os.path import join, isfile
-from SimpleXMLRPCServer import SimpleXMLRPCServer
-from urlparse import urlparse
+# from SimpleXMLRPCServer import SimpleXMLRPCServer
+from urllib.parse import urlparse
 import sys
 
 MAX_HISTORY_LENGTH = 6
