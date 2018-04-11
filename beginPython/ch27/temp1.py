@@ -2,7 +2,6 @@ from xmlrpc.client import ServerProxy
 from xmlrpc.server import *
 
 from os.path import join, isfile
-# from SimpleXMLRPCServer import SimpleXMLRPCServer
 from urllib.parse import urlparse
 import sys
 
