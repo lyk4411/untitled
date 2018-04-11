@@ -101,4 +101,5 @@ def main():
     n = Node(url, directory, secret)
     n._start()
 
-if __name__ == '__main__': main()
+if __name__ == '__main__':
+    main()
