@@ -24,3 +24,6 @@ if __name__ == '__main__':
     a = EmployeeImportance()
     es = [e1, e2, e3]
     print(a.getImportance(es, 1))
+    print(a.getImportance(es, 2))
+    print(a.getImportance(es, 3))
+
