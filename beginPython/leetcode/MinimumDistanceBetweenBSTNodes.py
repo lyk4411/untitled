@@ -1,0 +1,38 @@
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+
+class MinimumDistanceBetweenBSTNodes(object):
+    def minDiffInBST(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+
+        self.minv = float('inf')
+        self.prv = -1
+
+        def go(root):
+            if not root: return
+            go(root.left)
+            if self.prv != -1: self.minv = min(self.minv, root.val - self.prv)
+            self.prv = root.val
+            go(root.right)
+
+        go(root)
+        return self.minv
+
+if __name__ == '__main__':
+    a = MinimumDistanceBetweenBSTNodes()
+    t1 = TreeNode(4)
+    t2 = TreeNode(2)
+    t3 = TreeNode(6)
+    t4 = TreeNode(1)
+    t5 = TreeNode(3)
+    t1.left = t2
+    t1.right = t3
+    t2.left = t4
+    t2.right = t5
+    print(a.minDiffInBST(t1))
