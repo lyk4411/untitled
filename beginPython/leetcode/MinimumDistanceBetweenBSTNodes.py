@@ -10,19 +10,17 @@ class MinimumDistanceBetweenBSTNodes(object):
         :type root: TreeNode
         :rtype: int
         """
+        vals = []
 
-        self.minv = float('inf')
-        self.prv = -1
+        def inOrder(root):
+            if not root:
+                return
+            inOrder(root.left)
+            vals.append(root.val)
+            inOrder(root.right)
 
-        def go(root):
-            if not root: return
-            go(root.left)
-            if self.prv != -1: self.minv = min(self.minv, root.val - self.prv)
-            self.prv = root.val
-            go(root.right)
-
-        go(root)
-        return self.minv
+        inOrder(root)
+        return min([vals[i + 1] - vals[i] for i in range(len(vals) - 1)])
 
 if __name__ == '__main__':
     a = MinimumDistanceBetweenBSTNodes()
