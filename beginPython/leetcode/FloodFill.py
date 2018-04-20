@@ -3,7 +3,6 @@ class FloodFill(object):
     def floodFill(self, image, sr, sc, newColor):
         R, C = len(image), len(image[0])
         color = image[sr][sc]
-        if color == newColor: return image
         def dfs(r, c):
             if image[r][c] == color:
                 image[r][c] = newColor
@@ -12,7 +11,9 @@ class FloodFill(object):
                 if c >= 1: dfs(r, c-1)
                 if c+1 < C: dfs(r, c+1)
 
-        dfs(sr, sc)
+        if color != newColor:
+            dfs(sr, sc)
+
         return image
 
 if __name__ == '__main__':
