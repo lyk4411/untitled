@@ -36,3 +36,5 @@ if __name__ == '__main__':
     a = NondecreasingArray()
     print(a.checkPossibility([4,2,3]))
     print(a.checkPossibility([4,2,1]))
+    print(a.checkPossibility([2,3,3,2,4]))
+    print(a.checkPossibility([1,2,7,4,5]))
