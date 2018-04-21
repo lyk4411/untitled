@@ -12,3 +12,11 @@ class ImplementMagicDictionary(object):
     def search(self, word):
         return any(sum(a!=b for a,b in zip(word, candidate)) == 1
                    for candidate in self.buckets[len(word)])
+
+if __name__ == '__main__':
+    a = ImplementMagicDictionary()
+    a.buildDict(["hello","world","leetcode"])
+    print(a.search("hello"))
+    print(a.search("hell"))
+    print(a.search("hella"))
+    print(a.search("leetcodd"))
