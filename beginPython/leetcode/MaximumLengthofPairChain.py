@@ -31,4 +31,5 @@ class MaximumLengthofPairChain(object):
 
 if __name__ == '__main__':
     a = MaximumLengthofPairChain()
-    print(a.findLongestChain([[1,2], [3,4], [2,3]]))
+    # print(a.findLongestChain([[1,2], [3,4], [2,3]]))
+    print(a.findLongestChain([[1,2], [300,400], [3,401],[4,402],[5,403]]))
