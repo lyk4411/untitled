@@ -31,6 +31,8 @@ class PyramidTransitionMatrix(object):
 
 if __name__ == '__main__':
     a = PyramidTransitionMatrix()
-    bottom = r"XXYX"
-    allowed = [r"XXX", r"XXY", r"XYX", r"XYY", r"YXZ"]
-    print(a.pyramidTransition(bottom, allowed))
+    bottom = r"ABCD"
+    allowed1 = [r"ABE", r"BCF", r"CDA", r"EFG", r"FAB", r"GBA"]
+    allowed2 = [r"ABE", r"BCF", r"CDA", r"EFG", r"FAB"]
+    print(a.pyramidTransition(bottom, allowed1))
+    print(a.pyramidTransition(bottom, allowed2))
