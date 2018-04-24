@@ -2,25 +2,28 @@
 
 
 class PrintBinaryTree(object):
-    def getHeight(self, node):
-        if not node:
-            return 0
-        return max(1 + self.getHeight(node.left), 1 + self.getHeight(node.right))
-
-    def helper(self, root, d, pos):
-        self.res[-d - 1][pos] = str(root.val)
-        if root.left: self.helper(root.left, d - 1, pos - 2 ** (d - 1))
-        if root.right: self.helper(root.right, d - 1, pos + 2 ** (d - 1))
     def printTree(self, root):
         """
         :type root: TreeNode
         :rtype: List[List[str]]
         """
         if not root: return [""]
-        d = self.getHeight(root)
+
+        def getDepth(root):
+            if not root:
+                return 0
+            return 1 + max(getDepth(root.left), getDepth(root.right))
+
+        d = getDepth(root)
         cols = 2 ** d - 1
         self.res = [["" for i in range(cols)] for j in range(d)]
-        self.helper(root, d - 1, 2 ** (d - 1) - 1)
+
+        def helper(root, d, pos):
+            self.res[-d - 1][pos] = str(root.val)
+            if root.left: helper(root.left, d - 1, pos - 2 ** (d - 1))
+            if root.right: helper(root.right, d - 1, pos + 2 ** (d - 1))
+
+        helper(root, d - 1, 2 ** (d - 1) - 1)
         return self.res
 
 
