@@ -19,3 +19,10 @@ class SplitArrayintoConsecutiveSubsequences(object):
                 return False
             count[x] -= 1
         return True
+
+if __name__ == '__main__':
+    a = SplitArrayintoConsecutiveSubsequences()
+    print(a.isPossible([1, 2, 3, 3, 4, 5]))
+    print(a.isPossible([1, 2, 3, 3, 4, 4, 5, 5]))
+    print(a.isPossible([1, 2, 3, 4, 4, 5]))
+
