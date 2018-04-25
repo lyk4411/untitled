@@ -1,5 +1,3 @@
-import itertools
-
 
 class BeautifulArrangementII(object):
     def constructArray(self, n, k):
