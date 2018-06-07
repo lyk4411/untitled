@@ -25,5 +25,6 @@ class PartitiontoKEqualSumSubsets(object):
 
 if __name__ == '__main__':
     a = PartitiontoKEqualSumSubsets()
-    print(a.canPartitionKSubsets([4, 3, 2, 3, 5, 2, 1], 4))
-    print(a.canPartitionKSubsets([4, 3, 2, 3, 5, 2, 1], 3))
+    # print(a.canPartitionKSubsets([4, 3, 2, 3, 5, 2, 1], 4))
+    # print(a.canPartitionKSubsets([4, 3, 2, 3, 5, 2, 1], 3))
+    print(a.canPartitionKSubsets([2, 2, 2, 2, 3, 4, 5], 4))
