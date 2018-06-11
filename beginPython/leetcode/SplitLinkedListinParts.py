@@ -30,7 +30,7 @@ if __name__ == '__main__':
     ln2.next = ln3
     lns = a.splitListToParts(ln1, 5)
     for ln in lns:
-        if hasattr(ln,"val"):
+        if ln is not None:
             print(ln.val)
         else:
-            print("NULL")
+            print("null")
