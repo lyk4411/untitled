@@ -17,7 +17,7 @@ class TreeNode(object):
         self.left = None
         self.right = None
     def __str__(self):
-        return str(self.left.__str__() if self.left != None else None) + " : " + str(self.val) + " : " + str(self.right.__str__() if self.right != None else None)
+        return str(self.left.__str__() if self.left != None else " ") + " : " + str(self.val) + " : " + str(self.right.__str__() if self.right != None else " ")
 
 
 
