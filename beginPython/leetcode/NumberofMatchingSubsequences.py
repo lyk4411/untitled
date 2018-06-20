@@ -20,10 +20,8 @@ class NumberofMatchingSubsequences(object):
                 word = queue.pop(0)
                 if len(word) == 1:
                     res += 1
-                    continue
-                word = word[1:]
-                dic[word[0]].append(word)
-
+                else:
+                    dic[word[1]].append(word[1:])
         return res
 
 if __name__ == '__main__':
