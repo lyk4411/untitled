@@ -5,13 +5,14 @@ class SwapAdjacentinLRString(object):
         :type end: str
         :rtype: bool
         """
+        if start.replace('X', '') != end.replace('X', ''): return False
+
         n = len(start)
         i = j = 0
         while i < n and j < n:
-            while (j < n and end[j] == 'X'): j += 1
-            while (i < n and start[i] == 'X'): i += 1
-            if i == n and j == n: break
-            if i == n or j == n or end[j] != start[i]: return False
+            while j < n and end[j] == 'X': j += 1
+            while i < n and start[i] == 'X': i += 1
+            if i == n or j == n: break
             if start[i] == 'L' and i < j: return False
             if start[i] == 'R' and i > j: return False
             i += 1
@@ -20,4 +21,7 @@ class SwapAdjacentinLRString(object):
 
 if __name__ == '__main__':
     a = SwapAdjacentinLRString()
-    print(a.canTransform("RXXLRXRXL", "XRLXXRRLX"))
+    print(a.canTransform('RXXLRXRXL', 'XRLXXRRLX'))
+    print(a.canTransform('RXXLRXR', 'XRLXXRRLX'))
+    print(a.canTransform('XXXLXXXXXX', 'XXXLXXXXXX'))
+
