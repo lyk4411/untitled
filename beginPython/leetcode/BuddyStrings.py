@@ -14,7 +14,7 @@ class BuddyStrings(object):
             d = {}
             for i in range(N):
                 if d.get(A[i]):
-                    return False
+                    return True
                 else:
                     d.setdefault(A[i], True)
             return False
