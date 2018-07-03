@@ -21,4 +21,4 @@ class LargestSumofAverages(object):
 
 if __name__ == '__main__':
     a = LargestSumofAverages()
-    print(a.largestSumOfAverages([9,1,2,3,9], 3))
+    print(a.largestSumOfAverages([9, 1, 2, 3, 9], 3))
