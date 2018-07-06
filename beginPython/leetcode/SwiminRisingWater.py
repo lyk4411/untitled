@@ -28,7 +28,6 @@ class SwiminRisingWater(object):
         vis.add((0, 0))
         while q:
             t = heapq.heappop(q)
-            print("t" + str(t))
             if t.x == N -1 and t.y == M - 1:
                 return t.val
             for d in (-1, 1):
