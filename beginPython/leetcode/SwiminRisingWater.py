@@ -26,7 +26,6 @@ class SwiminRisingWater(object):
         q = []
         heapq.heappush(q, node)
         vis.add((0, 0))
-        print(q[0])
         while q:
             t = heapq.heappop(q)
             print("t" + str(t))
