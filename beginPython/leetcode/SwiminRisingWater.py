@@ -1,3 +1,18 @@
+import heapq
+from filecmp import cmp
+
+
+class Node(object):
+    def __init__(self, val, x, y):
+        self.val = val
+        self.x = x
+        self.y = y
+    def __cmp__(self, other):
+        return cmp(self.val, other.val)
+    def __lt__(self, other):
+        return self.val < other.val
+    def __str__(self):
+        return "val:" + str(self.val) + " x:" + str(self.x) + " y:" + str(self.y)
 class SwiminRisingWater(object):
     def swimInWater(self, grid):
         """
@@ -5,27 +20,29 @@ class SwiminRisingWater(object):
         :rtype: int
         """
         N = len(grid)
-
-        def go(i, j, mid, vis):
-            if i == N - 1 and j == N - 1: return True
-            vis.add((i, j))
+        M = len(grid[0])
+        vis = set()
+        node = Node(grid[0][0], 0, 0)
+        q = []
+        heapq.heappush(q, node)
+        vis.add((0, 0))
+        print(q[0])
+        while q:
+            t = heapq.heappop(q)
+            print("t" + str(t))
+            if t.x == N -1 and t.y == M - 1:
+                return t.val
             for d in (-1, 1):
-                for ni, nj in [(i + d, j), (i, j + d)]:
-                    if 0 <= ni < N and 0 <= nj < N and (ni, nj) not in vis and max(mid, grid[i][j]) == max(mid,
-                                                                                                           grid[ni][
-                                                                                                               nj]):
-                        if go(ni, nj, mid, vis): return True
-            return False
+                for ni, nj in [(t.x + d, t.y), (t.x, t.y + d)]:
+                    if (ni, nj) not in vis and 0 <= ni < N and 0 <= nj < M:
+                        grid[ni][nj] = max(grid[ni][nj], grid[t.x][t.y])
+                        heapq.heappush(q, Node(grid[ni][nj], ni, nj))
+                        vis.add((ni, nj))
 
-        lf = 0
-        rt = N * N
-        while lf < rt:
-            mid = (lf + rt) // 2
-            if go(0, 0, mid, set()):
-                rt = mid
-            else:
-                lf = mid + 1
-        return rt
+        return 0
+
+
+
 
 if __name__ == '__main__':
     a = SwiminRisingWater()
