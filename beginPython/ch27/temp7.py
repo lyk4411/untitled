@@ -13,3 +13,6 @@ print(otherpeer.fetch('temp2.py', 'ccc'))
 # C:\Users\lyk\AppData\Local\Programs\Python\Python36> python  F:/Users/lyk/PycharmProjects/untitled/beginPython/ch27/temp1.py http://127.0.0.1:4242 F:\Users\lyk\PycharmProjects\untitled\beginPython\ch27\c ccc
 
 # python  F:/Users/lyk/PycharmProjects/untitled/beginPython/ch27/temp1.py http://127.0.0.1:4243 F:\Users\lyk\PycharmProjects\untitled\beginPython\ch27\a  aaa
+
+
+python  F:/Users/lyk/PycharmProjects/untitled/beginPython/ch27/temp3.py http://127.0.0.1:4243 F:\Users\lyk\PycharmProjects\untitled\beginPython\ch27\a http://127.0.0.1:4242
