@@ -18,8 +18,8 @@ full_screen = 1
 font_size = 48
 
 # These affect the behavior of the game:
-drop_speed = 5
-banana_speed = 10
+drop_speed = 1
+banana_speed = 1
 speed_increase = 1
 weights_per_level = 10
 banana_pad_top = 40
