@@ -1,5 +1,6 @@
 class StrangePrinter(object):
     def strangePrinter(self, s):
+        s = ''.join(a for a,b in zip(s, '#'+s) if a!=b)
         size = len(s)
         if size <= 1:
             return size
