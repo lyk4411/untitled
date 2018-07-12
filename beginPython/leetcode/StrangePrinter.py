@@ -4,12 +4,12 @@ class StrangePrinter(object):
         size = len(s)
         if size <= 1:
             return size
-        dp = [[0 for j in range(size)] for i in range(size)]
+        dp = [[99 for j in range(size)] for i in range(size)]
         for i in range(size):
             for j in range(i, size):
                 dp[i][j] = j - i + 1
-        for i in range(1, size):
-            for j in range(size - i):
+        for i in range(1, size): # 间隔遍历
+            for j in range(size - i): # 层数遍历
                 for k in range(j, j + i):
                     temp = dp[j][k] + dp[k + 1][j + i]
                     if s[k] == s[i + j]:
