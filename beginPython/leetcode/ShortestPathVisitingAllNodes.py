@@ -9,6 +9,7 @@ class ShortestPathVisitingAllNodes(object):
         for x in range(N): dist[1 << x, x] = 0
 
         while queue:
+            # cover 状态下的head节点。
             cover, head = queue.popleft()
             d = dist[cover, head]
             if cover == 2 ** N - 1: return d
