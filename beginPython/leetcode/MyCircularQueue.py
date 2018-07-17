@@ -67,7 +67,7 @@ class MyCircularQueue(object):
         return self.size == self.k
 
 if __name__ == '__main__':
-    circularQueue = MyCircularQueue(5)
+    circularQueue = MyCircularQueue(3)
     circularQueue.enQueue(1)
     circularQueue.enQueue(2)
     circularQueue.enQueue(3)
