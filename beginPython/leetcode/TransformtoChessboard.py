@@ -15,16 +15,16 @@ class TransformtoChessboard(object):
                     return -1
 
         for i in range(N):
-            rowOneCnt += board[0][i];
-            colOneCnt += board[i][0];
+            rowOneCnt += board[0][i]
+            colOneCnt += board[i][0]
             if board[i][0] == i % 2:
                 rowToMove += 1
             if board[0][i] == i % 2:
                 colToMove += 1
 
-        if rowOneCnt < N / 2 or rowOneCnt > (N + 1) / 2:
+        if rowOneCnt < N // 2 or rowOneCnt > (N + 1) // 2:
             return -1
-        if colOneCnt < N / 2 or colOneCnt > (N + 1) / 2:
+        if colOneCnt < N // 2 or colOneCnt > (N + 1) // 2:
             return -1
         if N % 2 == 1:
             if colToMove % 2 == 1:
@@ -38,4 +38,5 @@ class TransformtoChessboard(object):
         return (colToMove + rowToMove) // 2
 if __name__ == '__main__':
     a = TransformtoChessboard()
-    print(a.movesToChessboard([[0, 1, 1, 0], [0, 1, 1, 0], [1, 0, 0, 1], [1, 0, 0, 1]]))
+    # print(a.movesToChessboard([[0, 1, 1, 0], [0, 1, 1, 0], [1, 0, 0, 1], [1, 0, 0, 1]]))
+    print(a.movesToChessboard([[1, 1, 0], [0, 0, 1], [0, 0, 1]]))
