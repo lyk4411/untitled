@@ -7,7 +7,6 @@ class SpecialBinaryString(object):
             if count == 0:
                 res.append('1' + self.makeLargestSpecial(S[i + 1:j]) + '0')
                 i = j + 1
-            print(res)
         return ''.join(sorted(res)[::-1])
 
 if __name__ == '__main__':
