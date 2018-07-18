@@ -35,7 +35,7 @@ class TransformtoChessboard(object):
             colToMove = min(colToMove, N - colToMove)
             rowToMove = min(rowToMove, N - rowToMove)
 
-        return (colToMove + rowToMove) / 2
+        return (colToMove + rowToMove) // 2
 if __name__ == '__main__':
     a = TransformtoChessboard()
     print(a.movesToChessboard([[0, 1, 1, 0], [0, 1, 1, 0], [1, 0, 0, 1], [1, 0, 0, 1]]))
