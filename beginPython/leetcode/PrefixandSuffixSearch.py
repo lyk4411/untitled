@@ -30,3 +30,7 @@ if __name__ == '__main__':
     print(a.f('a','e'))
     # print((a.trie))
     print(a.f('w','d'))
+    b = PrefixandSuffixSearch(['ab'])
+    print((b.trie))
+
+
