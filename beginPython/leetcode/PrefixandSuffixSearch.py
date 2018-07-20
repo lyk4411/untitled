@@ -28,4 +28,5 @@ class PrefixandSuffixSearch(object):
 if __name__ == '__main__':
     a = PrefixandSuffixSearch(['apple','world'])
     print(a.f('a','e'))
+    # print((a.trie))
     print(a.f('w','d'))
