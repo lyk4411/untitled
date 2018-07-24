@@ -14,8 +14,8 @@ class StickerstoSpellWord(object):
         for x in range(len(scnts) - 1, -1, -1):
             if any(scnts[x] & scnts[y] == scnts[x] for y in range(len(scnts) - 1, -1, -1) if x != y):
                 scnts.pop(x)
-        stickers = map(cntToStr, scnts)
-        sset = set(stickers)
+        # stickers = map(cntToStr, scnts)
+        # scnts = [collections.Counter(s) for s in stickers]
         dmap = {}
 
         def search(kcnt):
