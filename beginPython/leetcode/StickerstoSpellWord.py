@@ -21,7 +21,7 @@ class StickerstoSpellWord(object):
         def search(kcnt):
             key = cntToStr(kcnt)
             if not key: return 0
-            if key in sset: return 1
+            # if key in sset: return 1
             if key in dmap: return dmap[key]
             ans = -1
             for scnt in scnts:
