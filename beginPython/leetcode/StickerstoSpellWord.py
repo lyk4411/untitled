@@ -62,8 +62,15 @@ class StickerstoSpellWord(object):
                 if dp[nstatus] < 0 or dp[nstatus] > dp[status] + 1:
                     dp[nstatus] = dp[status] + 1
         return dp[-1]
-
+#     a.minStickers(["with", "example", "science"], "theh")
+#     (0000) = 0
+#     (0011) = 1
+#     (0100) = 1
+#     (1011) = 2
+#     (0111) = 2
+#     (1111) = 3
 if __name__ == '__main__':
     a = StickerstoSpellWord()
-    print(a.minStickers(["with", "example", "science"], "thehat"))
+    # print(a.minStickers(["with", "example", "science"], "thehat"))
+    print(a.minStickers(["with", "example", "science"], "theh"))
     # print(a.minStickers(["notice", "possible"], "basicbasic"))
