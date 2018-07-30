@@ -1,5 +1,6 @@
 def implicit_scope(func):
     def wrapper(*args):
+        # print("args:", args, "args[0]: ", args[0])
         args[0].scope.append({})
         ans = func(*args)
         args[0].scope.pop()
@@ -11,6 +12,9 @@ def implicit_scope(func):
 class ParseLispExpression(object):
     def __init__(self):
         self.scope = [{}]
+
+    def __str__(self):
+        return str(self.scope)
 
     @implicit_scope
     def evaluate(self, expression):
