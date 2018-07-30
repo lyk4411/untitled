@@ -39,8 +39,7 @@ class ParseLispExpression(object):
             if bal == 0:
                 yield " ".join(buf)
                 buf = []
-        if buf:
-            yield " ".join(buf)
+
 if __name__ == '__main__':
     a = ParseLispExpression()
     print(a.evaluate("(let x 2 (mult x (let x 3 y 4 (add x y))))"))
