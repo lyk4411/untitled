@@ -1,11 +1,12 @@
 class GroupsofSpecialEquivalentStrings(object):
     def numSpecialEquivGroups(self, A):
-        def count(A):
+        def count(word):
             ans = [0] * 52
-            for i, letter in enumerate(A):
+            for i, letter in enumerate(word):
                 ans[ord(letter) - ord('a') + 26 * (i % 2)] += 1
             return tuple(ans)
 
+        # print({count(word) for word in A})
         return len({count(word) for word in A})
 
 if __name__ == '__main__':
