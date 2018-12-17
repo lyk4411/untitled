@@ -21,7 +21,8 @@ class VerifyinganAlienDictionary(object):
 
         return True
 
+
 if __name__ == '__main__':
     a = VerifyinganAlienDictionary()
-    print(a.isAlienSorted(words = ["hello","leetcode"], order = "hlabcdefgijkmnopqrstuvwxyz"))
-    print(a.isAlienSorted(words = ["word","world","row"], order = "worldabcefghijkmnpqstuvxyz"))
+    print(a.isAlienSorted(words=["hello", "leetcode"], order="hlabcdefgijkmnopqrstuvwxyz"))
+    print(a.isAlienSorted(words=["word", "world", "row"], order="worldabcefghijkmnpqstuvxyz"))
