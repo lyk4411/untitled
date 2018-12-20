@@ -10,6 +10,4 @@ class UniqueEmailAddresses(object):
 
 if __name__ == '__main__':
     a = UniqueEmailAddresses()
-    print(a.numUniqueEmails(["test.email+alex@leetcode.com",
-                        "test.e.mail+bob.cathy@leetcode.com",
-                        "testemail+david@lee.tcode.com"]))
+    print(a.numUniqueEmails(["test.email+alex@leetcode.com", "test.e.mail+bob.cathy@leetcode.com", "testemail+david@lee.tcode.com"]))
