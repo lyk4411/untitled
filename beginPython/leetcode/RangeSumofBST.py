@@ -32,4 +32,4 @@ if __name__ == '__main__':
     t2.left = t4
     t2.right = t5
     t3.right = t6
-    print(a.rangeSumBST(t1, 7 ,15))
+    print(a.rangeSumBST(t1, 7, 15))
