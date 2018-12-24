@@ -13,7 +13,7 @@ class StoneGame(object):
                     dp[i][j] = min(-piles[i] + dp[i + 1][j], -piles[j] + dp[i][j - 1])
                     print("dp[" + str(i) + "][" + str(j) + "]:" + str(dp[i][j]))
 
-        return dp[0][len(piles) - 1] >= 0
+        return dp[0][len(piles) - 1] > 0
 
 if __name__ == '__main__':
     a = StoneGame()
