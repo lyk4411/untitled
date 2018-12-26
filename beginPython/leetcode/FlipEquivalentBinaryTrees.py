@@ -1,6 +1,5 @@
 import itertools
 
-
 class FlipEquivalentBinaryTrees(object):
     def flipEquiv(self, root1, root2):
         def dfs(node):
