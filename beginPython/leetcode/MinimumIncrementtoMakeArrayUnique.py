@@ -1,13 +1,14 @@
 import collections
 
 
+
 class MinimumIncrementtoMakeArrayUnique(object):
     def minIncrementForUnique(self, A):
         count = collections.Counter(A)
         taken = []
 
         ans = 0
-        for x in range(100000):
+        for x in range(len(A * 2)):
             if count[x] >= 2:
                 taken.extend([x] * (count[x] - 1))
             elif taken and count[x] == 0:
