@@ -22,6 +22,7 @@ class ReorderedPowerof2(object):
         # return any(cand[0] != '0' and bin(int("".join(cand))).count('1') == 1
         #            for cand in itertools.permutations(str(N)))
         c = collections.Counter(str(N))
+        print(c)
         return any(c == collections.Counter(str(1 << i)) for i in range(32))
 
 if __name__ == '__main__':
@@ -31,3 +32,9 @@ if __name__ == '__main__':
     print(a.reorderedPowerOf2(8))
     print(a.reorderedPowerOf2(22))
     print(a.reorderedPowerOf2(61))
+    print("===================================")
+    print(collections.Counter(str(61)))
+    print(collections.Counter(str(16)))
+    print(collections.Counter(str(61)) == collections.Counter(str(16)))
+
+

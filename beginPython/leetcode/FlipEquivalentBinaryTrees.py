@@ -15,7 +15,6 @@ class FlipEquivalentBinaryTrees(object):
                     yield from dfs(node.left)
                 yield '#'
 
-
         return all(x == y for x, y in itertools.zip_longest(
             dfs(root1), dfs(root2)))
 
