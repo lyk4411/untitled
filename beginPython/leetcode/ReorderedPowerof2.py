@@ -1,5 +1,7 @@
 import itertools
 
+import collections
+
 
 class ReorderedPowerof2(object):
     def reorderedPowerOf2(self, N):
@@ -17,8 +19,10 @@ class ReorderedPowerof2(object):
         representation is 1.
         """
         # 搜索遍历所有排列的可能性，然后将其转换为二进制数，如果转换的二进制数只有一个1则是二的倍数。
-        return any(cand[0] != '0' and bin(int("".join(cand))).count('1') == 1
-                   for cand in itertools.permutations(str(N)))
+        # return any(cand[0] != '0' and bin(int("".join(cand))).count('1') == 1
+        #            for cand in itertools.permutations(str(N)))
+        c = collections.Counter(str(N))
+        return any(c == collections.Counter(str(1 << i)) for i in range(32))
 
 if __name__ == '__main__':
     a = ReorderedPowerof2()
