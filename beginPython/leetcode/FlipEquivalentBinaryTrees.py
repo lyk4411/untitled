@@ -18,6 +18,7 @@ class FlipEquivalentBinaryTrees(object):
         return all(x == y for x, y in itertools.zip_longest(
             dfs(root1), dfs(root2)))
 
+
 class TreeNode:
     def __init__(self, x):
         self.val = x
