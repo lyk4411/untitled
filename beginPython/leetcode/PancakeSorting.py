@@ -26,6 +26,7 @@ class PancakeSorting(object):
             if j != 0:
                 ans.append(j + 1)
                 self.re(A, 0, j)
+
             ans.append(i + 1)
             self.re(A, 0, i)
         return ans
