@@ -5,6 +5,7 @@ class FruitIntoBaskets(object):
     def totalFruit(self, tree):
         ans = i = 0
         count = collections.Counter()
+        # print(list(enumerate(tree)))
         for j, x in enumerate(tree):
             count[x] += 1
             while len(count) >= 3:
