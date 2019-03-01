@@ -25,7 +25,7 @@ class Interval:
         self.start = s
         self.end = e
     def __str__(self):
-        return str(self.start) + " : " + str(self.end)
+        return "start:" + str(self.start) + "  -  end:" + str(self.end)
 
 if __name__ == '__main__':
     ili = IntervalListIntersections()
