@@ -26,7 +26,10 @@ class ShortestBridge(object):
                                     stack.append(nei)
                                     seen.add(nei)
                         done |= seen
+                        # print(done)
                         components.append(seen)
+
+            # print(components)
             return components
 
         source, target = get_components()
