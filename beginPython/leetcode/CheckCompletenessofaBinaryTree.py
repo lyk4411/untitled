@@ -20,8 +20,8 @@ class TreeNode:
 if __name__ == '__main__':
     a = CheckCompletenessofaBinaryTree()
     t1 = TreeNode(1)
-    t2 = TreeNode(2)
-    t3 = TreeNode(3)
+    t2 = TreeNode(22)
+    t3 = TreeNode(33)
     t4 = TreeNode(4)
     t5 = TreeNode(5)
     t6 = TreeNode(6)
