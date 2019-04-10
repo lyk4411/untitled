@@ -1,5 +1,5 @@
 import time
-from clockdeco_param import clock
+from beginPython.fluentPython.ch07.clockdeco import clock
 
 @clock('{name}: {elapsed}s')
 def snooze(seconds):

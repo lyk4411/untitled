@@ -1,6 +1,6 @@
 import functools
 
-from clockdeco import clock
+from beginPython.fluentPython.ch07.clockdeco import clock
 
 @functools.lru_cache() # <1>
 @clock  # <2>
