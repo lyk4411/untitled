@@ -3,7 +3,7 @@
 # selecting best promotion from imported module
 
 """
-    >>> from promotions import *
+    >>> from beginPython.fluentPython.ch06.promotions import *
     >>> joe = Customer('John Doe', 0)
     >>> ann = Customer('Ann Smith', 1100)
     >>> cart = [LineItem('banana', 4, .5),
@@ -39,7 +39,7 @@
 from collections import namedtuple
 import inspect
 
-import promotions
+from beginPython.fluentPython.ch06 import promotions
 
 Customer = namedtuple('Customer', 'name fidelity')
 
