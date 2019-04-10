@@ -18,6 +18,8 @@
 """
 
 # BEGIN CLIP
+from beginPython.fluentPython.ch05 import tagger
+
 
 def clip(text, max_len=80):
     """Return text clipped at the last space before or after max_len
@@ -36,3 +38,14 @@ def clip(text, max_len=80):
     return text[:end].rstrip()
 
 # END CLIP
+
+from inspect import signature
+sig = signature(clip)
+print(sig)
+
+
+for name, param in sig.parameters.items():
+    print(param.kind, ':', name, '=', param.default)
+
+
+
