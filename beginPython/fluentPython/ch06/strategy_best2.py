@@ -102,6 +102,10 @@ promos = [globals()[name] for name in globals()  # <1>
             if name.endswith('_promo')  # <2>
             and name != 'best_promo']   # <3>
 
+print("===================================")
+print(globals())
+print("===================================")
+
 def best_promo(order):
     """Select best discount available
     """
