@@ -20,6 +20,8 @@
 True
 >>> bus1.passengers
 ['Bill', 'Charlie']
+>>> bus2.passengers is bus1.passengers
+False
 
 
 >>> dir(HauntedBus.__init__)  # doctest: +ELLIPSIS
