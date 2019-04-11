@@ -9,3 +9,4 @@ print(c)
 print(c[2])
 print(c[2][0])
 print(c[2][0][2])
+d = c[2][0][2]
