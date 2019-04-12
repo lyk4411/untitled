@@ -99,7 +99,9 @@ class Vector:
 
     def __repr__(self):
         components = reprlib.repr(self._components)  # <3>
+        # print("components1:", components)
         components = components[components.find('['):-1]  # <4>
+        # print("components2:", components)
         return 'Vector({})'.format(components)
 
     def __str__(self):
