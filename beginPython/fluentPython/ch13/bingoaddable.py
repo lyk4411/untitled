@@ -55,8 +55,8 @@ Tests for __iadd__:
 # BEGIN ADDABLE_BINGO
 import itertools  # <1>
 
-from tombola import Tombola
-from bingo import BingoCage
+from beginPython.fluentPython.ch11.tombola import Tombola
+from beginPython.fluentPython.ch11.bingo import BingoCage
 
 
 class AddableBingoCage(BingoCage):  # <2>
