@@ -207,7 +207,7 @@ Tests of ``+`` with mixed types::
 
     >>> v1 + (10, 20, 30)
     Vector([13.0, 24.0, 35.0])
-    >>> from vector2d_v3 import Vector2d
+    >>> from beginPython.fluentPython.ch09.vector2d_v3 import Vector2d
     >>> v2d = Vector2d(1, 2)
     >>> v1 + v2d
     Vector([4.0, 6.0, 5.0])
@@ -217,7 +217,7 @@ Tests of ``+`` with mixed types, swapped operands::
 
     >>> (10, 20, 30) + v1
     Vector([13.0, 24.0, 35.0])
-    >>> from vector2d_v3 import Vector2d
+    >>> from beginPython.fluentPython.ch13.vector2d_v3 import Vector2d
     >>> v2d = Vector2d(1, 2)
     >>> v2d + v1
     Vector([4.0, 6.0, 5.0])
@@ -268,7 +268,7 @@ Tests of operator `==`::
     >>> va == vb
     True
     >>> vc = Vector([1, 2])
-    >>> from vector2d_v3 import Vector2d
+    >>> from beginPython.fluentPython.ch09.vector2d_v3 import Vector2d
     >>> v2d = Vector2d(1, 2)
     >>> vc == v2d
     True
