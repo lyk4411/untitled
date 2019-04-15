@@ -1,6 +1,6 @@
 from random import shuffle
 
-from tombola import Tombola
+from beginPython.fluentPython.ch11.tombola import Tombola
 
 
 class TumblingDrum(Tombola):

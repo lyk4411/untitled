@@ -1,6 +1,6 @@
 from random import randrange
 
-from tombola import Tombola
+from beginPython.fluentPython.ch11.tombola import Tombola
 
 @Tombola.register  # <1>
 class TomboList(list):  # <2>

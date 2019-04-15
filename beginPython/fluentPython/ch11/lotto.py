@@ -2,7 +2,7 @@
 
 import random
 
-from tombola import Tombola
+from beginPython.fluentPython.ch11.tombola import Tombola
 
 
 class LotteryBlower(Tombola):

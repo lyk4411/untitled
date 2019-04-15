@@ -1,10 +1,10 @@
 # BEGIN TOMBOLA_RUNNER
 import doctest
 
-from tombola import Tombola
+from beginPython.fluentPython.ch11.tombola import Tombola
 
 # modules to test
-import bingo, lotto, tombolist, drum  # <1>
+from beginPython.fluentPython.ch11 import bingo, lotto, tombolist, drum  # <1>
 
 TEST_FILE = 'tombola_tests.rst'
 TEST_MSG = '{0:16} {1.attempted:2} tests, {1.failed:2} failed - {2}'
