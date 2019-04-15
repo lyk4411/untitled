@@ -33,3 +33,4 @@ if __name__ == '__main__':
     print(d.ping())
     print("=================================================")
     print(d.pingpong())
+    print(D.__mro__)
