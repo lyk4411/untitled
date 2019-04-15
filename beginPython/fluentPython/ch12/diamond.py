@@ -25,3 +25,11 @@ class D(B, C):
         self.pong()
         super().pong()
         C.pong(self)
+
+
+if __name__ == '__main__':
+    d = D()
+    print(d.pong())
+    print(d.ping())
+    print("=================================================")
+    print(d.pingpong())
