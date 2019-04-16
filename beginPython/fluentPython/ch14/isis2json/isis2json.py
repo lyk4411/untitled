@@ -44,8 +44,8 @@ INPUT_ENCODING = 'cp1252'
 
 
 def iter_iso_records(iso_file_name, isis_json_type):  # <1>
-    from iso2709 import IsoFile
-    from subfield import expand
+    from beginPython.fluentPython.ch14.isis2json.iso2709 import IsoFile
+    from beginPython.fluentPython.ch14.isis2json.subfield import expand
 
     iso = IsoFile(iso_file_name)
     for record in iso:
