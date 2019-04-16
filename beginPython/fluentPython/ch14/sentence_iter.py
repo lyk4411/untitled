@@ -54,6 +54,7 @@ def main():
         sys.exit(1)
     with open(filename, 'rt', encoding='utf-8') as text_file:
         s = Sentence(text_file.read())
+    print(list(enumerate(s, 1)))
     for n, word in enumerate(s, 1):
         if n == word_number:
             print(word)
