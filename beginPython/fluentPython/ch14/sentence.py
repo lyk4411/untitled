@@ -22,3 +22,12 @@ class Sentence:
 
     def __repr__(self):
         return 'Sentence(%s)' % reprlib.repr(self.text)  # <4>
+
+
+if __name__ == '__main__':
+    s = Sentence('"The time has com" the ykliu say')
+    print(s)
+    for w in s:
+        print(w)
+
+    print(list(s))
