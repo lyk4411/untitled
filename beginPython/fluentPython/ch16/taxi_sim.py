@@ -5,7 +5,7 @@ Taxi simulator
 
 Driving a taxi from the console::
 
-    >>> from taxi_sim import taxi_process
+    >>> from beginPython.fluentPython.ch16.taxi_sim import taxi_process
     >>> taxi = taxi_process(ident=13, trips=2, start_time=0)
     >>> next(taxi)
     Event(time=0, proc=13, action='leave garage')

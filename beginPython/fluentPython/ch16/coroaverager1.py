@@ -15,7 +15,7 @@ A coroutine to compute a running average
 
 """
 
-from coroutil import coroutine  # <4>
+from beginPython.fluentPython.ch16.coroutil import coroutine  # <4>
 
 @coroutine  # <5>
 def averager():  # <6>
