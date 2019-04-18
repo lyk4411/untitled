@@ -1,46 +1,4 @@
-"""
-A coroutine to compute a running average.
 
-Testing ``averager`` by itself::
-
-    >>> coro_avg = averager()
-    >>> next(coro_avg)
-    >>> coro_avg.send(10)
-    >>> coro_avg.send(30)
-    >>> coro_avg.send(6.5)
-    >>> coro_avg.send(None)
-    Traceback (most recent call last):
-       ...
-    StopIteration: Result(count=3, average=15.5)
-
-
-Driving it with ``yield from``::
-
-    >>> def summarize(results):
-    ...     while True:
-    ...         result = yield from averager()
-    ...         results.append(result)
-    ...
-    >>> results = []
-    >>> summary = summarize(results)
-    >>> next(summary)
-    >>> for height in data['girls;m']:
-    ...     summary.send(height)
-    ...
-    >>> summary.send(None)
-    >>> for height in data['boys;m']:
-    ...     summary.send(height)
-    ...
-    >>> summary.send(None)
-    >>> results == [
-    ...     Result(count=10, average=1.4279999999999997),
-    ...     Result(count=9, average=1.3888888888888888)
-    ... ]
-    True
-
-"""
-
-# BEGIN YIELD_FROM_AVERAGER
 from collections import namedtuple
 
 Result = namedtuple('Result', 'count average')
@@ -77,7 +35,7 @@ def main(data):  # <8>
             group.send(value)  # <11>
         group.send(None)  # important! <12>
 
-    # print(results)  # uncomment to debug
+    print(results)  # uncomment to debug
     report(results)
 
 
