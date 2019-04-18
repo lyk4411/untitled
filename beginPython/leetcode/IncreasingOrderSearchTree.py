@@ -14,7 +14,8 @@ class IncreasingOrderSearchTree(object):
 
         ans = cur = TreeNode(None)
         for v in inorder(root):
-            cur.right = cur = TreeNode(v)
+            cur.right = TreeNode(v)
+            cur = cur.right
         return ans.right
 
 if __name__ == '__main__':
