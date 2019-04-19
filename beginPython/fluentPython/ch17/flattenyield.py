@@ -15,3 +15,8 @@ def flatten(items, ingore_types=(str, bytes)):
 items = [1, 2, [3, 4, [5, 6], 7], 8]
 for x in flatten(items):
     print(x)
+
+
+items = ['Dave', 'Paula', ['Thomas', 'Lewis']]
+for x in flatten(items):  # 输出了整个字符串(并没有迭代字符串)
+    print(x)
