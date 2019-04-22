@@ -4,7 +4,7 @@ import sys
 import asyncio
 from aiohttp import web
 
-from charfinder import UnicodeNameIndex
+from beginPython.fluentPython.ch18.charfinder import UnicodeNameIndex
 
 TEMPLATE_NAME = 'http_charfinder.html'
 CONTENT_TYPE = 'text/html; charset=UTF-8'
