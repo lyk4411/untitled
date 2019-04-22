@@ -4,7 +4,7 @@
 import sys
 import asyncio
 
-from charfinder import UnicodeNameIndex  # <1>
+from beginPython.fluentPython.ch18.charfinder import UnicodeNameIndex  # <1>
 
 CRLF = b'\r\n'
 PROMPT = b'?> '
