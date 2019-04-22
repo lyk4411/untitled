@@ -40,6 +40,7 @@ def handle_queries(reader, writer):  # <3>
 
 # BEGIN TCP_CHARFINDER_MAIN
 def main(address='127.0.0.1', port=2323):  # <1>
+    # print(UnicodeNameIndex().describe('a'))
     port = int(port)
     loop = asyncio.get_event_loop()
     server_coro = asyncio.start_server(handle_queries, address, port,
