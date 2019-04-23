@@ -12,14 +12,14 @@ except ImportError:
 from concurrent.futures import (as_completed, ThreadPoolExecutor,
                                 ProcessPoolExecutor)
 
-URLS = ['http://www.google.com/',
+URLS = ['http://www.hao123.com/',
         # 'http://www.apple.com/',
         # 'http://www.ibm.com',
         # 'http://www.thisurlprobablydoesnotexist.com',
         # 'http://www.slashdot.org/',
         # 'http://www.python.org/',
         # 'http://www.bing.com/',
-        'http://www.facebook.com/'
+        'http://www.baidu.com/'
         # 'http://www.yahoo.com/',
         # 'http://www.youtube.com/',
         # 'http://www.blogger.com/'
