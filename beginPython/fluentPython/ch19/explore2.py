@@ -1,7 +1,7 @@
 """
 explore2.py: Script to explore the OSCON schedule feed
 
-    >>> from osconfeed import load
+    >>> from beginPython.fluentPython.ch19.osconfeed import load
     >>> raw_feed = load()
     >>> feed = FrozenJSON(raw_feed)
     >>> len(feed.Schedule.speakers)
