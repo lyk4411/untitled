@@ -31,6 +31,16 @@ No change was made::
     >>> raisins.weight
     10
 
+
+    >>> raisins2 = LineItem('Golden raisins', 100, 6.95)
+    >>> raisins2.weight, raisins2.description, raisins2.price
+    (100, 'Golden raisins', 6.95)
+
+    >>> raisins.weight
+    10
+
+    >>> raisins.weight, raisins.description, raisins.price
+    (10, 'Golden raisins', 6.95)
 """
 
 
