@@ -1,4 +1,4 @@
-from evalsupport import deco_alpha
+from beginPython.fluentPython.ch21.evalsupport import deco_alpha
 
 print('<[1]> evaltime module start')
 
