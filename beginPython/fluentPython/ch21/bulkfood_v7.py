@@ -41,7 +41,7 @@ If the descriptor is accessed in the class, the descriptor object is
 returned:
 
     >>> LineItem.weight  # doctest: +ELLIPSIS
-    <model_v7.Quantity object at 0x...>
+    <beginPython.fluentPython.ch21.model_v7.Quantity object at 0x...>
     >>> LineItem.weight.storage_name
     '_Quantity#weight'
 
@@ -62,7 +62,7 @@ for the description:
 """
 
 # BEGIN LINEITEM_V7
-import model_v7 as model
+import beginPython.fluentPython.ch21.model_v7 as model
 
 class LineItem(model.Entity):  # <1>
     description = model.NonBlank()
