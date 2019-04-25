@@ -1,5 +1,5 @@
-from evalsupport import deco_alpha
-from evalsupport import MetaAleph
+from beginPython.fluentPython.ch21.evalsupport import deco_alpha
+from beginPython.fluentPython.ch21.evalsupport import MetaAleph
 
 print('<[1]> evaltime_meta module start')
 
