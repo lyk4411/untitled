@@ -5,7 +5,7 @@
 # Class for performing safe substitutions
 class safesub(dict):
     def __missing__(self, key):
-        return '{%s}' % key
+        return '{%s}}}}' % key
 
 s = '{name} has {n} messages.'
 
