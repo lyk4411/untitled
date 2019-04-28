@@ -12,12 +12,13 @@ s = '{name} has {n} messages.'
 # (a) Simple substitution
 name = 'Guido'
 n = 37
+import sys
 print("===============================")
 print(s.format_map(vars()))
 print("===============================")
 print(vars())
 print("===============================")
-
+# print(sys._getframe(0).f_local)
 # (b) Safe substitution with missing values
 del n
 print(s.format_map(safesub(vars())))
