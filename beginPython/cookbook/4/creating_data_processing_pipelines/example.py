@@ -53,6 +53,8 @@ if __name__ == '__main__':
     for line in pylines:
         print(line)
 
+
+    print("====================================================================")
     # Example 2
     lognames = gen_find('access-log*', 'www')
     files = gen_opener(lognames)
