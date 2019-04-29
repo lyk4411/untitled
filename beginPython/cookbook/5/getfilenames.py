@@ -18,3 +18,16 @@ print(sys.getfilesystemencoding())
 
 print(os.listdir('.'))
 print(os.listdir(b'.'))
+
+
+def bad_filename(filename):
+    return repr(filename)[1:-1]
+
+
+print("=====================================")
+for name in os.listdir('.'):
+    try:
+        print(bad_filename(name))
+    except UnicodeEncodeError:
+        print("=====================================")
+        print(bad_filename(name))
