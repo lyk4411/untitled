@@ -15,4 +15,6 @@ def get_previous_byday(dayname, start_date=None):
 
 if __name__ == '__main__':
     print(get_previous_byday('Monday'))
+    print(get_previous_byday('Sunday'))
+
 
