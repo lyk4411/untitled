@@ -14,3 +14,7 @@ print(names2)
 
 import sys
 print(sys.getfilesystemencoding())
+
+
+print(os.listdir('.'))
+print(os.listdir(b'.'))
