@@ -13,3 +13,6 @@ def get_previous_byday(dayname, start_date=None):
     target_date = start_date - timedelta(days=days_ago)
     return target_date
 
+if __name__ == '__main__':
+    print(get_previous_byday('Monday'))
+
