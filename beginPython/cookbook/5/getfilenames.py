@@ -12,3 +12,5 @@ names2 = [name for name in os.listdir('.')
           if os.path.isfile(os.path.join('.',name))]
 print(names2)
 
+import sys
+print(sys.getfilesystemencoding())
