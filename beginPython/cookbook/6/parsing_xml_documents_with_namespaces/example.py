@@ -19,6 +19,7 @@ ns = XMLNamespaces(html='http://www.w3.org/1999/xhtml')
 
 e = doc.find(ns('content/{html}html'))
 print(e)
+print("=======================================================")
 
 text = doc.findtext(ns('content/{html}html/{html}head/{html}title'))
 print(text)
