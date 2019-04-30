@@ -19,7 +19,6 @@ print("================================================================")
 print(os.listdir('.'))
 print(os.listdir(b'.'))
 
-print("================================================================")
 def bad_filename(filename):
     return repr(filename)[1:-1]
 
@@ -31,3 +30,6 @@ for name in os.listdir('.'):
     except UnicodeEncodeError:
         print("=====================================")
         print(bad_filename(name))
+
+print("================================================================")
+
