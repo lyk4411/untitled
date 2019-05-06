@@ -12,18 +12,20 @@ class Task(object):
         return self.target.send(self.sendval)
 
 
-def foo():
-    print ("Part 1")
-    yield
-    print ("Part 2")
-    yield
+# def foo():
+#     print ("Part 1")
+#     yield
+#     print ("Part 2")
+#     yield
 
 
 # t1 = Task(foo())
 #
 # t1.run()
 # t1.run()
-
+class SystemCall(object):
+    def handle(self):
+        pass
 
 class Scheduler(object):
     def __init__(self):
@@ -45,6 +47,11 @@ class Scheduler(object):
             task = self.ready.get()
             try:
                 result = task.run()
+                if isinstance(result, SystemCall):
+                    result.task = task
+                    result.sched = self
+                    result.handle()
+                    continue
             except StopIteration:
                 self.exit(task)
                 continue
