@@ -19,16 +19,20 @@ def foo():
     yield
 
 
-t1 = Task(foo())
-
-t1.run()
-t1.run()
+# t1 = Task(foo())
+#
+# t1.run()
+# t1.run()
 
 
 class Scheduler(object):
     def __init__(self):
         self.ready = Queue()
         self.taskmap = {}
+
+    def exit(self, task):
+        print("Task %d terminated" % task.tid)
+        del self.taskmap[task.tid]
     def new(self,target):
         newtask = Task(target)
         self.taskmap[newtask.tid] = newtask
@@ -39,15 +43,19 @@ class Scheduler(object):
     def mainloop(self):
         while self.taskmap:
             task = self.ready.get()
-            result = task.run()
+            try:
+                result = task.run()
+            except StopIteration:
+                self.exit(task)
+                continue
             self.schedule(task)
 
 def foo():
-    while True:
+    for i in range(10):
         print ("I'm foo")
         yield
 def bar():
-    while True:
+    for i in range(10):
         print ("I'm bar")
         yield
 
