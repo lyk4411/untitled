@@ -62,6 +62,7 @@ class GetTid(SystemCall):
         self.task.sendval = self.task.tid
         self.sched.schedule(self.task)
 
+
 def foo():
     mytid = yield GetTid()
     for i in range(10):
