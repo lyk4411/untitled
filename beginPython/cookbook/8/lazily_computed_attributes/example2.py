@@ -27,9 +27,12 @@ if __name__ == '__main__':
             return 2 * math.pi * self.radius
 
     c = Circle(4)
+    print(vars(c))
+
     print(c.area)
+    print(vars(c))
     print(c.area)
-    c.area = 25
+    # c.area = 25
     print(c.area)
 
 
