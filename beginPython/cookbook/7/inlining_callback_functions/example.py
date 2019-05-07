@@ -14,6 +14,7 @@ from queue import Queue
 from functools import wraps
 
 class Async:
+    __slots__ = ['func','args']
     def __init__(self, func, args):
         self.func = func
         self.args = args
