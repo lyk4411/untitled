@@ -39,6 +39,8 @@ if __name__ == '__main__':
     s = Stock('ACME', 100, 490.1)
     print(s.name, s.shares, s.price)
     s.shares = 50
+    print(s.name, s.shares, s.price)
+
     try:
         s.shares = 'a lot'
     except TypeError as e:
