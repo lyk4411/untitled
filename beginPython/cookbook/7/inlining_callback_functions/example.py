@@ -38,7 +38,7 @@ def add(x, y):
     return x + y
 
 @inlined_async
-def test():
+def Htest():
     r = yield Async(add, (2, 3))
     print(r)
     r = yield Async(add, ('hello', 'world'))
@@ -51,11 +51,11 @@ def test():
 if __name__ == '__main__':
     # Simple test
     print('# --- Simple test')
-    test()
+    Htest()
 
     print('# --- Multiprocessing test')
     import multiprocessing
     pool = multiprocessing.Pool()
     apply_async = pool.apply_async
-    test()
+    Htest()
 
