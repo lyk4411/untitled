@@ -27,6 +27,10 @@ class Point:
 if __name__ == '__main__':
     p = Point(2, 3)
     print(p.x)
+    print("=====================================")
+    q = Point(4, 5)
+    print(p.x)
+    print(q.x)
     p.y = 5
     try:
         p.x = 2.3
