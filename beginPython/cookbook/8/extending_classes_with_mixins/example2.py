@@ -16,6 +16,7 @@ class RDict(RestrictKeysMixin, dict):
 d = RDict(_restrict_key_type=str)
 e = RDict([('name','Dave'), ('n',37)], _restrict_key_type=str)
 f = RDict(name='Dave', n=37, _restrict_key_type=str)
+print(e)
 print(f)
 try:
     f[42] = 10
