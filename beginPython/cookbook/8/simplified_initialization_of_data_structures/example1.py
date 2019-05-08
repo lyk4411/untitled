@@ -1,3 +1,6 @@
+import math
+
+
 class Structure:
     # Class variable that specifies expected fields
     _fields= []
