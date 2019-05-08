@@ -50,6 +50,7 @@ if __name__ == '__main__':
     # Register file streams and retry
     import io
     IStream.register(io.IOBase)
+    print("=================================")
 
     serialize(None, sys.stdout)
 
