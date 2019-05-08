@@ -51,9 +51,12 @@ if __name__ == '__main__':
         c.read()
     except RuntimeError as e:
         print(e)
+    print("===================================================")
 
     c.open()
     print(c)
+    print("===================================================")
+
     c.read()
     c.close()
     print(c)
