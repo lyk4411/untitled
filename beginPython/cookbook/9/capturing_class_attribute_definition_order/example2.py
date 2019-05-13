@@ -27,6 +27,6 @@ class A(metaclass=OrderedMeta):
         pass
 
     print('**** A type error is expected now:')
-    def spam(self):
-        pass
+    # def spam(self):
+    #     pass
  
