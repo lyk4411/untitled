@@ -75,7 +75,7 @@ class checkedmeta(type):
         return type.__new__(cls, clsname, bases, methods)
 
 # Testing code
-def test(s):
+def Atest(s):
     print(s.name)
     s.shares = 75
     print(s.shares)
@@ -107,7 +107,7 @@ if __name__ == '__main__':
             self.price = price
 
     s = Stock('ACME',50,91.1)
-    test(s)
+    Atest(s)
 
     print("# --- Class with class decorator")
     @check_attributes(name=SizedString(size=8), 
@@ -120,7 +120,7 @@ if __name__ == '__main__':
             self.price = price
 
     s = Stock('ACME',50,91.1)
-    test(s)
+    Atest(s)
 
     print("# --- Class with metaclass")
     class Stock(metaclass=checkedmeta):
@@ -133,5 +133,5 @@ if __name__ == '__main__':
             self.price = price
 
     s = Stock('ACME',50,91.1)
-    test(s)
+    Atest(s)
         
