@@ -1,3 +1,6 @@
+from functools import partial
+
+
 def typed_property(name, expected_type):
     storage_name = '_' + name
 
@@ -19,12 +22,26 @@ class Person:
     def __init__(self, name, age):
         self.name = name
         self.age = age
+String = partial(typed_property, expected_type = str)
+Integer = partial(typed_property, expected_type = int)
+class Person1:
+    name = String('name')
+    age = Integer('age')
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
 
 if __name__ == '__main__':
     p = Person('Dave', 39)
     p.name = 'Guido'
+    print(p.name)
     try:
         p.age = 'Old'
     except TypeError as e:
         print(e)
+
+    p1 = Person1('Dave', 39)
+    p1.name = 'Guido'
+    print(p1.name)
+
 
