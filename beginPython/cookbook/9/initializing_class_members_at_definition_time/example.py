@@ -30,3 +30,6 @@ if __name__ == '__main__':
         s.shares = 23
     except AttributeError as e:
         print(e)
+
+    p = Point(3, 4)
+    print(p)
