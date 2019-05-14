@@ -33,7 +33,10 @@ def test4():
     a = 13
     loc = { 'a' : a }
     glb = { }
+    print('before:loc', loc, ' glb:',glb)
     exec('b = a + 1', glb, loc)
+    print('after:loc', loc, ' glb:',glb)
+
     b = loc['b']
     print(b)
 
