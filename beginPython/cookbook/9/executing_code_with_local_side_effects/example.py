@@ -38,7 +38,7 @@ def test4():
     print('after:loc', loc, ' glb:',glb)
 
     b = loc['b']
-    print(b)
+    print('b:',b)
 
 if __name__ == '__main__':
     print(':::: Running test()')
