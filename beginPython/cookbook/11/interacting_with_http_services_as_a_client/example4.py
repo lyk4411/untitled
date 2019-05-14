@@ -5,9 +5,10 @@ import requests
 resp = requests.head('http://www.python.org/index.html')
 
 status = resp.status_code
-last_modified =	resp.headers['last-modified']
-content_type = resp.headers['content-type']
-content_length = resp.headers['content-length']
+print(resp.headers)
+last_modified =	resp.headers['Location']
+content_type = resp.headers['Connection']
+content_length = resp.headers['Content-length']
 
 print(status)
 print(last_modified)
