@@ -17,6 +17,8 @@ def test2():
     exec('x += 1')
     print('after:', loc)
     print('x =', x)
+    print('x =', loc['x'])
+
 
 def test3():
     x = 0
