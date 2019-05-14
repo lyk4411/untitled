@@ -1,4 +1,4 @@
-from postimport import when_imported
+from .postimport import when_imported
 from functools import wraps
 
 
