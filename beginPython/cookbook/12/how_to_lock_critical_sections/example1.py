@@ -22,7 +22,7 @@ class SharedCounter:
         with self._value_lock:
              self._value -= delta
 
-def test(c):
+def Atest(c):
     for n in range(1000000):
         c.incr()
     for n in range(1000000):
@@ -30,9 +30,9 @@ def test(c):
 
 if __name__ == '__main__':
     c = SharedCounter()
-    t1 = threading.Thread(target=test, args=(c,))
-    t2 = threading.Thread(target=test, args=(c,))
-    t3 = threading.Thread(target=test, args=(c,))
+    t1 = threading.Thread(target=Atest, args=(c,))
+    t2 = threading.Thread(target=Atest, args=(c,))
+    t3 = threading.Thread(target=Atest, args=(c,))
     t1.start()
     t2.start()
     t3.start()
