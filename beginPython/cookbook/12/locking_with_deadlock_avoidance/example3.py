@@ -5,6 +5,7 @@ from deadlock import acquire
 def philosopher(left, right):
     while True:
         with acquire(left,right):
+        # with left, right:
              print(threading.currentThread(), 'eating')
 
 # The chopsticks (represented by locks)
