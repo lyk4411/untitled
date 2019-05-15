@@ -19,7 +19,7 @@ class LazyConnection:
     def __exit__(self, exc_ty, exc_val, tb):
         self.local.connections.pop().close()
 
-def test(conn):
+def Atest(conn):
     # Example use
     from functools import partial
 
@@ -47,9 +47,9 @@ def test(conn):
 if __name__ == '__main__':
 
     conn = LazyConnection(('www.python.org', 80))
-    t1 = threading.Thread(target=test, args=(conn,))
-    t2 = threading.Thread(target=test, args=(conn,))
-    t3 = threading.Thread(target=test, args=(conn,))
+    t1 = threading.Thread(target=Atest, args=(conn,))
+    t2 = threading.Thread(target=Atest, args=(conn,))
+    t3 = threading.Thread(target=Atest, args=(conn,))
     t1.start()
     t2.start()
     t3.start()
