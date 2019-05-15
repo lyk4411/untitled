@@ -12,13 +12,13 @@ class CountdownTask:
         while self._running and n > 0:
             print("T-minus", n)
             n -= 1
-            time.sleep(5)
+            time.sleep(2)
 
 c = CountdownTask()
-t = Thread(target=c.run, args=(10,))
+t = Thread(target=c.run, args=(10,), daemon=True)
 t.start()
 
-time.sleep(20)
+time.sleep(10)
 print('About to terminate')
 c.terminate()
 t.join()
