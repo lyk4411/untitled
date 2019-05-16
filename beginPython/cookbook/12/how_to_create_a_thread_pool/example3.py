@@ -8,8 +8,8 @@ def fetch_url(url):
 
 pool = ThreadPoolExecutor(10)
 # Submit work to the pool
-a = pool.submit(fetch_url, 'http://www.python.org')
-b = pool.submit(fetch_url, 'http://www.pypy.org')
+a = pool.submit(fetch_url, 'http://hao123.com')
+b = pool.submit(fetch_url, 'http://baidu.com')
 
 # Get the results back
 x = a.result()
