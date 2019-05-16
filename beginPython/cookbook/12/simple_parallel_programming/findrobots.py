@@ -21,6 +21,7 @@ def find_all_robots(logdir):
     Find all hosts across and entire sequence of files
     '''
     files = glob.glob(logdir+"/*.log.gz")
+    print(files)
     all_robots = set()
     for robots in map(find_robots, files):
         all_robots.update(robots)
