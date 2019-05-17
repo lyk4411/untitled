@@ -39,8 +39,10 @@ if __name__ == '__main__':
     exc.send('msg2')
 
     exc.detach(task_a)
-    exc.detach(task_b)
     exc.send('msg3')
+
+    exc.detach(task_b)
+    exc.send('msg4')
 
 
             
