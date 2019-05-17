@@ -55,5 +55,5 @@ if __name__ == '__main__':
     sched.new_actor('counter', counter(sched))
 
     # Send an initial message to the counter to initiate
-    sched.send('counter', 10000)
+    sched.send('counter', 1000)
     sched.run()
