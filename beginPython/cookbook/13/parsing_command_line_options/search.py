@@ -3,6 +3,31 @@
 Hypothetical command line tool for searching a collection of
 files for one or more text patterns.
 '''
+
+
+# [yangdong@centos7 ~]$ python3 search.py -v -p spam --pat=eggs foo.txt bar.txt
+# filenames = ['foo.txt', 'bar.txt']
+# patterns  = ['spam', 'eggs']
+# verbose   = True
+# outfile   = None
+# speed     = slow
+#
+# [yangdong@centos7 ~]$ python3 search.py -v -p spam --pat=eggs foo.txt bar.txt -o results
+# filenames = ['foo.txt', 'bar.txt']
+# patterns  = ['spam', 'eggs']
+# verbose   = True
+# outfile   = results
+# speed     = slow
+#
+# [yangdong@centos7 ~]$ python3 search.py -v -p spam --pat=eggs foo.txt bar.txt -o results
+#              --speed=fast
+# filenames = ['foo.txt', 'bar.txt']
+# patterns  = ['spam', 'eggs']
+# verbose   = True
+# outfile   = results
+# speed     = fast
+
+
 import argparse
 parser = argparse.ArgumentParser(description='Search some files')
 
