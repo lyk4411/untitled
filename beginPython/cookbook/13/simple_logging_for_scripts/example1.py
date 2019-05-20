@@ -4,7 +4,7 @@ def main():
     # Configure the logging system
     logging.basicConfig(
         filename='app.log',
-        level=logging.ERROR
+        level=logging.DEBUG
     )
 
     # Variables (to make the calls that follow work)
