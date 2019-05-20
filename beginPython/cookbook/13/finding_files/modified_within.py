@@ -6,6 +6,7 @@ import time
 def modified_within(top, seconds):
     now = time.time()
     for path, dirs, files in os.walk(top):
+        print('       ',path, dirs, files)
         for name in files:
             fullpath = os.path.join(path, name)
             if os.path.exists(fullpath):
