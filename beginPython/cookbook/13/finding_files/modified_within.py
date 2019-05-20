@@ -23,6 +23,11 @@ if __name__ == '__main__':
     
     modified_within(sys.argv[1], float(sys.argv[2]))
 
+    print('===========================================')
+    print(list(os.walk('.')))
+    print(list(os.walk('..')))
+
+
     
 
     
