@@ -192,4 +192,6 @@ if __name__ == '__main__':
     print('==================================')
     print(getRecommendations(critics, 'Toby'))
     print(getRecommendations(critics, 'Toby', similarity=sim_distance))
+    print(getRecommendations(critics, 'Claudia Puig'))
+    print(getRecommendations(critics, 'Claudia Puig', similarity=sim_distance))
 
