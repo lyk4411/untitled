@@ -185,3 +185,6 @@ if __name__ == '__main__':
     print(sim_distance(critics, 'Lisa Rose', 'Jack Matthews'))
     print(sim_pearson(critics, 'Lisa Rose', 'Gene Seymour'))
     print(sim_pearson(critics, 'Lisa Rose', 'Jack Matthews'))
+
+    print('==================================')
+    print(topMatches(critics, 'Toby', 5))
