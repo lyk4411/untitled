@@ -131,7 +131,7 @@ def calculateSimilarItems(prefs,n=10):
   for item in itemPrefs:
     # Status updates for large datasets
     c+=1
-    if c%100==0: print "%d / %d" % (c,len(itemPrefs))
+    if c%100==0: print ("%d / %d" % (c,len(itemPrefs)))
     # Find the most similar items to this one
     scores=topMatches(itemPrefs,item,n=n,similarity=sim_distance)
     result[item]=scores
@@ -179,3 +179,6 @@ def loadMovieLens(path='/data/movielens'):
     prefs[user][movies[movieid]]=float(rating)
   return prefs
 
+
+if __name__ == '__main__':
+    print(sim_distance(critics, 'Lisa Rose', 'Gene Seymour'))
