@@ -194,4 +194,7 @@ if __name__ == '__main__':
     print(getRecommendations(critics, 'Toby', similarity=sim_distance))
     print(getRecommendations(critics, 'Claudia Puig'))
     print(getRecommendations(critics, 'Claudia Puig', similarity=sim_distance))
+    print('==================================')
+    movies = transformPrefs(critics)
+    print(topMatches(movies, 'Superman Returns'))
 
