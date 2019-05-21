@@ -187,4 +187,9 @@ if __name__ == '__main__':
     print(sim_pearson(critics, 'Lisa Rose', 'Jack Matthews'))
 
     print('==================================')
+    print(topMatches(critics, 'Lisa Rose', 5))
     print(topMatches(critics, 'Toby', 5))
+    print('==================================')
+    print(getRecommendations(critics, 'Toby'))
+    print(getRecommendations(critics, 'Toby', similarity=sim_distance))
+
