@@ -197,4 +197,6 @@ if __name__ == '__main__':
     print('==================================')
     movies = transformPrefs(critics)
     print(topMatches(movies, 'Superman Returns'))
+    print(getRecommendations(movies, 'Just My Luck'))
+
 
