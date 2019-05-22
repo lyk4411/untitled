@@ -168,10 +168,10 @@ class _Waiter:
         timeago = tt - self.lastcall
 
         if self.lastcall and DEBUG>2:
-            print >>sys.stderr, "Lastcall: %s seconds ago." % lastcall
+            print (sys.stderr, "Lastcall: %s seconds ago." % self.lastcall)
 
         if timeago <= self.wait:
-            if DEBUG>0: print >>sys.stderr, "Waiting %s seconds." % self.wait
+            if DEBUG>0: print (sys.stderr, "Waiting %s seconds." % self.wait)
             time.sleep(self.wait)
             self.waited += 1
             self.lastcall = tt + self.wait
