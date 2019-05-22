@@ -2,6 +2,8 @@ import feedparser
 import re
 
 # Returns title and dictionary of word counts for an RSS feed
+
+
 def getwordcounts(url):
   # Parse the feed
   d=feedparser.parse(url)
@@ -32,7 +34,7 @@ def getwords(html):
 
 apcount={}
 wordcounts={}
-feedlist=[line for line in file('feedlist.txt')]
+feedlist=[line for line in open('feedlist.txt')]
 for feedurl in feedlist:
   try:
     title,wc=getwordcounts(feedurl)
@@ -42,7 +44,7 @@ for feedurl in feedlist:
       if count>1:
         apcount[word]+=1
   except:
-    print 'Failed to parse feed %s' % feedurl
+    print ('Failed to parse feed %s' % feedurl)
 
 wordlist=[]
 for w,bc in apcount.items():
@@ -50,12 +52,12 @@ for w,bc in apcount.items():
   if frac>0.1 and frac<0.5:
     wordlist.append(w)
 
-out=file('blogdata1.txt','w')
+out=open('blogdata1.txt','w')
 out.write('Blog')
 for word in wordlist: out.write('\t%s' % word)
 out.write('\n')
 for blog,wc in wordcounts.items():
-  print blog
+  print (blog)
   out.write(blog)
   for word in wordlist:
     if word in wc: out.write('\t%d' % wc[word])
