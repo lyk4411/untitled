@@ -293,6 +293,16 @@ def draw2d(data,labels,jpeg='mds2d.jpg'):
   img.save(jpeg,'JPEG')
 
 
+def tanimoto(v1, v2):
+  c1,c2,shr = 0,0,0
+  for i in range(len(v1)):
+    if v1[i] != 0: c1 += 1
+    if v2[i] != 0: c2 += 1
+    if v1[i] != 0 and v2[i] != 0: shr += 1
+
+  return 1.0 - (float(shr)/(c1 + c2 - shr))
+
+
 if __name__ == '__main__':
   blognames,words,data= readfile('blogdata.txt')
   # clust = hcluster(data)
@@ -305,8 +315,16 @@ if __name__ == '__main__':
   #
   # print('==============================')
   # drawdendrogram(clust, blognames, jpeg='blogclust.jpg')
-  kclust = kcluster(data, k = 10)
-  print('==============================')
-  print([blognames[r] for r in kclust[0]])
-  print([blognames[r] for r in kclust[1]])
+  # kclust = kcluster(data, k = 10)
+  # print('==============================')
+  # print([blognames[r] for r in kclust[0]])
+  # print([blognames[r] for r in kclust[1]])
 
+  # print('==============================')
+  # wants, people, data = readfile('zebo.txt')
+  # clust = hcluster(data, distance =tanimoto)
+  # drawdendrogram(clust, wants)
+
+  print('==============================')
+  coords = scaledown(data)
+  draw2d(coords, blognames, jpeg='blogs2d.jpg')
