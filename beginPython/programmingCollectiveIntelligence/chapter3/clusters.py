@@ -173,17 +173,20 @@ import random
 
 def kcluster(rows,distance=pearson,k=4):
   # Determine the minimum and maximum values for each point
-  ranges=[(min([row[i] for row in rows]),max([row[i] for row in rows])) 
+  ranges=[(min([row[i] for row in rows]),max([row[i] for row in rows]))
   for i in range(len(rows[0]))]
+  # print(ranges)
 
   # Create k randomly placed centroids
   clusters=[[random.random()*(ranges[i][1]-ranges[i][0])+ranges[i][0] 
   for i in range(len(rows[0]))] for j in range(k)]
+  print(clusters)
   
   lastmatches=None
   for t in range(100):
     print ('Iteration %d' % t)
     bestmatches=[[] for i in range(k)]
+    # print(bestmatches)
     
     # Find which centroid is the closest for each row
     for j in range(len(rows)):
