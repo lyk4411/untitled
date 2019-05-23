@@ -173,6 +173,7 @@ import random
 
 def kcluster(rows,distance=pearson,k=4):
   # Determine the minimum and maximum values for each point
+  # print(len(rows))
   ranges=[(min([row[i] for row in rows]),max([row[i] for row in rows]))
   for i in range(len(rows[0]))]
   # print(ranges)
@@ -180,8 +181,10 @@ def kcluster(rows,distance=pearson,k=4):
   # Create k randomly placed centroids
   clusters=[[random.random()*(ranges[i][1]-ranges[i][0])+ranges[i][0] 
   for i in range(len(rows[0]))] for j in range(k)]
-  print(clusters)
-  
+  # print(clusters)
+  # print(len(clusters))
+  # print(len(clusters[0]))
+
   lastmatches=None
   for t in range(100):
     print ('Iteration %d' % t)
@@ -193,6 +196,11 @@ def kcluster(rows,distance=pearson,k=4):
       row=rows[j]
       bestmatch=0
       for i in range(k):
+        # print(row)
+        # print(clusters[i])
+        # print(len(row))
+        # print(len(clusters[i]))
+        # print('=========================================')
         d=distance(clusters[i],row)
         if d<distance(clusters[bestmatch],row): bestmatch=i
       bestmatches[bestmatch].append(j)
@@ -200,6 +208,7 @@ def kcluster(rows,distance=pearson,k=4):
     # If the results are the same as last time, this is complete
     if bestmatches==lastmatches: break
     lastmatches=bestmatches
+    # print(lastmatches)
     
     # Move the centroids to the average of their members
     for i in range(k):
