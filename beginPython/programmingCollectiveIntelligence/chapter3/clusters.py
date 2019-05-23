@@ -227,6 +227,7 @@ def tanamoto(v1,v2):
 def scaledown(data,distance=pearson,rate=0.01):
   n=len(data)
 
+
   # The real distances between every pair of items
   realdist=[[distance(data[i],data[j]) for j in range(n)] 
              for i in range(0,n)]
