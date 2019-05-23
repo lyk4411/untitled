@@ -1,8 +1,9 @@
-import urllib2
-from BeautifulSoup import *
-from urlparse import urljoin
-from pysqlite2 import dbapi2 as sqlite
-import nn
+import re
+import urllib as urllib2
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
+import sqlite3 as sqlite
+from beginPython.programmingCollectiveIntelligence.chapter4 import nn
 mynet=nn.searchnet('nn.db')
 
 # Create a list of words to ignore
@@ -37,7 +38,7 @@ class crawler:
   # Index an individual page
   def addtoindex(self,url,soup):
     if self.isindexed(url): return
-    print 'Indexing '+url
+    print ('Indexing '+url)
   
     # Get the individual words
     text=self.gettextonly(soup)
@@ -58,7 +59,7 @@ class crawler:
   # Extract the text from an HTML page (no tags)
   def gettextonly(self,soup):
     v=soup.string
-    if v==Null:   
+    if v==None:
       c=soup.contents
       resulttext=''
       for t in c:
@@ -101,7 +102,7 @@ class crawler:
         try:
           c=urllib2.urlopen(page)
         except:
-          print "Could not open %s" % page
+          print ("Could not open %s" % page)
           continue
         try:
           soup=BeautifulSoup(c.read())
@@ -120,7 +121,7 @@ class crawler:
   
           self.dbcommit()
         except:
-          print "Could not parse page %s" % page
+          print ("Could not parse page %s" % page)
 
       pages=newpages
 
@@ -150,7 +151,7 @@ class crawler:
     self.dbcommit()
     
     for i in range(iterations):
-      print "Iteration %d" % (i)
+      print ("Iteration %d" % (i))
       for (urlid,) in self.con.execute('select rowid from urllist'):
         pr=0.15
         
@@ -205,7 +206,7 @@ class searcher:
 
     # Create the query from the separate parts
     fullquery='select %s from %s where %s' % (fieldlist,tablelist,clauselist)
-    print fullquery
+    print (fullquery)
     cur=self.con.execute(fullquery)
     rows=[row for row in cur]
 
@@ -237,7 +238,7 @@ class searcher:
     rankedscores.sort()
     rankedscores.reverse()
     for (score,urlid) in rankedscores[0:10]:
-      print '%f\t%s' % (score,self.geturlname(urlid))
+      print ('%f\t%s' % (score,self.geturlname(urlid)))
     return wordids,[r[1] for r in rankedscores[0:10]]
 
   def normalizescores(self,scores,smallIsBetter=0):
