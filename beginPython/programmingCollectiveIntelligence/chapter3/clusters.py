@@ -236,15 +236,15 @@ def tanamoto(v1,v2):
 def scaledown(data,distance=pearson,rate=0.01):
   n=len(data)
 
-
   # The real distances between every pair of items
   realdist=[[distance(data[i],data[j]) for j in range(n)] 
              for i in range(0,n)]
+  print(realdist)
 
   # Randomly initialize the starting points of the locations in 2D
   loc=[[random.random(),random.random()] for i in range(n)]
   fakedist=[[0.0 for j in range(n)] for i in range(n)]
-  
+
   lasterror=None
   for m in range(0,1000):
     # Find projected distances
@@ -270,7 +270,7 @@ def scaledown(data,distance=pearson,rate=0.01):
 
         # Keep track of the total error
         totalerror+=abs(errorterm)
-    print (totalerror)
+    # print (totalerror)
 
     # If the answer got worse by moving the points, we are done
     if lasterror and lasterror<totalerror: break
@@ -327,4 +327,4 @@ if __name__ == '__main__':
 
   print('==============================')
   coords = scaledown(data)
-  draw2d(coords, blognames, jpeg='blogs2d.jpg')
+  # draw2d(coords, blognames, jpeg='blogs2d.jpg')
