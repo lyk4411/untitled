@@ -282,10 +282,18 @@ def draw2d(data,labels,jpeg='mds2d.jpg'):
 
 if __name__ == '__main__':
   blognames,words,data= readfile('blogdata.txt')
-  clust = hcluster(data)
-  printclust(clust, labels=blognames)
+  # clust = hcluster(data)
+  # printclust(clust, labels=blognames)
 
+  # print('==============================')
+  # rdata = rotatematrix(data)
+  # wordclust = hcluster(rdata)
+  # drawdendrogram(wordclust, labels=words,jpeg='wordclust.jpg')
+  #
+  # print('==============================')
+  # drawdendrogram(clust, blognames, jpeg='blogclust.jpg')
+  kclust = kcluster(data, k = 10)
   print('==============================')
-  rdata = rotatematrix(data)
-  wordclust = hcluster(rdata)
-  drawdendrogram(wordclust, labels=words,jpeg='wordclust.jpg')
+  print([blognames[r] for r in kclust[0]])
+  print([blognames[r] for r in kclust[1]])
+
