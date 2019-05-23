@@ -1,5 +1,7 @@
 from math import tanh
 import sqlite3 as sqlite
+import urllib.request
+
 
 def dtanh(y):
     return 1.0-y*y
@@ -160,3 +162,9 @@ class searchnet:
           for k in range(len(self.urlids)):
               self.setstrength(self.hiddenids[j],self.urlids[k],1,self.wo[j][k])
       self.con.commit()
+
+
+if __name__ == '__main__':
+    c = urllib.request.urlopen('http://hao123.com')
+    contents = c.read()
+    print(contents[:])
