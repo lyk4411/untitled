@@ -2,6 +2,7 @@ import time
 import random
 import math
 
+
 people = [('Seymour','BOS'),
           ('Franny','DAL'),
           ('Zooey','CAK'),
@@ -13,7 +14,7 @@ destination='LGA'
 
 flights={}
 # 
-for line in file('schedule.txt'):
+for line in open('schedule.txt'):
   origin,dest,depart,arrive,price=line.strip().split(',')
   flights.setdefault((origin,dest),[])
 
@@ -30,9 +31,9 @@ def printschedule(r):
     origin=people[d][1]
     out=flights[(origin,destination)][int(r[d])]
     ret=flights[(destination,origin)][int(r[d+1])]
-    print '%10s%10s %5s-%5s $%3s %5s-%5s $%3s' % (name,origin,
+    print ('%10s%10s %5s-%5s $%3s %5s-%5s $%3s' % (name,origin,
                                                   out[0],out[1],out[2],
-                                                  ret[0],ret[1],ret[2])
+                                                  ret[0],ret[1],ret[2]))
 
 def schedulecost(sol):
   totalprice=0
@@ -196,6 +197,6 @@ def geneticoptimize(domain,costf,popsize=50,step=1,
         pop.append(crossover(ranked[c1],ranked[c2]))
     
     # Print current best score
-    print scores[0][0]
+    print (scores[0][0])
     
   return scores[0][1]
