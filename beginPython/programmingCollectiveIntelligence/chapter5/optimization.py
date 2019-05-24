@@ -26,7 +26,7 @@ def getminutes(t):
   return x[3]*60+x[4]
 
 def printschedule(r):
-  for d in range(len(r)/2):
+  for d in range(len(r)//2):
     name=people[d][0]
     origin=people[d][1]
     out=flights[(origin,destination)][int(r[d])]
@@ -200,3 +200,8 @@ def geneticoptimize(domain,costf,popsize=50,step=1,
     print (scores[0][0])
     
   return scores[0][1]
+
+
+if __name__ == '__main__':
+  s = [1, 4, 3, 2, 7, 3, 6, 3, 2, 4, 5, 3]
+  printschedule(s)
