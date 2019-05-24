@@ -40,7 +40,7 @@ def schedulecost(sol):
   latestarrival=0
   earliestdep=24*60
 
-  for d in range(len(sol)/2):
+  for d in range(len(sol)//2):
     # Get the inbound and outbound flights
     origin=people[d][1]
     outbound=flights[(origin,destination)][int(sol[d])]
@@ -57,7 +57,7 @@ def schedulecost(sol):
   # Every person must wait at the airport until the latest person arrives.
   # They also must arrive at the same time and wait for their flights.
   totalwait=0  
-  for d in range(len(sol)/2):
+  for d in range(len(sol)//2):
     origin=people[d][1]
     outbound=flights[(origin,destination)][int(sol[d])]
     returnf=flights[(destination,origin)][int(sol[d+1])]
@@ -205,3 +205,5 @@ def geneticoptimize(domain,costf,popsize=50,step=1,
 if __name__ == '__main__':
   s = [1, 4, 3, 2, 7, 3, 6, 3, 2, 4, 5, 3]
   printschedule(s)
+
+  print('schedule cost:',schedulecost(s))
