@@ -100,7 +100,7 @@ class crawler:
       newpages={}
       for page in pages:
         try:
-          c=urllib2.urlopen(page)
+          c=urllib2.request.urlopen(page)
         except:
           print ("Could not open %s" % page)
           continue
@@ -305,3 +305,9 @@ class searcher:
     nnres=mynet.getresult(wordids,urlids)
     scores=dict([(urlids[i],nnres[i]) for i in range(len(urlids))])
     return self.normalizescores(scores)
+
+
+if __name__ == '__main__':
+    pagelist=['http://kiwitobes.com/wiki/Perl.html','http://hao123.com']
+    crawler = crawler('')
+    crawler.crawl(pagelist)
