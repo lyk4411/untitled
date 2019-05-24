@@ -72,7 +72,7 @@ def schedulecost(sol):
 def randomoptimize(domain,costf):
   best=999999999
   bestr=None
-  for i in range(0,1000):
+  for i in range(0,10000):
     # Create a random solution
     r=[float(random.randint(domain[i][0],domain[i][1])) 
        for i in range(len(domain))]
@@ -90,6 +90,7 @@ def hillclimb(domain,costf):
   # Create a random solution
   sol=[random.randint(domain[i][0],domain[i][1])
       for i in range(len(domain))]
+  print('sol:',sol)
   # Main loop
   while 1:
     # Create list of neighboring solutions
@@ -211,3 +212,21 @@ if __name__ == '__main__':
   print('====================================================')
 
   print('schedule cost:',schedulecost(s))
+  # print('====================================================')
+  domain = [(0, 9)] * (len(people)*2)
+  # s = randomoptimize(domain, schedulecost)
+  # print(domain)
+  # print(schedulecost(s))
+  # printschedule(s)
+  print('====================================================')
+  s = hillclimb(domain, schedulecost)
+  print(schedulecost(s))
+  printschedule(s)
+  print('====================================================')
+  s= annealingoptimize(domain, schedulecost)
+  print(schedulecost(s))
+  printschedule(s)
+  print('====================================================')
+  s = geneticoptimize(domain, schedulecost)
+  print(schedulecost(s))
+  printschedule(s)
