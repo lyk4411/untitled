@@ -205,5 +205,9 @@ def geneticoptimize(domain,costf,popsize=50,step=1,
 if __name__ == '__main__':
   s = [1, 4, 3, 2, 7, 3, 6, 3, 2, 4, 5, 3]
   printschedule(s)
+  print('====================================================')
+  for a in flights.items():
+    print(a)
+  print('====================================================')
 
   print('schedule cost:',schedulecost(s))
