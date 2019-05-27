@@ -1,5 +1,5 @@
 import time
-import urllib2
+import urllib
 import xml.dom.minidom
 
 kayakkey='YOUR KEY HERE'
@@ -9,7 +9,7 @@ def getkayaksession():
   url='http://www.kayak.com/k/ident/apisession?token=%s&version=1' % kayakkey
   
   # Parse the resulting XML
-  doc=xml.dom.minidom.parseString(urllib2.urlopen(url).read())
+  doc=xml.dom.minidom.parseString(urllib.request.urlopen(url).read())
   
   # Find <sid>xxxxxxxx</sid>
   sid=doc.getElementsByTagName('sid')[0].firstChild.data
@@ -25,7 +25,7 @@ def flightsearch(sid,origin,destination,depart_date):
   url+='&_sid_=%s&version=1' % (sid)
 
   # Get the XML
-  doc=xml.dom.minidom.parseString(urllib2.urlopen(url).read())
+  doc=xml.dom.minidom.parseString(urllib.request.urlopen(url).read())
 
   # Extract the search ID
   searchid=doc.getElementsByTagName('searchid')[0].firstChild.data
@@ -43,7 +43,7 @@ def flightsearchresults(sid,searchid):
     # Construct URL for polling
     url='http://www.kayak.com/s/basic/flight?'
     url+='searchid=%s&c=5&apimode=1&_sid_=%s&version=1' % (searchid,sid)
-    doc=xml.dom.minidom.parseString(urllib2.urlopen(url).read())
+    doc=xml.dom.minidom.parseString(urllib.request.urlopen(url).read())
 
     # Look for morepending tag, and wait until it is no longer true
     morepending=doc.getElementsByTagName('morepending')[0].firstChild
@@ -52,7 +52,7 @@ def flightsearchresults(sid,searchid):
   # Now download the complete list
   url='http://www.kayak.com/s/basic/flight?'
   url+='searchid=%s&c=999&apimode=1&_sid_=%s&version=1' % (searchid,sid)
-  doc=xml.dom.minidom.parseString(urllib2.urlopen(url).read())
+  doc=xml.dom.minidom.parseString(urllib.request.urlopen(url).read())
 
   # Get the various elements as lists
   prices=doc.getElementsByTagName('price')
