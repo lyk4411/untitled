@@ -55,3 +55,6 @@ def dormcost(vec):
     del slots[x]
     
   return cost
+
+if __name__ == '__main__':
+    printsolution([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
