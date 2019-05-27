@@ -2,6 +2,8 @@ import random
 import math
 
 # The dorms, each of which has two available spaces
+from beginPython.programmingCollectiveIntelligence.chapter5 import optimization
+
 dorms=['Zeus','Athena','Hercules','Bacchus','Pluto']
 
 # People, along with their first and second choices
@@ -23,7 +25,7 @@ def printsolution(vec):
   slots=[]
   # Create two slots for each dorm
   for i in range(len(dorms)): slots+=[i,i]
-
+  # print(slots)
   # Loop over each students assignment
   for i in range(len(vec)):
     x=int(vec[i])
@@ -58,3 +60,13 @@ def dormcost(vec):
 
 if __name__ == '__main__':
     printsolution([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    print('=================================')
+    s = optimization.randomoptimize(domain, dormcost)
+    print(dormcost(s))
+    printsolution(s)
+    print('=================================')
+    s = optimization.annealingoptimize(domain, dormcost)
+    print(dormcost(s))
+    printsolution(s)
+    print('=================================')
+
