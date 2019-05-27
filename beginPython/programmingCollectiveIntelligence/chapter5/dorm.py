@@ -54,7 +54,7 @@ def dormcost(vec):
     # Not on the list costs 3
 
     # Remove selected slot
-    del slots[x]
+    # del slots[x]
     
   return cost
 
@@ -69,4 +69,7 @@ if __name__ == '__main__':
     print(dormcost(s))
     printsolution(s)
     print('=================================')
-
+    s = optimization.hillclimb(domain, dormcost)
+    print(dormcost(s))
+    printsolution(s)
+    print('=================================')
