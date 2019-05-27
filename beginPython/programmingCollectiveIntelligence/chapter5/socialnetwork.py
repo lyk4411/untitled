@@ -1,5 +1,7 @@
 import math
 
+from beginPython.programmingCollectiveIntelligence.chapter5 import optimization
+
 people=['Charlie','Augustus','Veruca','Violet','Mike','Joe','Willy','Miranda']
 
 links=[('Augustus', 'Willy'), 
@@ -75,3 +77,9 @@ def drawnetwork(sol):
 
 
 domain=[(10,370)]*(len(people)*2)
+
+if __name__ == '__main__':
+    sol = optimization.randomoptimize(domain, crosscount)
+    print(crosscount(sol))
+    sol = optimization.annealingoptimize(domain, crosscount, step=50, cool=0.99)
+    print(crosscount(sol))
