@@ -1,4 +1,4 @@
-from pysqlite2 import dbapi2 as sqlite
+# from pysqlite2 import dbapi2 as sqlite
 import re
 import math
 
@@ -203,3 +203,10 @@ def sampletrain(cl):
   cl.train('buy pharmaceuticals now','bad')
   cl.train('make quick money at the online casino','bad')
   cl.train('the quick brown fox jumps','good')
+
+if __name__ == '__main__':
+    cl = classifier(getwords)
+    cl.train('the quick brown fox jumps over the lazy dog', 'good')
+    cl.train('make quick money in the online casino', 'bad')
+    print(cl.fcount('quick', 'good'))
+    print(cl.fcount('quick', 'bad'))
