@@ -311,3 +311,4 @@ if __name__ == '__main__':
     pagelist=['http://kiwitobes.com/wiki/Perl.html','http://hao123.com']
     crawler = crawler('')
     crawler.crawl(pagelist)
+
