@@ -215,11 +215,15 @@ class searcher:
     totalscores=dict([(row[0],0) for row in rows])
 
     # This is where we'll put our scoring functions
-    weights=[(1.0,self.locationscore(rows)), 
-             (1.0,self.frequencyscore(rows)),
-             (1.0,self.pagerankscore(rows)),
-             (1.0,self.linktextscore(rows,wordids)),
-             (5.0,self.nnscore(rows,wordids))]
+    # weights=[(1.0,self.locationscore(rows)),
+    #          (1.0,self.frequencyscore(rows)),
+    #          (1.0,self.pagerankscore(rows)),
+    #          (1.0,self.linktextscore(rows,wordids)),
+    #          (5.0,self.nnscore(rows,wordids))]
+    # weights = [(1.0, self.frequencyscore(rows))]
+    # weights = [(1.0, self.locationscore(rows))]
+    weights = [(1.0, self.distancescore(rows))]
+
     for (weight,scores) in weights:
       for url in totalscores:
         totalscores[url]+=weight*scores[url]
@@ -238,7 +242,7 @@ class searcher:
     rankedscores.reverse()
     for (score,urlid) in rankedscores[0:10]:
       print ('%f\t%s' % (score,self.geturlname(urlid)))
-    return wordids,[r[1] for r in rankedscores[0:10]]
+    # return wordids,[r[1] for r in rankedscores[0:10]]
 
   def normalizescores(self,scores,smallIsBetter=0):
     vsmall=0.00001 # Avoid division by zero errors
@@ -257,8 +261,11 @@ class searcher:
 
   def locationscore(self,rows):
     locations=dict([(row[0],1000000) for row in rows])
+    # print(rows)
+    # print(rows[0])
     for row in rows:
-      loc=sum(row[1:])
+      # print(row[1:],sum(row[1:]),row[0])
+      loc=sum(row[2:])
       if loc<locations[row[0]]: locations[row[0]]=loc
     
     return self.normalizescores(locations,smallIsBetter=1)
@@ -266,13 +273,14 @@ class searcher:
   def distancescore(self,rows):
     # If there's only one word, everyone wins!
     if len(rows[0])<=2: return dict([(row[0],1.0) for row in rows])
-
+    print('==========================================================================================================================================')
+    print(rows)
     # Initialize the dictionary with large values
     mindistance=dict([(row[0],1000000) for row in rows])
 
-    for row in rows:
-      dist=sum([abs(row[i]-row[i-1]) for i in range(2,len(row))])
-      if dist<mindistance[row[0]]: mindistance[row[0]]=dist
+    for i in range(len(rows)):
+      dist=abs(rows[i][2]-rows[i-1][2])
+      if dist<mindistance[rows[i][0]]: mindistance[rows[i][0]]=dist
     return self.normalizescores(mindistance,smallIsBetter=1)
 
   def inboundlinkscore(self,rows):
@@ -328,6 +336,6 @@ if __name__ == '__main__':
     print('===========================================')
 
     e = searcher('searchindex.db')
-    print(e.getmatchrows('six ten'))
+    print(e.query('functional programming'))
 
 
