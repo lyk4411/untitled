@@ -197,8 +197,7 @@ class searcher:
         wordids.append(wordid)
         if tablenumber>0:
           tablelist+=','
-          clauselist+=' and '
-          clauselist+='w%d.urlid=w%d.urlid and ' % (tablenumber-1,tablenumber)
+          clauselist+=' and  w%d.urlid=w%d.urlid and ' % (tablenumber-1,tablenumber)
         fieldlist+=',w%d.location' % tablenumber
         tablelist+='wordlocation w%d' % tablenumber      
         clauselist+='w%d.wordid=%d' % (tablenumber,wordid)
@@ -308,7 +307,27 @@ class searcher:
 
 
 if __name__ == '__main__':
-    pagelist=['http://kiwitobes.com/wiki/Perl.html','http://hao123.com']
-    crawler = crawler('')
-    crawler.crawl(pagelist)
+    # pagelist=[u'http://hao123.com'.encode('utf-8')]
+    # crawler = crawler('')
+    # crawler.crawl(pagelist)
+
+    # crawler = searchengine.crawler('searchindex.db')
+    crawler = crawler('searchindex.db')
+    # crawler.createindextables()
+    #
+    # pages=[u'http://hao123.com'.encode('utf-8')]
+    # crawler.crawl(pages)
+
+    # print([row for row in crawler.con.execute('select * from wordlocation WHERE wordid = 1')])
+    print([row for row in crawler.con.execute("select rowid,word,* from wordlist where rowid = 200")])
+    print([row for row in crawler.con.execute("select rowid,* from linkwords where wordid = 200")])
+    print([row for row in crawler.con.execute("select rowid,* from link where rowid = 17788")])
+    print([row for row in crawler.con.execute("select rowid,* from urllist where rowid = 432 or rowid = 7322")])
+    print("result:",[row for row in crawler.con.execute("select rowid,* from wordlocation where urlid = 432 and wordid = 200")])
+    print("result:",[row for row in crawler.con.execute("select rowid,* from wordlocation where urlid = 7322 and wordid = 200")])
+    print('===========================================')
+
+    e = searcher('searchindex.db')
+    print(e.getmatchrows('six ten'))
+
 
