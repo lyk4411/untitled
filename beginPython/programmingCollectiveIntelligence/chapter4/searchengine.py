@@ -215,15 +215,15 @@ class searcher:
     totalscores=dict([(row[0],0) for row in rows])
 
     # This is where we'll put our scoring functions
-    # weights=[(1.0,self.locationscore(rows)),
-    #          (1.0,self.frequencyscore(rows)),
-    #          (1.0,self.pagerankscore(rows)),
-    #          (1.0,self.linktextscore(rows,wordids)),
-    #          (5.0,self.nnscore(rows,wordids))]
+    weights=[(1.0,self.locationscore(rows)),
+             (1.0,self.frequencyscore(rows)),
+             (1.0,self.pagerankscore(rows)),
+             (1.0,self.linktextscore(rows,wordids)),
+             (5.0,self.nnscore(rows,wordids))]
     # weights = [(1.0, self.frequencyscore(rows))]
     # weights = [(1.0, self.locationscore(rows))]
-    weights = [(1.0, self.distancescore(rows)),
-               (1.0, self.linktextscore(rows, wordids))]
+    # weights = [(1.0, self.distancescore(rows)),
+    #            (1.0, self.linktextscore(rows, wordids))]
 
     for (weight,scores) in weights:
       for url in totalscores:
@@ -242,8 +242,8 @@ class searcher:
     rankedscores.sort()
     rankedscores.reverse()
     for (score,urlid) in rankedscores[0:10]:
-      print ('%f\t%s' % (score,self.geturlname(urlid)))
-    # return wordids,[r[1] for r in rankedscores[0:10]]
+      print ('%f\t%s\t%s' % (score,self.geturlname(urlid), urlid))
+    return wordids,[r[1] for r in rankedscores[0:10]]
 
   def normalizescores(self,scores,smallIsBetter=0):
     vsmall=0.00001 # Avoid division by zero errors
@@ -338,9 +338,11 @@ if __name__ == '__main__':
     # print('===========================================')
     #
     e = searcher('searchindex.db')
-    print(e.query('functional programming'))
+    print("query:   ",e.query('functional programming'))
+    print("=============================================")
     # crawler.calculatepagerank()
     cur = crawler.con.execute('select * from pagerank ORDER BY score DESC')
     for i in range(10): print(cur.fetchone())
     print("urlname: ",e.geturlname(438))
+
 
