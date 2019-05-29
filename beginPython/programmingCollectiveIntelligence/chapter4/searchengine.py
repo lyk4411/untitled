@@ -222,7 +222,8 @@ class searcher:
     #          (5.0,self.nnscore(rows,wordids))]
     # weights = [(1.0, self.frequencyscore(rows))]
     # weights = [(1.0, self.locationscore(rows))]
-    weights = [(1.0, self.distancescore(rows))]
+    weights = [(1.0, self.distancescore(rows)),
+               (1.0, self.linktextscore(rows, wordids))]
 
     for (weight,scores) in weights:
       for url in totalscores:
@@ -328,15 +329,18 @@ if __name__ == '__main__':
     # crawler.crawl(pages)
 
     # print([row for row in crawler.con.execute('select * from wordlocation WHERE wordid = 1')])
-    print([row for row in crawler.con.execute("select rowid,word,* from wordlist where rowid = 200")])
-    print([row for row in crawler.con.execute("select rowid,* from linkwords where wordid = 200")])
-    print([row for row in crawler.con.execute("select rowid,* from link where rowid = 17788")])
-    print([row for row in crawler.con.execute("select rowid,* from urllist where rowid = 432 or rowid = 7322")])
-    print("result:",[row for row in crawler.con.execute("select rowid,* from wordlocation where urlid = 432 and wordid = 200")])
-    print("result:",[row for row in crawler.con.execute("select rowid,* from wordlocation where urlid = 7322 and wordid = 200")])
-    print('===========================================')
-
+    # print([row for row in crawler.con.execute("select rowid,word,* from wordlist where rowid = 200")])
+    # print([row for row in crawler.con.execute("select rowid,* from linkwords where wordid = 200")])
+    # print([row for row in crawler.con.execute("select rowid,* from link where rowid = 17788")])
+    # print([row for row in crawler.con.execute("select rowid,* from urllist where rowid = 432 or rowid = 7322")])
+    # print("result:",[row for row in crawler.con.execute("select rowid,* from wordlocation where urlid = 432 and wordid = 200")])
+    # print("result:",[row for row in crawler.con.execute("select rowid,* from wordlocation where urlid = 7322 and wordid = 200")])
+    # print('===========================================')
+    #
     e = searcher('searchindex.db')
     print(e.query('functional programming'))
-
+    # crawler.calculatepagerank()
+    cur = crawler.con.execute('select * from pagerank ORDER BY score DESC')
+    for i in range(10): print(cur.fetchone())
+    print("urlname: ",e.geturlname(438))
 
