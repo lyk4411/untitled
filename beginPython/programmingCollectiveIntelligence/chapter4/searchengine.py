@@ -279,7 +279,7 @@ class searcher:
     mindistance=dict([(row[0],1000000) for row in rows])
 
     for i in range(len(rows)):
-      if rows[i][0] == rows[i-1][0]:
+      if rows[i][0] == rows[i-1][0] and rows[i][1] != rows[i-1][1]:
         dist=abs(rows[i][2]-rows[i-1][2])
         if dist<mindistance[rows[i][0]]: mindistance[rows[i][0]]=dist
     return self.normalizescores(mindistance,smallIsBetter=1)
