@@ -165,6 +165,16 @@ class searchnet:
 
 
 if __name__ == '__main__':
-    c = urllib.request.urlopen('http://hao123.com')
-    contents = c.read()
-    print(contents[:])
+    # c = urllib.request.urlopen('http://hao123.com')
+    # contents = c.read()
+    # print(contents[:])
+    mynet = searchnet('nn.db')
+    mynet.maketables()
+    wWorld, wRiver, wBank = 101, 102, 103
+    uWorldBank, uRiver, uEarth = 201, 202, 203
+    mynet.generatehiddennode([wWorld, wBank], [uWorldBank, uRiver, uEarth])
+    for c in mynet.con.execute('select * from wordhidden'):
+        print(c)
+
+    for c in mynet.con.execute('select * from hiddenurl'):
+        print(c)
