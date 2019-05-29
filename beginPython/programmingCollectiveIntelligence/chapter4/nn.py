@@ -157,10 +157,10 @@ class searchnet:
       # set them to database values
       for i in range(len(self.wordids)):
           for j in range(len(self.hiddenids)):
-              self.setstrength(self.wordids[i],self. hiddenids[j],0,self.wi[i][j])
+              self.setstrength(list(self.wordids)[i],list(self.hiddenids)[j],0,list(self.wi)[i][j])
       for j in range(len(self.hiddenids)):
           for k in range(len(self.urlids)):
-              self.setstrength(self.hiddenids[j],self.urlids[k],1,self.wo[j][k])
+              self.setstrength(list(self.hiddenids)[j],list(self.urlids)[k],1,list(self.wo)[j][k])
       self.con.commit()
 
 
@@ -169,12 +169,16 @@ if __name__ == '__main__':
     # contents = c.read()
     # print(contents[:])
     mynet = searchnet('nn.db')
-    mynet.maketables()
+    # mynet.maketables()
     wWorld, wRiver, wBank = 101, 102, 103
     uWorldBank, uRiver, uEarth = 201, 202, 203
-    mynet.generatehiddennode([wWorld, wBank], [uWorldBank, uRiver, uEarth])
-    for c in mynet.con.execute('select * from wordhidden'):
-        print(c)
+    # mynet.generatehiddennode([wWorld, wBank], [uWorldBank, uRiver, uEarth])
+    # for c in mynet.con.execute('select * from wordhidden'):
+    #     print(c)
+    #
+    # for c in mynet.con.execute('select * from hiddenurl'):
+    #     print(c)
+    # print(mynet.getresult([wWorld, wBank], [uWorldBank, uRiver, uEarth]))
 
-    for c in mynet.con.execute('select * from hiddenurl'):
-        print(c)
+    mynet.trainquery([wWorld, wBank], [uWorldBank, uRiver, uEarth], uWorldBank)
+    print("result:  ", mynet.getresult([wWorld, wBank], [uWorldBank, uRiver, uEarth]))
