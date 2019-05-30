@@ -248,3 +248,17 @@ def buildtree(rows,scoref=entropy):
                         tb=trueBranch,fb=falseBranch)
   else:
     return decisionnode(results=uniquecounts(rows))
+
+
+if __name__ == '__main__':
+    print('giniimpurity: ', giniimpurity(my_data))
+    print('entropy;', entropy(my_data))
+    set1, set2 = divideset(my_data, 2, 'yes')
+    print('giniimpurity: ', giniimpurity(set1))
+    print('giniimpurity: ', giniimpurity(set2))
+    print('entropy;', entropy(set1))
+    print('entropy;', entropy(set2))
+
+    # temp = {'a':1,'b':2,'c':3}
+    # for i in temp:
+    #     print(i)
