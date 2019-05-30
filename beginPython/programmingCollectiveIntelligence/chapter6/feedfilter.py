@@ -30,7 +30,7 @@ def read(feed,classifier):
 
 
 def entryfeatures(entry):
-  splitter=re.compile('\\W*')
+  splitter=re.compile('\\W+')
   f={}
   
   # Extract the title words and annotate
@@ -65,4 +65,13 @@ def entryfeatures(entry):
 if __name__ == '__main__':
     cl = docclass.fisherclassifier(docclass.getwords)
     cl.setdb('python_feed.db')
-    read('python_search.xml', cl)
+    # read('python_search.xml', cl)
+
+    print(cl.cprob('python', 'language'))
+    print(cl.cprob('python', 'snake'))
+    print(cl.cprob('python', 'monty'))
+    print(cl.cprob('python', 'python'))
+    print(cl.cprob('python', 'other'))
+    print('===================================')
+    print(cl.cprob('eric', 'monty'))
+    print(cl.fprob('eric', 'monty'))
