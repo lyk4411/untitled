@@ -5,7 +5,7 @@ import sqlite3 as sqlite
 
 
 def getwords(doc):
-  splitter=re.compile('\\W*')
+  splitter=re.compile('\\W+')
   print (doc)
   # Split the words by non-alpha characters
   words=[s.lower() for s in splitter.split(doc) 
@@ -29,44 +29,57 @@ class classifier:
 
 
   def incf(self,f,cat):
-    count=self.fcount(f,cat)
-    if count==0:
-      self.con.execute("insert into fc values ('%s','%s',1)" 
-                       % (f,cat))
-    else:
-      self.con.execute(
-        "update fc set count=%d where feature='%s' and category='%s'" 
-        % (count+1,f,cat)) 
+    # count=self.fcount(f,cat)
+    # if count==0:
+    #   self.con.execute("insert into fc values ('%s','%s',1)"
+    #                    % (f,cat))
+    # else:
+    #   self.con.execute(
+    #     "update fc set count=%d where feature='%s' and category='%s'"
+    #     % (count+1,f,cat))
+    self.fc.setdefault(f,{})
+    self.fc[f].setdefault(cat,0)
+    self.fc[f][cat]+=1
   
   def fcount(self,f,cat):
-    res=self.con.execute(
-      'select count from fc where feature="%s" and category="%s"'
-      %(f,cat)).fetchone()
-    if res==None: return 0
-    else: return float(res[0])
+    # res=self.con.execute(
+    #   'select count from fc where feature="%s" and category="%s"'
+    #   %(f,cat)).fetchone()
+    # if res==None: return 0
+    # else: return float(res[0])
+    if f in self.fc and cat in self.fc[f]:
+      return float(self.fc[f][cat])
+    return 0.0
 
   def incc(self,cat):
-    count=self.catcount(cat)
-    if count==0:
-      self.con.execute("insert into cc values ('%s',1)" % (cat))
-    else:
-      self.con.execute("update cc set count=%d where category='%s'" 
-                       % (count+1,cat))    
+    # count=self.catcount(cat)
+    # if count==0:
+    #   self.con.execute("insert into cc values ('%s',1)" % (cat))
+    # else:
+    #   self.con.execute("update cc set count=%d where category='%s'"
+    #                    % (count+1,cat))
+    self.cc.setdefault(cat,0)
+    self.cc[cat]+=1
 
   def catcount(self,cat):
-    res=self.con.execute('select count from cc where category="%s"'
-                         %(cat)).fetchone()
-    if res==None: return 0
-    else: return float(res[0])
+    # res=self.con.execute('select count from cc where category="%s"'
+    #                      %(cat)).fetchone()
+    # if res==None: return 0
+    # else: return float(res[0])
+    if cat in self.cc:
+      return float(self.cc[cat])
+    return 0
 
   def categories(self):
-    cur=self.con.execute('select category from cc');
-    return [d[0] for d in cur]
+    # cur=self.con.execute('select category from cc');
+    # return [d[0] for d in cur]
+    return self.cc.keys()
 
   def totalcount(self):
-    res=self.con.execute('select sum(count) from cc').fetchone();
-    if res==None: return 0
-    return res[0]
+    # res=self.con.execute('select sum(count) from cc').fetchone();
+    # if res==None: return 0
+    # return res[0]
+    return sum(self.cc.values())
 
 
   def train(self,item,cat):
@@ -77,7 +90,7 @@ class classifier:
 
     # Increment the count for this category
     self.incc(cat)
-    self.con.commit()
+    # self.con.commit()
 
   def fprob(self,f,cat):
     if self.catcount(cat)==0: return 0
