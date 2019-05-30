@@ -249,6 +249,21 @@ if __name__ == '__main__':
 
     print(cl.classify('quick money', default='unknown'))
 
+    print('===============================================================================')
+
+    cl = fisherclassifier(getwords)
+    sampletrain(cl)
+    print('quick: ',   cl.cprob('quick', 'good'))
+    # print('money: ',   cl.cprob('money', 'bad'))
+    # print('casino: ',  cl.cprob('casino', 'good'))
+    # print('weight of money: ', cl.weightedprob('money', 'bad', cl.cprob))
+    print('fisher''s quick: ', cl.fisherprob('guick','good'))
+    print('fisher''s quick rabbit: ', cl.fisherprob('guick rabbit','good'))
+    print('quick rabbit: ', cl.cprob('guick rabbit','good'))
+    print('fisher''s quick rabbit: ', cl.fisherprob('guick rabbit','bad'))
+
+
+
 
 
 
