@@ -226,9 +226,15 @@ if __name__ == '__main__':
     # print(cl.fcount('quick', 'good'))
     # print(cl.fcount('quick', 'bad'))
 
+    sampletrain(cl)
+    # print(cl.fprob('quick','good'))
     print(cl.weightedprob('money','good',cl.fprob))
     sampletrain(cl)
-    print(cl.fprob('quick','good'))
-    cl.weightedprob('money','good',cl.fprob)
     print(cl.weightedprob('money','good',cl.fprob))
+
+    cl = naivebayes(getwords)
+    sampletrain(cl)
+    print(cl.prob('quick rabbit', 'good'))
+    print(cl.prob('quick rabbit', 'bad'))
+
 
