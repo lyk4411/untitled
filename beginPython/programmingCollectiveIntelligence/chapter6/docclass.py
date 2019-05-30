@@ -221,9 +221,14 @@ def sampletrain(cl):
 
 if __name__ == '__main__':
     cl = classifier(getwords)
-    cl.train('the quick brown fox jumps over the lazy dog', 'good')
-    cl.train('make quick money in the online casino', 'bad')
-    print(cl.fcount('quick', 'good'))
-    print(cl.fcount('quick', 'bad'))
+    # cl.train('the quick brown fox jumps over the lazy dog', 'good')
+    # cl.train('make quick money in the online casino', 'bad')
+    # print(cl.fcount('quick', 'good'))
+    # print(cl.fcount('quick', 'bad'))
+
+    print(cl.weightedprob('money','good',cl.fprob))
     sampletrain(cl)
     print(cl.fprob('quick','good'))
+    cl.weightedprob('money','good',cl.fprob)
+    print(cl.weightedprob('money','good',cl.fprob))
+
