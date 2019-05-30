@@ -1,4 +1,4 @@
-import urllib2
+import urllib as urllib2
 import xml.dom.minidom
 
 api_key='YOUR KEY HERE'

@@ -1,5 +1,5 @@
 import xml.dom.minidom
-import urllib2
+import urllib as urllib2
 
 zwskey="YOUR API KEY"
 
@@ -26,7 +26,7 @@ def getaddressdata(address,city):
 
 def getpricelist():
   l1=[]
-  for line in file('addresslist.txt'):
+  for line in open('addresslist.txt'):
     data=getaddressdata(line.strip(),'Cambridge,MA')
     l1.append(data)
   return l1
