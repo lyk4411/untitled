@@ -2,6 +2,9 @@ import feedparser
 import re
 
 # Takes a filename of URL of a blog feed and classifies the entries
+from beginPython.programmingCollectiveIntelligence.chapter6 import docclass
+
+
 def read(feed,classifier):
   # Get feed entries and loop over them
   f=feedparser.parse(feed)
@@ -9,15 +12,15 @@ def read(feed,classifier):
     print
     print ('-----')
     # Print the contents of the entry
-    print ('Title:     '+entry['title'].encode('utf-8'))
-    print ('Publisher: '+entry['publisher'].encode('utf-8'))
+    print ('Title:     '+ str(entry['title'].encode('utf-8')))
+    print ('Publisher: '+ str(entry['publisher'].encode('utf-8')))
     print
     print (entry['summary'].encode('utf-8'))
     
 
     # Combine all the text to create one item for the classifier
     fulltext='%s\n%s\n%s' % (entry['title'],entry['publisher'],entry['summary'])
-
+    print("fulltext:", fulltext)
     # Print the best guess at the current category
     print ('Guess: '+str(classifier.classify(entry)))
 
@@ -58,3 +61,8 @@ def entryfeatures(entry):
   if float(uc)/len(summarywords)>0.3: f['UPPERCASE']=1
   
   return f
+
+if __name__ == '__main__':
+    cl = docclass.fisherclassifier(docclass.getwords)
+    cl.setdb('python_feed.db')
+    read('python_search.xml', cl)

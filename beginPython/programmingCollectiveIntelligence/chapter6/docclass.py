@@ -6,10 +6,10 @@ import sqlite3 as sqlite
 
 def getwords(doc):
   splitter=re.compile('\\W+')
-  print (doc)
+  print ('str: ', str(doc))
   # Split the words by non-alpha characters
-  words=[s.lower() for s in splitter.split(doc) 
-          if len(s)>2 and len(s)<20]
+  # temp = [s for s in splitter.split(str(doc)) if s != None]
+  words=[s.lower() for s in splitter.split(str(doc)) if len(s)>2 and len(s)<20 and s != None and s != '']
   
   # Return the unique set of words only
   return dict([(w,1) for w in words])
