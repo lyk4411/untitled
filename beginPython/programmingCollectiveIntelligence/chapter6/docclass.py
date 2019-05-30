@@ -1,6 +1,8 @@
 # from pysqlite2 import dbapi2 as sqlite
 import re
 import math
+import sqlite3 as sqlite
+
 
 def getwords(doc):
   splitter=re.compile('\\W*')
