@@ -225,3 +225,5 @@ if __name__ == '__main__':
     cl.train('make quick money in the online casino', 'bad')
     print(cl.fcount('quick', 'good'))
     print(cl.fcount('quick', 'bad'))
+    sampletrain(cl)
+    print(cl.fprob('quick','good'))
