@@ -29,57 +29,57 @@ class classifier:
 
 
   def incf(self,f,cat):
-    # count=self.fcount(f,cat)
-    # if count==0:
-    #   self.con.execute("insert into fc values ('%s','%s',1)"
-    #                    % (f,cat))
-    # else:
-    #   self.con.execute(
-    #     "update fc set count=%d where feature='%s' and category='%s'"
-    #     % (count+1,f,cat))
-    self.fc.setdefault(f,{})
-    self.fc[f].setdefault(cat,0)
-    self.fc[f][cat]+=1
+    count=self.fcount(f,cat)
+    if count==0:
+      self.con.execute("insert into fc values ('%s','%s',1)"
+                       % (f,cat))
+    else:
+      self.con.execute(
+        "update fc set count=%d where feature='%s' and category='%s'"
+        % (count+1,f,cat))
+    # self.fc.setdefault(f,{})
+    # self.fc[f].setdefault(cat,0)
+    # self.fc[f][cat]+=1
   
   def fcount(self,f,cat):
-    # res=self.con.execute(
-    #   'select count from fc where feature="%s" and category="%s"'
-    #   %(f,cat)).fetchone()
-    # if res==None: return 0
-    # else: return float(res[0])
-    if f in self.fc and cat in self.fc[f]:
-      return float(self.fc[f][cat])
-    return 0.0
+    res=self.con.execute(
+      'select count from fc where feature="%s" and category="%s"'
+      %(f,cat)).fetchone()
+    if res==None: return 0
+    else: return float(res[0])
+    # if f in self.fc and cat in self.fc[f]:
+    #   return float(self.fc[f][cat])
+    # return 0.0
 
   def incc(self,cat):
-    # count=self.catcount(cat)
-    # if count==0:
-    #   self.con.execute("insert into cc values ('%s',1)" % (cat))
-    # else:
-    #   self.con.execute("update cc set count=%d where category='%s'"
-    #                    % (count+1,cat))
-    self.cc.setdefault(cat,0)
-    self.cc[cat]+=1
+    count=self.catcount(cat)
+    if count==0:
+      self.con.execute("insert into cc values ('%s',1)" % (cat))
+    else:
+      self.con.execute("update cc set count=%d where category='%s'"
+                       % (count+1,cat))
+    # self.cc.setdefault(cat,0)
+    # self.cc[cat]+=1
 
   def catcount(self,cat):
-    # res=self.con.execute('select count from cc where category="%s"'
-    #                      %(cat)).fetchone()
-    # if res==None: return 0
-    # else: return float(res[0])
-    if cat in self.cc:
-      return float(self.cc[cat])
-    return 0
+    res=self.con.execute('select count from cc where category="%s"'
+                         %(cat)).fetchone()
+    if res==None: return 0
+    else: return float(res[0])
+    # if cat in self.cc:
+    #   return float(self.cc[cat])
+    # return 0
 
   def categories(self):
-    # cur=self.con.execute('select category from cc');
-    # return [d[0] for d in cur]
-    return self.cc.keys()
+    cur=self.con.execute('select category from cc');
+    return [d[0] for d in cur]
+    # return self.cc.keys()
 
   def totalcount(self):
-    # res=self.con.execute('select sum(count) from cc').fetchone();
-    # if res==None: return 0
-    # return res[0]
-    return sum(self.cc.values())
+    res=self.con.execute('select sum(count) from cc').fetchone();
+    if res==None: return 0
+    return res[0]
+    # return sum(self.cc.values())
 
 
   def train(self,item,cat):
@@ -90,7 +90,7 @@ class classifier:
 
     # Increment the count for this category
     self.incc(cat)
-    # self.con.commit()
+    self.con.commit()
 
   def fprob(self,f,cat):
     if self.catcount(cat)==0: return 0
@@ -232,35 +232,44 @@ if __name__ == '__main__':
     # sampletrain(cl)
     # print(cl.weightedprob('money','good',cl.fprob))
 
-    cl = naivebayes(getwords)
-    sampletrain(cl)
-    print(cl.prob('quick rabbit', 'good'))
-    print(cl.prob('quick rabbit', 'bad'))
-    print('===============================================================================')
-    print(cl.classify('quick rabbit', default='unknown'))
-    print(cl.classify('quick money', default='unknown'))
-    cl.setthreshold('bad', 3.0)
-    print(cl.classify('quick rabbit', default='unknown'))
-    print(cl.classify('quick money', default='unknown'))
-    print('===============================================================================')
-    for i in range(10):
-      sampletrain(cl)
-    print('===============================================================================')
+    # cl = naivebayes(getwords)
+    # sampletrain(cl)
+    # print(cl.prob('quick rabbit', 'good'))
+    # print(cl.prob('quick rabbit', 'bad'))
+    # print('===============================================================================')
+    # print(cl.classify('quick rabbit', default='unknown'))
+    # print(cl.classify('quick money', default='unknown'))
+    # cl.setthreshold('bad', 3.0)
+    # print(cl.classify('quick rabbit', default='unknown'))
+    # print(cl.classify('quick money', default='unknown'))
+    # print('===============================================================================')
+    # for i in range(10):
+    #   sampletrain(cl)
+    # print('===============================================================================')
+    #
+    # print(cl.classify('quick money', default='unknown'))
+    #
+    # print('===============================================================================')
 
-    print(cl.classify('quick money', default='unknown'))
-
-    print('===============================================================================')
+    # cl = fisherclassifier(getwords)
+    # sampletrain(cl)
+    # print('quick: ',   cl.cprob('quick', 'good'))
+    # # print('money: ',   cl.cprob('money', 'bad'))
+    # # print('casino: ',  cl.cprob('casino', 'good'))
+    # # print('weight of money: ', cl.weightedprob('money', 'bad', cl.cprob))
+    # print('fisher''s quick: ', cl.fisherprob('guick','good'))
+    # print('fisher''s quick rabbit: ', cl.fisherprob('guick rabbit','good'))
+    # print('quick rabbit: ', cl.cprob('guick rabbit','good'))
+    # print('fisher''s quick rabbit: ', cl.fisherprob('guick rabbit','bad'))
 
     cl = fisherclassifier(getwords)
+    cl.setdb('test2.db')
     sampletrain(cl)
-    print('quick: ',   cl.cprob('quick', 'good'))
-    # print('money: ',   cl.cprob('money', 'bad'))
-    # print('casino: ',  cl.cprob('casino', 'good'))
-    # print('weight of money: ', cl.weightedprob('money', 'bad', cl.cprob))
-    print('fisher''s quick: ', cl.fisherprob('guick','good'))
-    print('fisher''s quick rabbit: ', cl.fisherprob('guick rabbit','good'))
-    print('quick rabbit: ', cl.cprob('guick rabbit','good'))
-    print('fisher''s quick rabbit: ', cl.fisherprob('guick rabbit','bad'))
+    cl2 = naivebayes(getwords)
+    cl2.setdb('test2.db')
+    print(cl2.classify('quick money'))
+    print(cl2.weightedprob('quick', 'good', cl2.fprob))
+    print(cl2.weightedprob('quick', 'bad', cl2.fprob))
 
 
 
