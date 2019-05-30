@@ -220,21 +220,35 @@ def sampletrain(cl):
   cl.train('the quick brown fox jumps','good')
 
 if __name__ == '__main__':
-    cl = classifier(getwords)
+    # cl = classifier(getwords)
     # cl.train('the quick brown fox jumps over the lazy dog', 'good')
     # cl.train('make quick money in the online casino', 'bad')
     # print(cl.fcount('quick', 'good'))
     # print(cl.fcount('quick', 'bad'))
 
-    sampletrain(cl)
-    # print(cl.fprob('quick','good'))
-    print(cl.weightedprob('money','good',cl.fprob))
-    sampletrain(cl)
-    print(cl.weightedprob('money','good',cl.fprob))
+    # sampletrain(cl)
+    # # print(cl.fprob('quick','good'))
+    # print(cl.weightedprob('money','good',cl.fprob))
+    # sampletrain(cl)
+    # print(cl.weightedprob('money','good',cl.fprob))
 
     cl = naivebayes(getwords)
     sampletrain(cl)
     print(cl.prob('quick rabbit', 'good'))
     print(cl.prob('quick rabbit', 'bad'))
+    print('===============================================================================')
+    print(cl.classify('quick rabbit', default='unknown'))
+    print(cl.classify('quick money', default='unknown'))
+    cl.setthreshold('bad', 3.0)
+    print(cl.classify('quick rabbit', default='unknown'))
+    print(cl.classify('quick money', default='unknown'))
+    print('===============================================================================')
+    for i in range(10):
+      sampletrain(cl)
+    print('===============================================================================')
+
+    print(cl.classify('quick money', default='unknown'))
+
+
 
 
