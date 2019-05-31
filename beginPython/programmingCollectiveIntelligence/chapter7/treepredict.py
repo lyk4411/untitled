@@ -84,16 +84,16 @@ def entropy(rows):
 def printtree(tree,indent=''):
    # Is this a leaf node?
    if tree.results!=None:
-      print (str(tree.results))
+      print (len(indent) * '    ', 'results: ', str(tree.results))
    else:
       # Print the criteria
-      print (str(tree.col)+':'+str(tree.value)+'? ')
+      print (len(indent) * '    ', '[col:', str(tree.col)+']: '+str(tree.value)+'? ')
 
       # Print the branches
       print (indent+'T->',)
-      printtree(tree.tb,indent+'  ')
+      printtree(tree.tb,indent+'    ')
       print (indent+'F->',)
-      printtree(tree.fb,indent+'  ')
+      printtree(tree.fb,indent+'    ')
 
 
 def getwidth(tree):
@@ -258,7 +258,9 @@ if __name__ == '__main__':
     print('giniimpurity: ', giniimpurity(set2))
     print('entropy;', entropy(set1))
     print('entropy;', entropy(set2))
-
+    print('=================================================================================================')
+    tree = buildtree(my_data)
+    printtree(tree)
     # temp = {'a':1,'b':2,'c':3}
     # for i in temp:
     #     print(i)
