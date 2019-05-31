@@ -90,9 +90,9 @@ def printtree(tree,indent=''):
       print (len(indent) * '    ', '[col:', str(tree.col)+']: '+str(tree.value)+'? ')
 
       # Print the branches
-      print (indent+'T->',)
+      print (len(indent) * '    ', 'T->',)
       printtree(tree.tb,indent+'    ')
-      print (indent+'F->',)
+      print (len(indent) * '    ', 'F->',)
       printtree(tree.fb,indent+'    ')
 
 
