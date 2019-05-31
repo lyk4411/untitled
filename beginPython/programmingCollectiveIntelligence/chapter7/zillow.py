@@ -1,5 +1,8 @@
 import xml.dom.minidom
 import urllib as urllib2
+import urllib.request as request
+
+from beginPython.programmingCollectiveIntelligence.chapter7 import treepredict
 
 zwskey="YOUR API KEY"
 
@@ -7,7 +10,7 @@ def getaddressdata(address,city):
   escad=address.replace(' ','+')
   url='http://www.zillow.com/webservice/GetDeepSearchResults.htm?'
   url+='zws-id=%s&address=%s&citystatezip=%s' % (zwskey,escad,city)
-  doc=xml.dom.minidom.parseString(urllib2.urlopen(url).read())
+  doc=xml.dom.minidom.parseString(request.urlopen(url).read())
   code=doc.getElementsByTagName('code')[0].firstChild.data
   if code!='0': return None
   if 1:
@@ -30,3 +33,8 @@ def getpricelist():
     data=getaddressdata(line.strip(),'Cambridge,MA')
     l1.append(data)
   return l1
+
+if __name__ == '__main__':
+    housedata = getpricelist()
+    housetree = treepredict.buildtree(housedata,treepredict.variance)
+    treepredict.drawtree(housetree, 'housetree.jpg')
