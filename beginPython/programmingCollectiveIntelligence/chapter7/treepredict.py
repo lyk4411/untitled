@@ -265,3 +265,4 @@ if __name__ == '__main__':
     # temp = {'a':1,'b':2,'c':3}
     # for i in temp:
     #     print(i)
+    print(classify(['(direct),', 'USA', 'yes', 5], tree))
