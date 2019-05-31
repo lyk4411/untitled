@@ -261,8 +261,19 @@ if __name__ == '__main__':
     print('=================================================================================================')
     tree = buildtree(my_data)
     printtree(tree)
-    drawtree(tree, jpeg='treeview.jpg')
+    # drawtree(tree, jpeg='treeview.jpg')
     # temp = {'a':1,'b':2,'c':3}
     # for i in temp:
     #     print(i)
     print(classify(['(direct),', 'USA', 'yes', 5], tree))
+
+    prune(tree, 0.1)
+    printtree(tree)
+    print('=================================================================================================')
+
+    prune(tree,1.0)
+    printtree(tree)
+
+    print('=================================================================================================')
+    print(mdclassify(['google', None, 'yes', None], tree))
+    print(mdclassify(['google', 'France', None, None], tree))
