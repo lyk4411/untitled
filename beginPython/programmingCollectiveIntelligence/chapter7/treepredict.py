@@ -188,13 +188,15 @@ def mdclassify(observation,tree):
     v=observation[tree.col]
     if v==None:
       tr,fr=mdclassify(observation,tree.tb),mdclassify(observation,tree.fb)
+      # print("tr:", tr, " fr:", fr)
       tcount=sum(tr.values())
       fcount=sum(fr.values())
       tw=float(tcount)/(tcount+fcount)
       fw=float(fcount)/(tcount+fcount)
       result={}
       for k,v in tr.items(): result[k]=v*tw
-      for k,v in fr.items(): result[k]=v*fw      
+      for k,v in fr.items(): result[k]=v*fw
+      # print('result: ', result)
       return result
     else:
       if isinstance(v,int) or isinstance(v,float):
@@ -276,4 +278,4 @@ if __name__ == '__main__':
 
     print('=================================================================================================')
     print(mdclassify(['google', None, 'yes', None], tree))
-    print(mdclassify(['google', 'France', None, None], tree))
+    # print(mdclassify(['google', 'France', None, None], tree))
