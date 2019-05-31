@@ -261,6 +261,7 @@ if __name__ == '__main__':
     print('=================================================================================================')
     tree = buildtree(my_data)
     printtree(tree)
+    drawtree(tree, jpeg='treeview.jpg')
     # temp = {'a':1,'b':2,'c':3}
     # for i in temp:
     #     print(i)
