@@ -107,7 +107,7 @@ def dividedata(data,test=0.05):
       trainset.append(row)
   return trainset,testset
 
-def testalgorithm(algf,trainset,testset):
+def ttestalgorithm(algf,trainset,testset):
   error=0.0
   for row in testset:
     guess=algf(trainset,row['input'])
@@ -120,7 +120,7 @@ def crossvalidate(algf,data,trials=100,test=0.1):
   error=0.0
   for i in range(trials):
     trainset,testset=dividedata(data,test)
-    error+=testalgorithm(algf,trainset,testset)
+    error+=ttestalgorithm(algf,trainset,testset)
   return error/trials
 
 def wineset2():
@@ -181,32 +181,66 @@ def probguess(data,vec1,low,high,k=5,weightf=gaussian):
   # divided by all the weights
   return nweight/tweight
 
-from pylab import *
 
-def cumulativegraph(data,vec1,high,k=5,weightf=gaussian):
-  t1=arange(0.0,high,0.1)
-  cprob=array([probguess(data,vec1,0,v,k,weightf) for v in t1])
-  plot(t1,cprob)
-  show()
+# from pylab import *
+#
+# def cumulativegraph(data,vec1,high,k=5,weightf=gaussian):
+#   t1=arange(0.0,high,0.1)
+#   cprob=array([probguess(data,vec1,0,v,k,weightf) for v in t1])
+#   plot(t1,cprob)
+#   show()
+#
+#
+# def probabilitygraph(data,vec1,high,k=5,weightf=gaussian,ss=5.0):
+#   # Make a range for the prices
+#   t1=arange(0.0,high,0.1)
+#
+#   # Get the probabilities for the entire range
+#   probs=[probguess(data,vec1,v,v+0.1,k,weightf) for v in t1]
+#
+#   # Smooth them by adding the gaussian of the nearby probabilites
+#   smoothed=[]
+#   for i in range(len(probs)):
+#     sv=0.0
+#     for j in range(0,len(probs)):
+#       dist=abs(i-j)*0.1
+#       weight=gaussian(dist,sigma=ss)
+#       sv+=weight*probs[j]
+#     smoothed.append(sv)
+#   smoothed=array(smoothed)
+#
+#   plot(t1,smoothed)
+#   show()
+
+if __name__ == '__main__':
+    print(wineprice(95, 3))
+    print(wineprice(95, 8))
+    print(wineprice(98, 1))
+
+    data = wineset1()
+    for i in range(len(data)):
+      print(data[i])
+    print(data[0]['input'])
+    print(data[1]['input'])
+    print(euclidean(data[0]['input'], data[1]['input']))
+
+    print(knnestimate(data, (95, 3)))
+    print(knnestimate(data, (99, 3)))
+    print("knnestimate:", knnestimate(data, (99, 5)))
+    print("weightedknn:", weightedknn(data, (99, 5)))
+    print(wineprice(99, 5))
+    print("======================================================")
+    print(crossvalidate(knnestimate, data))
+    def knn3(d, v):
+      return knnestimate(d, v, k=3)
+    def knn1(d, v):
+      return knnestimate(d, v, k=1)
+    print(crossvalidate(knn3, data))
+    print(crossvalidate(knn1, data))
+    print("======================================================")
+    print(crossvalidate(weightedknn, data))
+    def knninverse(d, v):
+      return weightedknn(d, v, weightf=inverseweight)
+    print(crossvalidate(knninverse, data))
 
 
-def probabilitygraph(data,vec1,high,k=5,weightf=gaussian,ss=5.0):
-  # Make a range for the prices
-  t1=arange(0.0,high,0.1)
-  
-  # Get the probabilities for the entire range
-  probs=[probguess(data,vec1,v,v+0.1,k,weightf) for v in t1]
-  
-  # Smooth them by adding the gaussian of the nearby probabilites
-  smoothed=[]
-  for i in range(len(probs)):
-    sv=0.0
-    for j in range(0,len(probs)):
-      dist=abs(i-j)*0.1
-      weight=gaussian(dist,sigma=ss)
-      sv+=weight*probs[j]
-    smoothed.append(sv)
-  smoothed=array(smoothed)
-    
-  plot(t1,smoothed)
-  show()
