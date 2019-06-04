@@ -1,4 +1,4 @@
-import httplib
+import http.client as httplib
 from xml.dom.minidom import parse, parseString, Node
 
 devKey = 'YOUR DEV KEY'
@@ -22,7 +22,7 @@ def sendRequest(apicall,xmlparameters):
   connection.request("POST", '/ws/api.dll', xmlparameters, getHeaders(apicall))
   response = connection.getresponse()
   if response.status != 200:
-    print "Error sending request:" + response.reason
+    print ("Error sending request:" + response.reason)
   else: 
     data = response.read()
     connection.close()
@@ -87,7 +87,7 @@ def getCategory(query='',parentID=None,siteID='0'):
     catid=getSingleValue(node,'CategoryID')
     name=getSingleValue(node,'CategoryName')
     if name.lower().find(lquery)!=-1:
-      print catid,name
+      print (catid,name)
 
 def getItem(itemID):
   xml = "<?xml version='1.0' encoding='utf-8'?>"+\
@@ -132,5 +132,5 @@ def makeLaptopDataset():
       entry={'input':data,'result':float(item['price'])}
       result.append(entry)
     except:
-      print item['title']+' failed'
+      print (item['title']+' failed')
   return result
