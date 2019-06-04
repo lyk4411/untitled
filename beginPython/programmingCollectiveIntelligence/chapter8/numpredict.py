@@ -277,7 +277,12 @@ if __name__ == '__main__':
     print(probguess(data, [99, 20], 120, 18000))
     print(probguess(data, [99, 20], 30, 120))
 
-    cumulativegraph(data,(1, 1), 120)
+    # cumulativegraph(data,(1, 1), 120)
+    # cumulativegraph(data,(90, 20), 120)
+
+    probabilitygraph(data, (1, 1), 120)
+
+
 
 
 
