@@ -1,6 +1,9 @@
 from random import random,randint
 import math
 
+from beginPython.programmingCollectiveIntelligence.chapter5 import optimization
+
+
 def wineprice(rating,age):
   peak_age=rating-50
   
@@ -213,34 +216,69 @@ def probguess(data,vec1,low,high,k=5,weightf=gaussian):
 #   show()
 
 if __name__ == '__main__':
-    print(wineprice(95, 3))
-    print(wineprice(95, 8))
-    print(wineprice(98, 1))
+    # print(wineprice(95, 3))
+    # print(wineprice(95, 8))
+    # print(wineprice(98, 1))
+    #
+    # data = wineset1()
+    # for i in range(len(data)):
+    #   print(data[i])
+    # print(data[0]['input'])
+    # print(data[1]['input'])
+    # print(euclidean(data[0]['input'], data[1]['input']))
+    #
+    # print(knnestimate(data, (95, 3)))
+    # print(knnestimate(data, (99, 3)))
+    # print("knnestimate:", knnestimate(data, (99, 5)))
+    # print("weightedknn:", weightedknn(data, (99, 5)))
+    # print(wineprice(99, 5))
+    # print("======================================================")
+    # print(crossvalidate(knnestimate, data))
+    # def knn3(d, v):
+    #   return knnestimate(d, v, k=3)
+    # def knn1(d, v):
+    #   return knnestimate(d, v, k=1)
+    # print(crossvalidate(knn3, data))
+    # print(crossvalidate(knn1, data))
+    # print("======================================================")
+    # print(crossvalidate(weightedknn, data))
+    # def knninverse(d, v):
+    #   return weightedknn(d, v, weightf=inverseweight)
+    # print(crossvalidate(knninverse, data))
+    # print("======================================================")
+    # data = wineset2()
+    # print(crossvalidate(knn3, data))
+    # print(crossvalidate(weightedknn, data))
+    # sdata = rescale(data,[10, 10, 0, 0.5])
+    # print(crossvalidate(knn3, sdata))
+    # print(crossvalidate(weightedknn, sdata))
+    # print("======================================================")
+    # costf = createcostfunction(knnestimate, data)
+    # print(optimization.annealingoptimize(weightdomain, costf, step=2))
+    # # [8.0, 10, 2, 4.0]
+    # #
+    # # print(optimization.geneticoptimize(weightdomain, costf))
+    # # # [6, 9, 2, 9]
+    #
+    # sdata = rescale(data, [8.0, 10, 2, 4.0])
+    # print(crossvalidate(weightedknn, sdata))
+    #
+    # sdata = rescale(data, [6, 9, 2, 9])
+    # print(crossvalidate(weightedknn, sdata))
+    #
+    # sdata = rescale(data, [6, 9, 0, 9])
+    # print(crossvalidate(weightedknn, sdata))
+    data = wineset3()
+    print(wineprice(99, 20))
+    print(weightedknn(data, [99, 20]))
 
-    data = wineset1()
-    for i in range(len(data)):
-      print(data[i])
-    print(data[0]['input'])
-    print(data[1]['input'])
-    print(euclidean(data[0]['input'], data[1]['input']))
+    print(probguess(data, [99, 20], 40, 80))
+    print(probguess(data, [99, 20], 80, 120))
+    print(probguess(data, [99, 20], 120, 18000))
+    print(probguess(data, [99, 20], 30, 120))
 
-    print(knnestimate(data, (95, 3)))
-    print(knnestimate(data, (99, 3)))
-    print("knnestimate:", knnestimate(data, (99, 5)))
-    print("weightedknn:", weightedknn(data, (99, 5)))
-    print(wineprice(99, 5))
-    print("======================================================")
-    print(crossvalidate(knnestimate, data))
-    def knn3(d, v):
-      return knnestimate(d, v, k=3)
-    def knn1(d, v):
-      return knnestimate(d, v, k=1)
-    print(crossvalidate(knn3, data))
-    print(crossvalidate(knn1, data))
-    print("======================================================")
-    print(crossvalidate(weightedknn, data))
-    def knninverse(d, v):
-      return weightedknn(d, v, weightf=inverseweight)
-    print(crossvalidate(knninverse, data))
+
+
+
 
 
