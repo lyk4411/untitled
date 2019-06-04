@@ -185,35 +185,35 @@ def probguess(data,vec1,low,high,k=5,weightf=gaussian):
   return nweight/tweight
 
 
-# from pylab import *
-#
-# def cumulativegraph(data,vec1,high,k=5,weightf=gaussian):
-#   t1=arange(0.0,high,0.1)
-#   cprob=array([probguess(data,vec1,0,v,k,weightf) for v in t1])
-#   plot(t1,cprob)
-#   show()
-#
-#
-# def probabilitygraph(data,vec1,high,k=5,weightf=gaussian,ss=5.0):
-#   # Make a range for the prices
-#   t1=arange(0.0,high,0.1)
-#
-#   # Get the probabilities for the entire range
-#   probs=[probguess(data,vec1,v,v+0.1,k,weightf) for v in t1]
-#
-#   # Smooth them by adding the gaussian of the nearby probabilites
-#   smoothed=[]
-#   for i in range(len(probs)):
-#     sv=0.0
-#     for j in range(0,len(probs)):
-#       dist=abs(i-j)*0.1
-#       weight=gaussian(dist,sigma=ss)
-#       sv+=weight*probs[j]
-#     smoothed.append(sv)
-#   smoothed=array(smoothed)
-#
-#   plot(t1,smoothed)
-#   show()
+from pylab import *
+
+def cumulativegraph(data,vec1,high,k=5,weightf=gaussian):
+  t1=arange(0.0,high,0.1)
+  cprob=array([probguess(data,vec1,0,v,k,weightf) for v in t1])
+  plot(t1,cprob)
+  show()
+
+
+def probabilitygraph(data,vec1,high,k=5,weightf=gaussian,ss=5.0):
+  # Make a range for the prices
+  t1=arange(0.0,high,0.1)
+
+  # Get the probabilities for the entire range
+  probs=[probguess(data,vec1,v,v+0.1,k,weightf) for v in t1]
+
+  # Smooth them by adding the gaussian of the nearby probabilites
+  smoothed=[]
+  for i in range(len(probs)):
+    sv=0.0
+    for j in range(0,len(probs)):
+      dist=abs(i-j)*0.1
+      weight=gaussian(dist,sigma=ss)
+      sv+=weight*probs[j]
+    smoothed.append(sv)
+  smoothed=array(smoothed)
+
+  plot(t1,smoothed)
+  show()
 
 if __name__ == '__main__':
     # print(wineprice(95, 3))
@@ -276,6 +276,8 @@ if __name__ == '__main__':
     print(probguess(data, [99, 20], 80, 120))
     print(probguess(data, [99, 20], 120, 18000))
     print(probguess(data, [99, 20], 30, 120))
+
+    cumulativegraph(data,(1, 1), 120)
 
 
 
