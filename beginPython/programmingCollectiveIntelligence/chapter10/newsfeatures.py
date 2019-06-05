@@ -51,7 +51,7 @@ def getarticlewords():
       if e.title in articletitles: continue
       
       # Extract the words
-      txt=e.title.encode('utf8')+stripHTML(e.description.encode('utf8'))
+      txt=e.title.encode('utf8').decode()+stripHTML(e.description.encode('utf8').decode())
       words=separatewords(txt)
       articlewords.append({})
       articletitles.append(e.title)
@@ -70,7 +70,7 @@ def makematrix(allw,articlew):
   
   # Only take words that are common but not too common
   for w,c in allw.items():
-    if c>3 and c<len(articlew)*0.6:
+    if c>2 and c<len(articlew)*0.6:
       wordvec.append(w) 
   
   # Create the word matrix
@@ -143,4 +143,8 @@ def showarticles(titles,toppatterns,patternnames,out='articles.txt'):
 if __name__ == '__main__':
     allw, artw, artt = getarticlewords()
     wordmatrix, wordvec = makematrix(allw, artw)
+    print(allw)
+    print(artw)
+    print(artt)
+    print(wordmatrix)
     print(wordvec)
