@@ -37,12 +37,12 @@ def euclidean(v1,v2):
   return math.sqrt(sqsum)
 
 def printclust(clust,labels=None,n=0):
-  for i in range(n): print ' ',
+  for i in range(n): print (' ',)
   if clust.id<0:
-    print '-'
+    print ('-')
   else:
-    if labels==None: print clust.id
-    else: print labels[clust.id]
+    if labels==None: print (clust.id)
+    else: print (labels[clust.id])
   if clust.left!=None: printclust(clust.left,labels=labels,n=n+1)
   if clust.right!=None: printclust(clust.right,labels=labels,n=n+1)
 
@@ -82,7 +82,7 @@ def kcluster(vecs,distance=pearson,k=4):
   
   lastmatches=None
   for t in range(100):
-    print 'Iteration %d' % t
+    print ('Iteration %d' % t)
     bestmatches=[[] for i in range(k)]
     
     for j in range(len(vecs)):
@@ -109,7 +109,7 @@ def kcluster(vecs,distance=pearson,k=4):
   return bestmatches
 
 def readfile(filename):
-  lines=[line for line in file(filename)]
+  lines=[line for line in open(filename)]
   colnames=lines[0].strip().split('\t')[1:]
   rownames=[]
   data=[]
@@ -213,7 +213,7 @@ def scaledown(data,distance=pearson,rate=0.01):
         grad[k][0]+=((loc[k][0]-loc[j][0])/fakedist[j][k])*errorterm
         grad[k][1]+=((loc[k][1]-loc[j][1])/fakedist[j][k])*errorterm    
         totalerror+=abs(errorterm)
-    print totalerror
+    print (totalerror)
     if lasterror and lasterror<totalerror: break
     lasterror=totalerror
     

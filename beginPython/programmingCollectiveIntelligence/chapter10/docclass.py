@@ -1,7 +1,7 @@
 import re
 import math
-import cPickle
-from pysqlite2 import dbapi2 as sqlite
+import _pickle as cPickle
+import sqlite3 as sqlite
 
 def getwords(doc):
   splitter=re.compile('\\W*')
@@ -116,14 +116,14 @@ class classifier:
     self.restoredata()
 
   def restoredata(self):
-    try: f=file(self.filename,'rb')
+    try: f=open(self.filename,'rb')
     except: return
     self.fc=cPickle.load(f)
     self.cc=cPickle.load(f)
     f.close()
     
   def savedata(self):
-    f=file(self.filename,'wb')
+    f=open(self.filename,'wb')
     cPickle.dump(self.fc,f,True)
     cPickle.dump(self.cc,f,True)
     f.close()

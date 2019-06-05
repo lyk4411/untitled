@@ -80,7 +80,7 @@ def makematrix(allw,articlew):
 from numpy import *
 
 def showfeatures(w,h,titles,wordvec,out='features.txt'): 
-  outfile=file(out,'w')  
+  outfile=open(out,'w')
   pc,wc=shape(h)
   toppatterns=[[] for i in range(len(titles))]
   patternnames=[]
@@ -121,7 +121,7 @@ def showfeatures(w,h,titles,wordvec,out='features.txt'):
   return toppatterns,patternnames
 
 def showarticles(titles,toppatterns,patternnames,out='articles.txt'):
-  outfile=file(out,'w')  
+  outfile=open(out,'w')
   
   # Loop over all the articles
   for j in range(len(titles)):

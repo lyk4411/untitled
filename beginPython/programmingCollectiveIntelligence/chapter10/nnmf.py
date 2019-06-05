@@ -23,7 +23,7 @@ def factorize(v,pc=10,iter=50):
     # Calculate the current difference
     cost=difcost(v,wh)
     
-    if i%10==0: print cost
+    if i%10==0: print (cost)
     
     # Terminate if the matrix has been fully factorized
     if cost==0: break
