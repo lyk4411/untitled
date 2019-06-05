@@ -23,7 +23,7 @@ def factorize(v,pc=10,iter=50):
     # Calculate the current difference
     cost=difcost(v,wh)
     
-    if i%10==0: print (cost)
+    if i%10==0: print ('cost: ',cost)
     
     # Terminate if the matrix has been fully factorized
     if cost==0: break
@@ -41,3 +41,14 @@ def factorize(v,pc=10,iter=50):
     w=matrix(array(w)*array(wn)/array(wd))  
     
   return w,h
+
+if __name__ == '__main__':
+  l1 = [[1, 2, 3], [4, 5, 6]]
+  m1 = matrix(l1)
+  m2 = matrix([[1, 2], [3, 4], [5, 6]])
+  w, h = factorize(m1 * m2, pc = 3, iter = 100)
+  print('w: ', w)
+  print('h: ', h)
+  print('w * h: ', w * h)
+  print('m1 * m2: ', m1 * m2)
+
