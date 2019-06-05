@@ -140,6 +140,9 @@ def showarticles(titles,toppatterns,patternnames,out='articles.txt'):
     
   outfile.close()
 
+def wordmatrixfeatures(x):
+    return [wordvec[w] for w in range(len(x)) if x[w]>0]
+
 if __name__ == '__main__':
     allw, artw, artt = getarticlewords()
     wordmatrix, wordvec = makematrix(allw, artw)
@@ -148,3 +151,7 @@ if __name__ == '__main__':
     print(artt)
     print(wordmatrix)
     print(wordvec)
+    print(wordmatrixfeatures(wordmatrix[1]))
+    print(wordmatrixfeatures(wordmatrix[2]))
+    print(wordmatrixfeatures(wordmatrix[3]))
+
