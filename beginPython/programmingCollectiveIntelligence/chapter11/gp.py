@@ -30,7 +30,7 @@ class paramnode:
   def evaluate(self,inp):
     return inp[self.idx]
   def display(self,indent=0):
-    print '%sp%d' % (' '*indent,self.idx)
+    print ('%sp%d' % (' '*indent,self.idx))
     
     
 class constnode:
@@ -39,7 +39,7 @@ class constnode:
   def evaluate(self,inp):
     return self.v
   def display(self,indent=0):
-    print '%s%d' % (' '*indent,self.v)
+    print ('%s%d' % (' '*indent,self.v))
     
 
 addw=fwrapper(lambda l:l[0]+l[1],2,'add')
@@ -136,7 +136,7 @@ def evolve(pc,popsize,rankfunction,maxgen=500,
   population=[makerandomtree(pc) for i in range(popsize)]
   for i in range(maxgen):
     scores=rankfunction(population)
-    print scores[0][0]
+    print (scores[0][0])
     if scores[0][0]==0: break
     
     # The two best always make it
@@ -240,29 +240,29 @@ class humanplayer:
     for i in range(4):
       for j in range(4):
         if (i,j)==me:
-          print 'O',
+          print ('O',)
         elif (i,j) in others:
-          print 'X',
+          print ('X',)
         else:
-          print '.',
+          print ('.',)
       print
       
     # Show moves, for reference
-    print 'Your last move was %d' % board[len(board)-1]
-    print ' 0'
-    print '2 3'
-    print ' 1'
-    print 'Enter move: ',
+    print ('Your last move was %d' % board[len(board)-1])
+    print (' 0')
+    print ('2 3')
+    print (' 1')
+    print ('Enter move: ',)
     
     # Return whatever the user enters
-    move=int(raw_input())
+    move=int(input())
     return move
 
 
 class fwrapper:
   def __init__(self,function,params,name):
     self.function=function
-    self.childcount=param
+    self.childcount=params
     self.name=name
     
 #flist={'str':[substringw,concatw],'int':[indexw]}
