@@ -276,3 +276,15 @@ if __name__ == '__main__':
     print(exampletree.evaluate([5, 3]))
     print(exampletree.evaluate([2, 3]))
     exampletree.display()
+
+    print('==========================================================================================')
+    random1 = makerandomtree(2)
+    print('random1[7, 1]: ', random1.evaluate([7, 1]))
+    print('random1[2, 4]: ', random1.evaluate([2, 4]))
+    random2 = makerandomtree(2)
+    print('random2[5, 3]: ', random2.evaluate([5, 3]))
+    print('random2[5, 20]: ', random2.evaluate([5, 20]))
+    random1.display()
+    print('==========================================================================================')
+    random2.display()
+
