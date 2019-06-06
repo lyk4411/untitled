@@ -16,10 +16,10 @@ class node:
 
   def evaluate(self,inp):    
     results=[n.evaluate(inp) for n in self.children]
-    print(results)
+    # print(results)
     return self.function(results)
   def display(self,indent=0):
-    print (' '*indent)+self.name
+    print ('  '*indent+self.name)
     for c in self.children:
       c.display(indent+1)
     
@@ -31,7 +31,7 @@ class paramnode:
   def evaluate(self,inp):
     return inp[self.idx]
   def display(self,indent=0):
-    print ('%sp%d' % (' '*indent,self.idx))
+    print ('%sp%d' % ('  '*indent,self.idx))
     
     
 class constnode:
@@ -40,7 +40,7 @@ class constnode:
   def evaluate(self,inp):
     return self.v
   def display(self,indent=0):
-    print ('%s%d' % (' '*indent,self.v))
+    print ('%s%d' % ('  '*indent,self.v))
     
 
 addw=fwrapper(lambda l:l[0]+l[1],2,'add')
@@ -275,3 +275,4 @@ if __name__ == '__main__':
     exampletree = exampletree()
     print(exampletree.evaluate([5, 3]))
     print(exampletree.evaluate([2, 3]))
+    exampletree.display()
