@@ -16,6 +16,7 @@ class node:
 
   def evaluate(self,inp):    
     results=[n.evaluate(inp) for n in self.children]
+    print(results)
     return self.function(results)
   def display(self,indent=0):
     print (' '*indent)+self.name
@@ -267,3 +268,10 @@ class fwrapper:
     
 #flist={'str':[substringw,concatw],'int':[indexw]}
 flist=[addw,mulw,ifw,gtw,subw]
+
+
+
+if __name__ == '__main__':
+    exampletree = exampletree()
+    print(exampletree.evaluate([5, 3]))
+    print(exampletree.evaluate([2, 3]))
