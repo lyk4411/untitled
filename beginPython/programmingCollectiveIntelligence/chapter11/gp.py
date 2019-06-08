@@ -238,7 +238,8 @@ class humanplayer:
     print('board: ', board)
     # Get my location and the location of other players
     me=tuple(board[0:2])
-    others=[tuple(board[x:x+2]) for x in range(2,len(board)-1,2)]
+    # others=[tuple(board[x:x+2]) for x in range(2,len(board)-1,2)]
+    others = [tuple(board[2 : 4])]
     print('me: ', me)
     print('others: ', others)
     # Display the board
