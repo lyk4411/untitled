@@ -117,10 +117,13 @@ def crossover(t1,t2,probswap=0.7,top=1):
                        for c in t1.children]
     return result
 
+def takeFirst(elem):
+    return elem[0]
 def getrankfunction(dataset):
   def rankfunction(population):
     scores=[(scorefunction(t,dataset),t) for t in population]
-    scores.sort()
+    scores.sort(key=takeFirst)
+    # print('scores: ',scores)
     return scores
   return rankfunction
   
