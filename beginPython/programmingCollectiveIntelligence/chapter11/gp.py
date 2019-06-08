@@ -140,7 +140,7 @@ def evolve(pc,popsize,rankfunction,maxgen=500,
   population=[makerandomtree(pc) for i in range(popsize)]
   for i in range(maxgen):
     scores=rankfunction(population)
-    print (scores[0][0])
+    print (i, '  sore: ', scores[0][0])
     if scores[0][0]==0: break
     
     # The two best always make it
