@@ -32,3 +32,11 @@ locs = location[0][:] + location[1][:]
 locs.append(randint(0,3))
 print(locs)
 
+
+print('========================================================')
+board = [[1,2],[0,1]]
+print(board)
+print(tuple(board[0:2]))
+
+
+
