@@ -14,7 +14,7 @@ class node:
     self.name=fw.name
     self.children=children
 
-  def evaluate(self,inp):    
+  def evaluate(self,inp):
     results=[n.evaluate(inp) for n in self.children]
     # print(results)
     return self.function(results)
@@ -229,17 +229,18 @@ def tournament(pl):
         pass
 
   # Sort and return the results
-  z=zip(losses,pl)
-  z.sort()
-  return z      
+  z=list(zip(losses,pl))
+  z.sort(key=takeFirst)
+  return z
 
 class humanplayer:
   def evaluate(self,board):
-
+    print('board: ', board)
     # Get my location and the location of other players
     me=tuple(board[0:2])
     others=[tuple(board[x:x+2]) for x in range(2,len(board)-1,2)]
-    
+    print('me: ', me)
+    print('others: ', others)
     # Display the board
     for i in range(4):
       for j in range(4):
@@ -297,8 +298,8 @@ if __name__ == '__main__':
     # random2.display()
     # muttree = mutate(random2,2)
     # muttree.display()
-    rf = getrankfunction(buildhiddenset())
-    evolve(2, 500, rf, mutationrate=0.2, breedingrate=0.1, pexp=0.7, pnew=0.1)
+    # rf = getrankfunction(buildhiddenset())
+    # evolve(2, 500, rf, mutationrate=0.2, breedingrate=0.1, pexp=0.7, pnew=0.1)
     # random1 = makerandomtree(2)
     # random2 = makerandomtree(2)
     # random1.display()
@@ -307,3 +308,13 @@ if __name__ == '__main__':
     # print('==========================================================================================')
     # cross = crossover(random1, random2)
     # cross.display()
+    # p1 = makerandomtree(5)
+    # p2 = makerandomtree(5)
+    # print(gridgame([p1, p2]))
+    winner = evolve(5, 100, tournament, maxgen=10)
+    if gridgame([winner, humanplayer()]) == 1:
+      print('you win.')
+    elif gridgame([winner, humanplayer()]) == 0:
+      print('you lose.')
+    else:
+      print('due')
