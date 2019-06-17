@@ -1,5 +1,6 @@
-import urllib,md5,webbrowser,time
+import urllib,webbrowser,time
 from xml.dom.minidom import parseString
+import hashlib
 
 apikey="47e953c8ea9ed30db904af453125c759"
 secret="ea703e4721e8c7bf88b92110a46a9b06"
@@ -22,8 +23,8 @@ class fbsession:
     self.session_key=None
     self.createtoken()
     webbrowser.open(self.getlogin())
-    print "Press enter after logging in:",
-    raw_input()
+    print ("Press enter after logging in:",)
+    input()
     self.getsession()
   def sendrequest(self, args):
     args['api_key'] = apikey
@@ -31,10 +32,10 @@ class fbsession:
     post_data = urllib.urlencode(args)
     url = FacebookURL + "?" + post_data
     data=urllib.urlopen(url).read()
-    print data
+    print (data)
     return parseString(data)
   def makehash(self,args):
-    hasher = md5.new(''.join([x + '=' + args[x] for x in sorted(args.keys())]))
+    hasher = hashlib.md5.new(''.join([x + '=' + args[x] for x in sorted(args.keys())]))
     if self.session_secret: hasher.update(self.session_secret)
     else: hasher.update(secret)
     return hasher.hexdigest()
@@ -102,7 +103,7 @@ class fbsession:
   
 
   def makedataset(self):
-    from advancedclassify import milesdistance
+    from beginPython.programmingCollectiveIntelligence.chapter9.advancedclassify import milesdistance
     # Get all the info for all my friends
     friends=self.getfriends()
     info=self.getinfo(friends)
