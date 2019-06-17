@@ -1,4 +1,4 @@
-import svmc
+import beginPython.programmingCollectiveIntelligence.chapter9.svmc as svmc
 from svmc import C_SVC, NU_SVC, ONE_CLASS, EPSILON_SVR, NU_SVR
 from svmc import LINEAR, POLY, RBF, SIGMOID
 from math import exp, fabs
@@ -115,7 +115,7 @@ def _convert_to_svm_node_array(x):
 #			if x[j] != 0:
 				iter_range.append( j )
 	else:
-		raise TypeError,"data must be a mapping or a sequence"
+		raise (TypeError, "data must be a mapping or a sequence")
 
 	iter_range.sort()
 	data = svmc.svm_node_array(len(iter_range)+1)
@@ -177,7 +177,7 @@ class svm_model:
 			if param.gamma == 0:
 				param.gamma = 1.0/prob.maxlen
 			msg = svmc.svm_check_parameter(prob.prob,param.param)
-			if msg: raise ValueError, msg
+			if msg: raise (ValueError, msg)
 			self.model = svmc.svm_train(prob.prob,param.param)
 
 		#setup some classwide variables
@@ -203,7 +203,7 @@ class svm_model:
 
 	def get_labels(self):
 		if self.svm_type == NU_SVR or self.svm_type == EPSILON_SVR or self.svm_type == ONE_CLASS:
-			raise TypeError, "Unable to get label from a SVR/ONE_CLASS model"
+			raise (TypeError, "Unable to get label from a SVR/ONE_CLASS model")
 		return self.labels
 		
 	def predict_values_raw(self,x):
@@ -234,12 +234,12 @@ class svm_model:
 	def predict_probability(self,x):
 		#c code will do nothing on wrong type, so we have to check ourself
 		if self.svm_type == NU_SVR or self.svm_type == EPSILON_SVR:
-			raise TypeError, "call get_svr_probability or get_svr_pdf for probability output of regression"
+			raise (TypeError, "call get_svr_probability or get_svr_pdf for probability output of regression")
 		elif self.svm_type == ONE_CLASS:
-			raise TypeError, "probability not supported yet for one-class problem"
+			raise (TypeError, "probability not supported yet for one-class problem")
 		#only C_SVC,NU_SVC goes in
 		if not self.probability:
-			raise TypeError, "model does not support probabiliy estimates"
+			raise (TypeError, "model does not support probabiliy estimates")
 
 		#convert x into svm_node, alloc a double array to receive probabilities
 		data = _convert_to_svm_node_array(x)
@@ -257,7 +257,7 @@ class svm_model:
 		#leave the Error checking to svm.cpp code
 		ret = svmc.svm_get_svr_probability(self.model)
 		if ret == 0:
-			raise TypeError, "not a regression model or probability information not available"
+			raise (TypeError, "not a regression model or probability information not available")
 		return ret
 
 	def get_svr_pdf(self):
