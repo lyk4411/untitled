@@ -8,7 +8,7 @@ class matchrow:
 
 def loadmatch(f,allnum=False):
   rows=[]
-  for line in file(f):
+  for line in open(f):
     rows.append(matchrow(line.split(','),allnum))
   return rows
  
@@ -76,7 +76,8 @@ def matchcount(interest1,interest2):
 
 yahookey="YOUR API KEY"
 from xml.dom.minidom import parseString
-from urllib import urlopen,quote_plus
+from urllib.request import urlopen
+from urllib.parse import quote_plus
 
 loc_cache={}
 def getlocation(address):
