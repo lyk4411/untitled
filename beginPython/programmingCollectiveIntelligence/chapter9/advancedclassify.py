@@ -92,11 +92,12 @@ def getlocation(address):
   return loc_cache[address]
 
 def milesdistance(a1,a2):
-  lat1,long1=getlocation(a1)
-  lat2,long2=getlocation(a2)
-  latdif=69.1*(lat2-lat1)
-  longdif=53.0*(long2-long1)
-  return (latdif**2+longdif**2)**.5
+  return 0
+  # lat1,long1=getlocation(a1)
+  # lat2,long2=getlocation(a2)
+  # latdif=69.1*(lat2-lat1)
+  # longdif=53.0*(long2-long1)
+  # return (latdif**2+longdif**2)**.5
 
 def loadnumerical():
   oldrows=loadmatch('matchmaker.csv')
@@ -123,7 +124,7 @@ def scaledata(rows):
   
   # Create a function that scales data
   def scaleinput(d):
-     return [(d[i]-low[i])/(high[i]-low[i])
+     return [(d[i]-low[i])/(high[i]-low[i] + 0.00001)
             for i in range(len(low))]
   
   # Scale all the data
@@ -175,6 +176,22 @@ if __name__ == '__main__':
 
     # plotagematches(ageonly)
 
-    avgs = lineartrain(ageonly)
-    print(avgs)
+    # avgs = lineartrain(ageonly)
+    # print(avgs)
+    numericalset = loadnumerical()
+
+    # print('numericalset[0].data:', numericalset[0].data)
+    # print('numericalset[0].match:', numericalset[0].match)
+    scaleset,scalef = scaledata(numericalset)
+    avgs = lineartrain(scaleset)
+
+    print('scaleset[0].data:', scaleset[0].data)
+    print('scaleset[0].match:', scaleset[0].match)
+    print('after classify: ', dpclassify(scalef(numericalset[0].data), avgs))
+    print('after classify: ', dpclassify(scaleset[0].data, avgs))
+
+    print('scaleset[11].match:', scaleset[11].match)
+    print('after classify: ', dpclassify(scalef(numericalset[11].data), avgs))
+    print('after classify: ', dpclassify(scaleset[11].data, avgs))
+
 
