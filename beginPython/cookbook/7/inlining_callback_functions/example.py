@@ -27,7 +27,9 @@ def inlined_async(func):
         result_queue.put(None)
         # print('result_queue.get():', result_queue.get())
         while True:
-            # print('before result_queue.get():', result_queue.get())
+
+            # print('before result_queue.get():', result)
+
             result = result_queue.get()
             # print('after result_queue.get():', result)
             # print('result:', result)
