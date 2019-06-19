@@ -31,7 +31,7 @@ def inlined_async(func):
             # print('before result_queue.get():', result)
 
             result = result_queue.get()
-            print('after result_queue.get():', result)
+            # print('after result_queue.get():', result)
             # print('result:', result)
             try:
                 a = f.send(result)
