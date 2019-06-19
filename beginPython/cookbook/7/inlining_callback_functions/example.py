@@ -27,6 +27,7 @@ def inlined_async(func):
         result_queue.put(None)
         while True:
             result = result_queue.get()
+            # print('result:', result)
             try:
                 a = f.send(result)
                 apply_async(a.func, a.args, callback=result_queue.put)
@@ -54,9 +55,9 @@ if __name__ == '__main__':
     print('# --- Simple test')
     Htest()
 
-    print('# --- Multiprocessing test')
-    import multiprocessing
-    pool = multiprocessing.Pool()
-    apply_async = pool.apply_async
-    Htest()
+    # print('# --- Multiprocessing test')
+    # import multiprocessing
+    # pool = multiprocessing.Pool()
+    # apply_async = pool.apply_async
+    # Htest()
 
