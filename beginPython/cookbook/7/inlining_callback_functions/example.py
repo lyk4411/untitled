@@ -31,10 +31,14 @@ def inlined_async(func):
             # print('before result_queue.get():', result)
 
             result = result_queue.get()
-            # print('after result_queue.get():', result)
+            print('after result_queue.get():', result)
             # print('result:', result)
             try:
                 a = f.send(result)
+                # print('after send result: ', result)
+                # print('after send a: ', a)
+                # print('after send f: ', f)
+
                 # print('f: ', f, ' result: ', result)
                 apply_async(a.func, a.args, callback=result_queue.put)
             except StopIteration:
