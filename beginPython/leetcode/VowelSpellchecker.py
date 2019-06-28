@@ -33,3 +33,12 @@ if __name__ == '__main__':
     wordlist = ["KiTe", "kite", "hare", "Hare"]
     queries = ["kite", "Kite", "KiTe", "Hare", "HARE", "Hear", "hear", "keti", "keet", "keto"]
     print(list(a.spellchecker(wordlist, queries)))
+
+    # dict = {'runoob': '菜鸟教程', 'google': 'Google 搜索'}
+    #
+    # print( "Value : %s" % dict.setdefault('runoob', 'aaaaaa'))
+    # print("Value : %s" % dict.setdefault('Taobao', '淘宝'))
+    # print( "-----------------")
+    # # 该值包含 Taobao
+    # for k, v in dict.items():
+    #     print(   k, v)
