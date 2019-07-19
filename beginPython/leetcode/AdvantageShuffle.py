@@ -18,6 +18,7 @@ class AdvantageShuffle(object):
                 j += 1
             else:
                 remaining.append(a)
+        print('assigned: ', assigned)
 
         # Reconstruct the answer from annotations (assigned, remaining)
         return [assigned[b].pop() if assigned[b] else remaining.pop()
