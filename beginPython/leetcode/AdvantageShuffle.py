@@ -32,3 +32,6 @@ if __name__ == '__main__':
     A = [12, 24, 8, 32]
     B = [13, 25, 32, 11]
     print(a.advantageCount(A, B))
+    A = [2, 0, 4, 1, 2]
+    B = [1, 3, 0, 0, 2]
+    print(a.advantageCount(A, B))
