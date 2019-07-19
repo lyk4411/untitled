@@ -6,6 +6,7 @@ class AdvantageShuffle(object):
         # assigned[b] = list of a that are assigned to beat b
         # remaining = list of a that are not assigned to any b
         assigned = {b: [] for b in B}
+        # print('assigned: ',assigned)
         remaining = []
 
         # populate (assigned, remaining) appropriately
