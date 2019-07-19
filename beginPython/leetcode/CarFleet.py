@@ -1,6 +1,7 @@
 class CarFleet(object):
     def carFleet(self, target, position, speed):
         cars = sorted(zip(position, speed))
+        # print(cars)
         times = [float(target - p) / s for p, s in cars]
         ans = 0
         while len(times) > 1:
