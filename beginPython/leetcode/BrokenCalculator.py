@@ -6,7 +6,7 @@ class BrokenCalculator(object):
             if Y % 2:
                 Y += 1
             else:
-                Y /= 2
+                Y //= 2
 
         return ans + X - Y
 
