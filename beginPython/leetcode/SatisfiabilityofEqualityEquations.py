@@ -33,8 +33,8 @@ class SatisfiabilityofEqualityEquations(object):
 
 if __name__ == '__main__':
     a = SatisfiabilityofEqualityEquations()
-    print(a.equationsPossible(["a==b","b!=a"]))
-    print(a.equationsPossible(["b==a","a==b"]))
-    print(a.equationsPossible(["a==b","b==c","a==c"]))
-    print(a.equationsPossible(["a==b","b!=c","c==a"]))
-    print(a.equationsPossible(["c==c","b==d","x!=z"]))
+    print(a.equationsPossible(["a==b", "b!=a"]))
+    print(a.equationsPossible(["b==a", "a==b"]))
+    print(a.equationsPossible(["a==b", "b==c", "a==c"]))
+    print(a.equationsPossible(["a==b", "b!=c", "c==a"]))
+    print(a.equationsPossible(["c==c", "b==d", "x!=z"]))
