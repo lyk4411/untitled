@@ -18,7 +18,7 @@ class UniquePathsIII(object):
 
         def dfs(r, c, todo):
             todo -= 1
-            if todo < 0: return
+            # if todo < 0: return
             if r == tr and c == tc:
                 if todo == 0:
                     self.ans += 1
@@ -35,4 +35,5 @@ class UniquePathsIII(object):
 if __name__ == '__main__':
     a = UniquePathsIII()
     print(a.uniquePathsIII([[1, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 2]]))
+    print(a.uniquePathsIII([[1, 0, 0, 0], [0, 0, 0, 0], [0, 0, 2, -1]]))
     print(a.uniquePathsIII([[1, 0, 0, 0], [0, 0, 0, 0], [0, 0, 2, -1]]))
