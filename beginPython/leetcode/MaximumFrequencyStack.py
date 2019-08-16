@@ -30,6 +30,8 @@ if __name__ == '__main__':
     a.push(7)
     a.push(4)
     a.push(5)
+    print(a.group)
+    print(a.freq)
     print(a.pop())
     print(a.pop())
     print(a.pop())
