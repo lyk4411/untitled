@@ -22,9 +22,13 @@ class OnlineElection(object):
 
 if __name__ == '__main__':
     a = OnlineElection([0,1,1,0,0,1,0],[0,5,10,15,20,25,30])
+    print(a.res)
+    print(a.Q)
+    print(a.cache)
     print(a.q(3))
     print(a.q(12))
     print(a.q(25))
     print(a.q(15))
     print(a.q(24))
     print(a.q(8))
+    print(a.cache)
