@@ -24,14 +24,14 @@ pdf1File.close()
 ## 旋转页面
 import PyPDF2
 
-minutesFile = open('E:\\aaa.pdf', 'rb')
+minutesFile = open('E:\\c.pdf', 'rb')
 pdfReader = PyPDF2.PdfFileReader(minutesFile)
 
 page = pdfReader.getPage(0)
-page.rotateClockwise(180)  # 页面旋转90度
+page.rotateClockwise(90)  # 页面旋转90度
 pdfWriter = PyPDF2.PdfFileWriter()
 pdfWriter.addPage(page)
-resultPdfFile = open('E:\\ccc.pdf', 'wb')
+resultPdfFile = open('E:\\c1.pdf', 'wb')
 pdfWriter.write(resultPdfFile)
 resultPdfFile.close()
 minutesFile.close()
