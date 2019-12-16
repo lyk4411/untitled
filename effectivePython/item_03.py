@@ -48,8 +48,8 @@ atexit.register(close_open_files)
 
 # Example 1
 a = b'h\x65llo'
-print(list(a))
-print(a)
+print("list a",list(a))
+print("a", a)
 
 
 # Example 2
@@ -88,44 +88,44 @@ print('one' + 'two')
 
 
 # Example 6
-try:
-    b'one' + 'two'
-except:
-    logging.exception('Expected')
-else:
-    assert False
+# try:
+#     b'one' + 'two'
+# except:
+#     logging.exception('Expected')
+# else:
+#     assert False
 
-
-# Example 7
-try:
-    'one' + b'two'
-except:
-    logging.exception('Expected')
-else:
-    assert False
+#
+# # Example 7
+# try:
+#     'one' + b'two'
+# except:
+#     logging.exception('Expected')
+# else:
+#     assert False
 
 
 # Example 8
 assert b'red' > b'blue'
 assert 'red' > 'blue'
 
+#
+# # Example 9
+# try:
+#     assert 'red' > b'blue'
+# except:
+#     logging.exception('Expected')
+# else:
+#     assert False
 
-# Example 9
-try:
-    assert 'red' > b'blue'
-except:
-    logging.exception('Expected')
-else:
-    assert False
-
-
-# Example 10
-try:
-    assert b'blue' < 'red'
-except:
-    logging.exception('Expected')
-else:
-    assert False
+#
+# # Example 10
+# try:
+#     assert b'blue' < 'red'
+# except:
+#     logging.exception('Expected')
+# else:
+#     assert False
 
 
 # Example 11
@@ -136,28 +136,28 @@ print(b'foo' == 'foo')
 print(b'red %s' % b'blue')
 print('red %s' % 'blue')
 
-
-# Example 13
-try:
-    print(b'red %s' % 'blue')
-except:
-    logging.exception('Expected')
-else:
-    assert False
+#
+# # Example 13
+# try:
+#     print(b'red %s' % 'blue')
+# except:
+#     logging.exception('Expected')
+# else:
+#     assert False
 
 
 # Example 14
 print('red %s' % b'blue')
 
-
-# Example 15
-try:
-    with open('data.bin', 'w') as f:
-        f.write(b'\xf1\xf2\xf3\xf4\xf5')
-except:
-    logging.exception('Expected')
-else:
-    assert False
+#
+# # Example 15
+# try:
+#     with open('data.bin', 'w') as f:
+#         f.write(b'\xf1\xf2\xf3\xf4\xf5')
+# except:
+#     logging.exception('Expected')
+# else:
+#     assert False
 
 
 # Example 16
@@ -166,25 +166,25 @@ with open('data.bin', 'wb') as f:
 
 
 # Example 17
-try:
-    # Silently force UTF-8 here to make sure this test fails on
-    # all platforms. cp1252 considers these bytes valid on Windows.
-    real_open = open
-    def open(*args, **kwargs):
-        kwargs['encoding'] = 'utf-8'
-        return real_open(*args, **kwargs)
-    
-    with open('data.bin', 'r') as f:
-        data = f.read()
-except:
-    logging.exception('Expected')
-else:
-    assert False
+# try:
+#     # Silently force UTF-8 here to make sure this test fails on
+#     # all platforms. cp1252 considers these bytes valid on Windows.
+#     real_open = open
+#     def open(*args, **kwargs):
+#         kwargs['encoding'] = 'utf-8'
+#         return real_open(*args, **kwargs)
+#
+#     with open('data.bin', 'r') as f:
+#         data = f.read()
+# except:
+#     logging.exception('Expected')
+# else:
+#     assert False
 
 
 # Example 18
 # Restore the overloaded open above.
-open = real_open
+# open = real_open
 
 with open('data.bin', 'rb') as f:
     data = f.read()
