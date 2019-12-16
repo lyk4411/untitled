@@ -62,6 +62,8 @@ print('Opacity: ', my_values.get('opacity'))
 
 # Example 3
 # For query string 'red=5&blue=0&green='
+print('Red:             ', my_values.get('red'))
+print("                ", my_values.get('red', ['']))
 red = my_values.get('red', [''])[0] or 0
 green = my_values.get('green', [''])[0] or 0
 opacity = my_values.get('opacity', [''])[0] or 0
