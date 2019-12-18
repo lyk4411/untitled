@@ -105,7 +105,7 @@ def write_test_files(tmpdir):
             f.write('a\n' * random.randint(0, 100))
 
 tmpdir = 'test_inputs'
-# write_test_files(tmpdir)
+write_test_files(tmpdir)
 
 if __name__ == '__main__':
     result = mapreduce(tmpdir)
