@@ -1,17 +1,11 @@
 
 # Reproduce book environment
-import random
 
-import logging
-from pprint import pprint
-from sys import stdout as STDOUT
 
 # Write all output to a temporary directory
 import atexit
 import gc
 import io
-import os
-import tempfile
 
 
 def close_open_files():
@@ -111,7 +105,7 @@ def write_test_files(tmpdir):
             f.write('a\n' * random.randint(0, 100))
 
 tmpdir = 'test_inputs'
-write_test_files(tmpdir)
+# write_test_files(tmpdir)
 
 if __name__ == '__main__':
     result = mapreduce(tmpdir)
