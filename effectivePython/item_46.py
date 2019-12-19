@@ -16,7 +16,7 @@
 
 # Reproduce book environment
 import random
-random.seed(1234)
+# random.seed(1234)
 
 import logging
 from pprint import pprint
