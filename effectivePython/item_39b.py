@@ -2,7 +2,7 @@
 
 # Reproduce book environment
 import random
-random.seed(1234)
+# random.seed(1234)
 
 import logging
 from pprint import pprint
@@ -114,7 +114,7 @@ def write_test_files(tmpdir):
     os.makedirs(tmpdir)
     for i in range(100):
         with open(os.path.join(tmpdir, str(i)), 'w') as f:
-            f.write('bb\n' * random.randint(0, 100))
+            f.write('cc\n' * random.randint(0, 100))
 
 tmpdir = 'test_inputs'
 write_test_files(tmpdir)
