@@ -104,12 +104,12 @@ assert Nonagon.interior_angles() == 1260
 # Example 3
 try:
     print('Before class')
-    
+
     class Line(Polygon):
         print('Before sides')
         sides = 2
         print('After sides')
-    
+
     print('After class')
 except:
     logging.exception('Expected')
