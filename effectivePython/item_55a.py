@@ -143,7 +143,7 @@ my_queue = Queue()
 def consumer():
     print('Consumer waiting')
     my_queue.get()              # Runs after put() below
-    print('Consumer done')
+    print('Consumer donedonedonedonedonedonedonedonedone')
 
 thread = Thread(target=consumer)
 thread.start()
