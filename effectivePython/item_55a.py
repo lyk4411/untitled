@@ -134,6 +134,8 @@ print(f'Processed {processed} items after '
 
 
 # Example 11
+
+print("############################################################# Example 11")
 from queue import Queue
 
 my_queue = Queue()
@@ -146,6 +148,7 @@ def consumer():
 thread = Thread(target=consumer)
 thread.start()
 
+print("############################################################# Example 12")
 
 # Example 12
 print('Producer putting')
@@ -153,6 +156,7 @@ my_queue.put(object())          # Runs before get() above
 print('Producer done')
 thread.join()
 
+print("############################################################# Example 13")
 
 # Example 13
 my_queue = Queue(1)             # Buffer size of 1
@@ -168,6 +172,7 @@ def consumer():
 thread = Thread(target=consumer)
 thread.start()
 
+print("############################################################# Example 14")
 
 # Example 14
 my_queue.put(object())          # Runs first
@@ -177,6 +182,7 @@ print('Producer put 2')
 print('Producer done')
 thread.join()
 
+print("############################################################# Example 15")
 
 # Example 15
 in_queue = Queue()
@@ -192,6 +198,7 @@ def consumer():
 thread = Thread(target=consumer)
 thread.start()
 
+print("############################################################# Example 16")
 
 # Example 16
 print('Producer putting')
@@ -201,6 +208,7 @@ in_queue.join()                # Done fourth
 print('Producer done')
 thread.join()
 
+print("############################################################# Example 17")
 
 # Example 17
 class ClosableQueue(Queue):
@@ -209,8 +217,9 @@ class ClosableQueue(Queue):
     def close(self):
         self.put(self.SENTINEL)
 
+    print("############################################################# Example 18")
 
-# Example 18
+    # Example 18
     def __iter__(self):
         while True:
             item = self.get()
@@ -222,6 +231,7 @@ class ClosableQueue(Queue):
                 self.task_done()
 
 
+print("############################################################# Example 19")
 # Example 19
 class StoppableWorker(Thread):
     def __init__(self, func, in_queue, out_queue):
@@ -234,6 +244,8 @@ class StoppableWorker(Thread):
         for item in self.in_queue:
             result = self.func(item)
             self.out_queue.put(result)
+
+print("############################################################# Example 20")
 
 
 # Example 20
@@ -249,6 +261,8 @@ threads = [
 
 
 # Example 21
+print("############################################################# Example 21")
+
 for thread in threads:
     thread.start()
 
@@ -259,6 +273,8 @@ download_queue.close()
 
 
 # Example 22
+print("############################################################# Example 22")
+
 download_queue.join()
 resize_queue.close()
 resize_queue.join()
@@ -271,6 +287,8 @@ for thread in threads:
 
 
 # Example 23
+print("############################################################# Example 23")
+
 def start_threads(count, *args):
     threads = [StoppableWorker(*args) for _ in range(count)]
     for thread in threads:
@@ -288,6 +306,7 @@ def stop_threads(closable_queue, threads):
 
 
 # Example 24
+print("############################################################# Example 24")
 download_queue = ClosableQueue()
 resize_queue = ClosableQueue()
 upload_queue = ClosableQueue()
