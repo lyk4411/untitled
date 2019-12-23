@@ -1,5 +1,7 @@
 # -*- coding:utf-8 -*-
 # 求最大公约数
+
+
 def gcd(pair):
     a, b = pair
     low = min(a, b)
@@ -25,10 +27,18 @@ print ('Took %.3f seconds.' % (end - start))
 from concurrent.futures import ThreadPoolExecutor
 
 start = time.time()
-pool = ThreadPoolExecutor(max_workers=2)
+pool = ThreadPoolExecutor(max_workers=3)
 results = list(pool.map(gcd, numbers))
 end = time.time()
 print ('Took %.3f seconds.' % (end - start))
 
 
-
+#
+# from concurrent.futures import ProcessPoolExecutor
+#
+# start = time.time()
+# pool = ProcessPoolExecutor(max_workers=6)
+# results = list(pool.map(gcd, numbers))
+# end = time.time()
+# print ('Took %.3f seconds.' % (end - start))
+#
