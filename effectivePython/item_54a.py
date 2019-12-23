@@ -75,3 +75,33 @@ expected = how_many * 5
 found = counter.count
 print(f'Counter should be {expected}, got {found}')
 
+
+# Example 7
+from threading import Lock
+
+class LockingCounter:
+    def __init__(self):
+        self.lock = Lock()
+        self.count = 0
+
+    def increment(self, offset):
+        with self.lock:
+            self.count += offset
+
+
+# Example 8
+BARRIER = Barrier(5)
+counter = LockingCounter()
+
+for i in range(5):
+    thread = Thread(target=worker,
+                    args=(i, how_many, counter))
+    threads.append(thread)
+    thread.start()
+
+for thread in threads:
+    thread.join()
+
+expected = how_many * 5
+found = counter.count
+print(f'Counter should be {expected}, got {found}')
