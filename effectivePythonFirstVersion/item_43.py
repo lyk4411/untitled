@@ -43,6 +43,7 @@ def my_function():
     logging.error('Error log here')
     logging.debug('More debug data')
 
+print("########################### Example 4 ############################################")
 
 # Example 4
 my_function()
@@ -60,6 +61,8 @@ def debug_logging(level):
     finally:
         logger.setLevel(old_level)
 
+print("########################### Example 6 ############################################")
+
 
 # Example 6
 with debug_logging(logging.DEBUG):
@@ -68,6 +71,7 @@ with debug_logging(logging.DEBUG):
 print('After:')
 my_function()
 
+print("########################### Example 7 ############################################")
 
 # Example 7
 with open('my_output.txt', 'w') as handle:
