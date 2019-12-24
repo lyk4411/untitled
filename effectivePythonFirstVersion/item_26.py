@@ -94,6 +94,7 @@ print = pprint
 print(root.to_dict())
 print = orig_print
 
+print("############################# Example 8##############################################")
 
 # Example 8
 class NamedSubTree(ToDictMixin):
@@ -107,6 +108,7 @@ print = pprint
 print(my_tree.to_dict())  # No infinite loop
 print = orig_print
 
+print("############################# Example 9 ##############################################")
 
 # Example 9
 import json
