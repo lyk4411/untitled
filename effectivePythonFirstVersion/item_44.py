@@ -121,44 +121,45 @@ print("########################### Example 15 ##################################
 state_after = pickle.loads(serialized)
 print(state_after.__dict__)
 
-#
-# # Example 16
-# class GameState(object):
-#     def __init__(self, level=0, points=0, magic=5):
-#         self.level = level
-#         self.points = points
-#         self.magic = magic
-#
-#
-# # Example 17
-# try:
-#     pickle.loads(serialized)
-# except:
-#     logging.exception('Expected')
-# else:
-#     assert False
-#
-#
-# # Example 18
-# def pickle_game_state(game_state):
-#     kwargs = game_state.__dict__
-#     kwargs['version'] = 2
-#     return unpickle_game_state, (kwargs,)
-#
-#
-# # Example 19
-# def unpickle_game_state(kwargs):
-#     version = kwargs.pop('version', 1)
-#     if version == 1:
-#         kwargs.pop('lives')
-#     return GameState(**kwargs)
-#
-#
-# # Example 20
-# copyreg.pickle(GameState, pickle_game_state)
-# state_after = pickle.loads(serialized)
-# print(state_after.__dict__)
-#
+
+# Example 16
+class GameState(object):
+    def __init__(self, level=0, points=0, magic=5):
+        self.level = level
+        self.points = points
+        self.magic = magic
+
+
+# Example 17
+try:
+    pickle.loads(serialized)
+except:
+    logging.exception('Expected')
+else:
+    assert False
+
+
+# Example 18
+def pickle_game_state(game_state):
+    kwargs = game_state.__dict__
+    kwargs['version'] = 2
+    return unpickle_game_state, (kwargs,)
+
+
+# Example 19
+def unpickle_game_state(kwargs):
+    version = kwargs.pop('version', 1)
+    if version == 2:
+        kwargs.pop('lives')
+    return GameState(**kwargs)
+
+print("########################### Example 20 ############################################")
+
+# Example 20
+copyreg.pickle(GameState, pickle_game_state)
+state_after = pickle.loads(serialized)
+print(state_after.__dict__)
+
 #
 # # Example 21
 # copyreg.dispatch_table.clear()
