@@ -56,31 +56,32 @@ fibonacci(3)
 # Example 5
 print(fibonacci)
 
-
-# Example 6
-try:
-    # Example of how pickle breaks
-    import pickle
-    
-    def my_func():
-        return 1
-    
-    # This will be okay
-    print(pickle.dumps(my_func))
-    
-    @trace
-    def my_func2():
-        return 2
-    
-    # This will explode
-    print(pickle.dumps(my_func2))
-except:
-    logging.exception('Expected')
-else:
-    assert False
-
+#
+# # Example 6
+# try:
+#     # Example of how pickle breaks
+#     import pickle
+#
+#     def my_func():
+#         return 1
+#
+#     # This will be okay
+#     print(pickle.dumps(my_func))
+#
+#     @trace
+#     def my_func2():
+#         return 2
+#
+#     # This will explode
+#     print(pickle.dumps(my_func2))
+# except:
+#     logging.exception('Expected')
+# else:
+#     assert False
+#
 
 # Example 7
+print("########################### Example 7 ############################################")
 help(fibonacci)
 
 
@@ -103,6 +104,7 @@ def fibonacci(n):
     return (fibonacci(n - 2) +
             fibonacci(n - 1))
 
+print("########################### Example 9 ############################################")
 
 # Example 9
 help(fibonacci)
