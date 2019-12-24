@@ -55,6 +55,7 @@ class BinaryTree(ToDictMixin):
 
 
 # Example 4
+print("############################# Example 4##############################################")
 tree = BinaryTree(10,
     left=BinaryTree(7, right=BinaryTree(9)),
     right=BinaryTree(13, left=BinaryTree(11)))
@@ -63,6 +64,9 @@ print = pprint
 print(tree.to_dict())
 print = orig_print
 
+
+
+print("############################# Example 5##############################################")
 
 # Example 5
 class BinaryTreeWithParent(BinaryTree):
