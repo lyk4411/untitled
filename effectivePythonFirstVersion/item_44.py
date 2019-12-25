@@ -149,8 +149,9 @@ def pickle_game_state(game_state):
 # Example 19
 def unpickle_game_state(kwargs):
     version = kwargs.pop('version', 1)
-    if version == 2:
+    if version == 1:
         kwargs.pop('lives')
+    # kwargs.pop('lives')
     return GameState(**kwargs)
 
 print("########################### Example 20 ############################################")
