@@ -38,4 +38,4 @@ def composed():
         output = e.value
     yield output * 4
 
-print list(composed())
+print(list(composed()))
