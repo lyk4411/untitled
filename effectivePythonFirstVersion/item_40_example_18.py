@@ -31,4 +31,4 @@ def composed():
         yield value
     yield 'B'
 
-print list(composed())
+print(list(composed()))
