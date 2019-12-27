@@ -4,4 +4,3 @@ print(response.read().decode('utf-8'))
 
 print(response.status)
 print(response.getheaders())
-print(response.getheaders()('Server'))
