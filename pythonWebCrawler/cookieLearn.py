@@ -31,3 +31,14 @@ print(r.content)
 # with open('favicon.ico', 'wb') as f:
 #     f.write(r.content)
 #
+print('=============================')
+
+import re
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0.1) Gecko/20100101 Firefox/4.0.1'
+}
+r= requests.get("https://www.zhihu.com/explore", headers = headers)
+print(r.text)
+pattern = re.compile('explore-feed.*?question_link.*?>(.*?)</a>',re.S)
+titles = re.findall(pattern, r.text)
+print(titles)
