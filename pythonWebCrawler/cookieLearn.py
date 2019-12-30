@@ -13,3 +13,11 @@ keyword = '你好'
 url = 'http://www.baidu.com/s?wd=' + quote(keyword)
 print(url)
 print(unquote('http://www.baidu.com/s?wd=%E4%BD%A0%E5%A5%BD'))
+
+import requests
+
+r = requests.get('https://www.baidu.com')
+print(type(r))
+print(r.status_code)
+print(r.text)
+print(r.cookies)
