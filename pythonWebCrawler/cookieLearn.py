@@ -42,3 +42,5 @@ print(r.text)
 pattern = re.compile('explore-feed.*?question_link.*?>(.*?)</a>',re.S)
 titles = re.findall(pattern, r.text)
 print(titles)
+
+
