@@ -12,3 +12,9 @@ html = '''
 from pyquery import PyQuery as pq
 doc = pq(html)#声明pq对象
 print(doc('li'))
+
+print("==========================================================================================")
+
+from pyquery import PyQuery as pq
+doc = pq(url='http://www.baidu.com')#程序会自动请求url
+print(doc('head'))#返回head标签
