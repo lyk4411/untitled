@@ -81,7 +81,7 @@ def main(offset):
 
 
 GROUP_START = 0
-GROUP_END = 9
+GROUP_END = 3
 
 if __name__ == '__main__':
     pool = Pool()
