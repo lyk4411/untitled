@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from pyquery import PyQuery as pq
 from urllib.parse import quote
+import json
 
 # browser = webdriver.Chrome()
 # browser = webdriver.PhantomJS(service_args=SERVICE_ARGS)
@@ -23,6 +24,23 @@ def index_page(page):
     try:
         url = 'https://s.taobao.com/search?q=' + quote('ipad')
         browser.get(url)
+        browser.delete_all_cookies()
+        # 读取登录时储存到本地的cookie
+        with open("cookies_tao.json", "r", encoding="utf8") as fp:
+            ListCookies = json.loads(fp.read())
+
+        for cookie in ListCookies:
+            browser.add_cookie({
+                'domain': '.taobao.com',  # 此处xxx.com前，需要带点
+                'name': cookie['name'],
+                'value': cookie['value'],
+                'path': '/',
+                'expires': None
+            })
+
+        # 再次访问页面，便可实现免登陆访问
+        browser.get(url)
+
         if page > 1:
             input = wait.until(
                 EC.presence_of_element_located((By.CSS_SELECTOR, '#mainsrp-pager div.form > input')))
@@ -65,7 +83,8 @@ def save_to_mongo(result):
     :param result: 结果
     """
     try:
-        print(result)
+        with open('resultOfTaobao.txt', 'a', encoding='utf-8') as f:
+            f.write(json.dumps(result, ensure_ascii=False) + '\n')
     except Exception:
         print('存储到MongoDB失败')
 
@@ -74,7 +93,7 @@ def main():
     """
     遍历每一页
     """
-    for i in range(1, 3):
+    for i in range(1, 6):
         index_page(i)
     browser.close()
 
