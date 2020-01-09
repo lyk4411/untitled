@@ -93,7 +93,7 @@ def main():
     """
     遍历每一页
     """
-    for i in range(1, 6):
+    for i in range(1, 20):
         index_page(i)
     browser.close()
 
