@@ -41,3 +41,41 @@ if __name__ == "__main__":
     s1 = Student("XIAOMIN")
     p1 = Person("lll")
     # p1.aaa = 1
+
+class anmon(object):
+    '''
+    this is doc.
+    '''
+    def __init__(self, name):
+        self._name = name
+        print("anmon init")
+
+    def anon_a(self):
+        self.anon_a = 'aaaa'
+
+if __name__ == "__main__":
+    print(anmon.__dict__)
+    a2 = anmon('xiaoli')
+    print(a2.__dict__)
+    a2.anon_a()
+    print(a2.__dict__)
+
+
+class anmon(object):
+    '''
+    this is doc.
+    '''
+
+    def __init__(self, name):
+        self._name = name
+        print("anmon init")
+
+    def anon_a(self):
+        self.anon_a = 'aaaa'
+
+
+if __name__ == "__main__":
+    a2 = anmon('xiaoli')
+    print(dir(anmon))
+    print(dir(a2))
+
