@@ -12,8 +12,8 @@ class A:
         print("print 2: ", self.member)
 
     @classmethod
-    def Print3(paraTest):
-        print("print 3: ", paraTest.member)
+    def Print3(aaaaaa):
+        print("print 3: ", aaaaaa.member)
 
     @staticmethod
     def print4():
