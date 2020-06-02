@@ -6,4 +6,6 @@ class RankTransformofanArray:
 
 if __name__ == '__main__':
     a = RankTransformofanArray()
-    print(a.arrayRankTransform([40,10,20,30]))
+    print(a.arrayRankTransform([40, 40, 40, 40]))
+    print(a.arrayRankTransform([40, 10, 20, 30]))
+
