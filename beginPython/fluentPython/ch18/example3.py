@@ -6,6 +6,8 @@ from email.mime.text import MIMEText
 #from subprocess import check_output
 
 #log = check_output(['git', 'log', '-1', '--stat', 'HEAD'])
+#log = check_output(['git', 'log', '-1', '--stat', 'HEAD'])
+#log = check_output(['git', 'log', '-1', '--stat', 'HEAD'])
 #log = commands.getstatusoutput('git log -1');
 
 def sendmail(to):
