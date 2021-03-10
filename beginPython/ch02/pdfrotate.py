@@ -17,21 +17,26 @@ from PyPDF2 import PdfFileWriter, PdfFileReader
 
 writer = PdfFileWriter()
 
-reader1 = PdfFileReader(r'E:\temp4\page1r.pdf')
-pages1 = reader1.getPage(0)
-writer.addPage(pages1)
-reader2 = PdfFileReader(r'E:\temp4\page2r.pdf')
-pages2 = reader2.getPage(0)
-writer.addPage(pages2)
-reader3 = PdfFileReader(r'E:\temp4\page3r.pdf')
-pages3 = reader3.getPage(0)
-writer.addPage(pages3)
+
 reader5 = PdfFileReader(r'E:\temp4\page5r.pdf')
 pages5 = reader5.getPage(0)
 writer.addPage(pages5)
 reader6 = PdfFileReader(r'E:\temp4\page6r.pdf')
 pages6 = reader6.getPage(0)
 writer.addPage(pages6)
+reader3 = PdfFileReader(r'E:\temp4\page3r.pdf')
+pages3 = reader3.getPage(0)
+writer.addPage(pages3)
+
+reader1 = PdfFileReader(r'E:\temp4\page1r.pdf')
+pages1 = reader1.getPage(0)
+writer.addPage(pages1)
+reader2 = PdfFileReader(r'E:\temp4\page2r.pdf')
+pages2 = reader2.getPage(0)
+writer.addPage(pages2)
+
+
+
 reader7 = PdfFileReader(r'E:\temp4\page7r.pdf')
 pages7 = reader7.getPage(0)
 writer.addPage(pages7)
